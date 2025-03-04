@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Berechnung eines einheitlichen Minutensatzes
+    </h1>
+    <p class="mb-8 max-w-4xl">
+      Die TechSupport-365 GmbH plant, ihren 24/7-Hotline-Support auf den
+      Zeitraum von <strong>22:00 Uhr bis 06:00 Uhr</strong> auszudehnen. In dieser
+      Zeit muss jeweils ein Mitarbeiter für den First-, Second- und Third-Level-Support
+      in Bereitschaft sein. Jeder Anruf wird zuerst vom First-Level-Support entgegengenommen
+      und gegebenenfalls an höhere Support-Ebenen weitergeleitet. Trotz der möglichen
+      Weiterleitung soll der Service zu einem einheitlichen Minutenpreis angeboten
+      werden.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Gegebene Informationen</h2>
+        <table class="min-w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="border border-gray-300 p-2">Support-Level</th>
+              <th class="border border-gray-300 p-2"
+                >Bereitschaftsstundensatz (€)</th
+              >
+              <th class="border border-gray-300 p-2"
+                >Minutensatz bei Anruf (€)</th
+              >
+              <th class="border border-gray-300 p-2"
+                >Durchschnittliche Anrufzeit (Minuten)</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-300 p-2">First-Level</td>
+              <td class="border border-gray-300 p-2">14</td>
+              <td class="border border-gray-300 p-2">0,60</td>
+              <td class="border border-gray-300 p-2">180</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 p-2">Second-Level</td>
+              <td class="border border-gray-300 p-2">18</td>
+              <td class="border border-gray-300 p-2">1,20</td>
+              <td class="border border-gray-300 p-2">120</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 p-2">Third-Level</td>
+              <td class="border border-gray-300 p-2">22</td>
+              <td class="border border-gray-300 p-2">2,00</td>
+              <td class="border border-gray-300 p-2">60</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Berechnung der Kosten</h2>
+        <p class="mb-4">
+          Zuerst werden die Kosten für die Bereitschaftszeit und die Anrufkosten
+          für jede Support-Ebene berechnet.
+        </p>
+        <ul class="list-disc pl-4 space-y-2">
+          <li>
+            <strong>Bereitschaftskosten</strong>:
+            <ul class="list-disc pl-6">
+              <li>First-Level: 8 Stunden × 14 €/h = 112 €</li>
+              <li>Second-Level: 8 Stunden × 18 €/h = 144 €</li>
+              <li>Third-Level: 8 Stunden × 22 €/h = 176 €</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Anrufkosten</strong>:
+            <ul class="list-disc pl-6">
+              <li>First-Level: 180 Minuten × 0,60 €/min = 108 €</li>
+              <li>Second-Level: 120 Minuten × 1,20 €/min = 144 €</li>
+              <li>Third-Level: 60 Minuten × 2,00 €/min = 120 €</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Gesamtkosten und Minutenpreis</h2>
+        <p>
+          Die Gesamtkosten setzen sich aus den Bereitschaftskosten und den
+          Anrufkosten zusammen:
+        </p>
+        <ul class="list-disc pl-4 space-y-2">
+          <li>
+            Gesamtkosten für die Bereitschaft: 112 € + 144 € + 176 € = 432 €
+          </li>
+          <li>Gesamtkosten für die Anrufe: 108 € + 144 € + 120 € = 372 €</li>
+          <li>
+            <strong>Gesamtkosten insgesamt</strong>: 432 € + 372 € = 804 €
+          </li>
+        </ul>
+
+        <p class="mt-4">
+          Der Gesamt-Minutenpreis wird berechnet, indem die Gesamtkosten durch
+          die Summe der bearbeiteten Minuten geteilt werden. Insgesamt gibt es
+          180 + 120 + 60 = 360 Minuten.
+        </p>
+        <p>
+          <strong>Einheitlicher Minutenpreis</strong> = 804 € ÷ 360 Minuten = <span
+            class="bg-green-400 px-1">2,23 €/min</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

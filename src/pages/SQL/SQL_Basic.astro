@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Was ist SQL?</h1>
+    <p class="mb-8 max-w-4xl">
+      SQL (Structured Query Language) ist eine standardisierte Sprache, die
+      verwendet wird, um Daten in relationalen Datenbanken zu verwalten und zu
+      manipulieren. Mit SQL können Sie Daten abfragen, einfügen, aktualisieren
+      und löschen.
+    </p>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">Wichtige SQL-Befehle</h2>
+    <ul class="list-none pl-6 space-y-4 max-w-4xl">
+      <li>
+        <strong>SELECT</strong>: Wird verwendet, um Daten aus einer Datenbank
+        abzurufen.
+        <pre
+          class="bg-gray-100 p-4 rounded">
+          <code>SELECT * FROM Tabelle;</code>
+        </pre>
+      </li>
+      <li>
+        <strong>INSERT</strong>: Fügt neue Daten in eine Tabelle ein.
+        <pre
+          class="bg-gray-100 p-4 rounded">
+          <code>INSERT INTO Tabelle (Spalte1, Spalte2) VALUES ('Wert1', 'Wert2');</code>
+        </pre>
+      </li>
+      <li>
+        <strong>UPDATE</strong>: Ändert bestehende Daten in einer Tabelle.
+        <pre
+          class="bg-gray-100 p-4 rounded">
+          <code>UPDATE Tabelle SET Spalte1 = 'NeuerWert' WHERE Bedingung;</code>
+        </pre>
+      </li>
+      <li>
+        <strong>DELETE</strong>: Löscht Daten aus einer Tabelle.
+        <pre
+          class="bg-gray-100 p-4 rounded">
+          <code>DELETE FROM Tabelle WHERE Bedingung;</code>
+        </pre>
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">Beispiele für SQL-Befehle</h2>
+    <div class="max-w-4xl">
+      <h3 class="text-lg font-semibold mb-2">Beispiel 1: Daten abfragen</h3>
+      <p class="mb-4">
+        Um alle Daten aus der Tabelle „Kunden“ abzurufen, verwenden Sie den
+        folgenden Befehl:
+      </p>
+      <pre
+        class="bg-gray-100 p-4 rounded">
+        <code>SELECT * FROM Kunden;</code>
+      </pre>
+
+      <h3 class="text-lg font-semibold mb-2 mt-6">
+        Beispiel 2: Neue Daten einfügen
+      </h3>
+      <p class="mb-4">
+        Um einen neuen Kunden in die Tabelle „Kunden“ einzufügen, verwenden Sie
+        den folgenden Befehl:
+      </p>
+      <pre
+        class="bg-gray-100 p-4 rounded">
+        <code>INSERT INTO Kunden (Name, Alter) VALUES ('Max Mustermann', 30);</code>
+      </pre>
+
+      <h3 class="text-lg font-semibold mb-2 mt-6">
+        Beispiel 3: Daten aktualisieren
+      </h3>
+      <p class="mb-4">
+        Um das Alter eines bestimmten Kunden in der Tabelle „Kunden“ zu ändern,
+        verwenden Sie den folgenden Befehl:
+      </p>
+      <pre
+        class="bg-gray-100 p-4 rounded">
+        <code>UPDATE Kunden SET Alter = 31 WHERE Name = 'Max Mustermann';</code>
+      </pre>
+
+      <h3 class="text-lg font-semibold mb-2 mt-6">Beispiel 4: Daten löschen</h3>
+      <p class="mb-4">
+        Um einen Kunden aus der Tabelle „Kunden“ zu löschen, verwenden Sie den
+        folgenden Befehl:
+      </p>
+      <pre
+        class="bg-gray-100 p-4 rounded">
+        <code>DELETE FROM Kunden WHERE Name = 'Max Mustermann';</code>
+      </pre>
+    </div>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">Wann SQL verwenden?</h2>
+    <p class="max-w-4xl">
+      SQL ist nützlich, wenn Sie mit relationalen Datenbanken arbeiten, um
+      strukturierte Daten zu speichern und zu verwalten. Es wird in vielen
+      Anwendungen eingesetzt, von kleinen Webanwendungen bis hin zu großen
+      Unternehmenssystemen, die umfangreiche Datenmengen verwalten müssen.
+    </p>
+  </div>
+</BaseLayout>

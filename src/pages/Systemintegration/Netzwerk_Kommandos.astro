@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Häufig verwendete Netzwerk-Kommandos
+    </h1>
+
+    <p class="mb-8 max-w-4xl">
+      Hier sind einige der häufigsten Befehle, die zur Verwaltung und
+      Fehlersuche in Netzwerken verwendet werden. Diese Befehle helfen dabei,
+      Netzwerkeinstellungen zu überprüfen und zu konfigurieren.
+    </p>
+
+    <table class="border border-gray-300 max-w-4xl w-full">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-4 py-2">Befehl</th>
+          <th class="border px-4 py-2">Beschreibung</th>
+          <th class="border px-4 py-2">Betriebssystem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-4 py-2">ipconfig</td>
+          <td class="border px-4 py-2"
+            >Zeigt IP-Konfigurationen der Netzwerkschnittstellen an.</td
+          >
+          <td class="border px-4 py-2">Windows</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">ifconfig</td>
+          <td class="border px-4 py-2"
+            >Zeigt oder konfiguriert die Netzwerkschnittstellen. Wird oft durch <strong
+              >ip</strong
+            > ersetzt.</td
+          >
+          <td class="border px-4 py-2">Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">ip</td>
+          <td class="border px-4 py-2"
+            >Verwaltet Netzwerkschnittstellen, Routen und Adressen. Ersetzt oft <strong
+              >ifconfig</strong
+            > und <strong>route</strong>.</td
+          >
+          <td class="border px-4 py-2">Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">ping</td>
+          <td class="border px-4 py-2"
+            >Testet die Erreichbarkeit eines Hosts im Netzwerk durch Senden von
+            Echo-Anfragen.</td
+          >
+          <td class="border px-4 py-2">Windows, Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">tracert</td>
+          <td class="border px-4 py-2"
+            >Zeigt den Pfad, den Datenpakete zu einem Zielserver nehmen. <strong
+              >traceroute</strong
+            > auf Linux.</td
+          >
+          <td class="border px-4 py-2">Windows</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">netstat</td>
+          <td class="border px-4 py-2"
+            >Zeigt Netzwerkverbindungen, Routing-Tabellen und
+            Netzwerkstatistiken an.</td
+          >
+          <td class="border px-4 py-2">Windows, Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">route</td>
+          <td class="border px-4 py-2"
+            >Zeigt oder konfiguriert die IP-Routing-Tabelle. Auf Linux oft durch <strong
+              >ip route</strong
+            > ersetzt.</td
+          >
+          <td class="border px-4 py-2">Windows, Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">nslookup</td>
+          <td class="border px-4 py-2"
+            >Fragt DNS-Server nach Informationen über Domain-Namen und
+            IP-Adressen.</td
+          >
+          <td class="border px-4 py-2">Windows, Linux</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">arp</td>
+          <td class="border px-4 py-2"
+            >Zeigt oder ändert die ARP-Tabelle, die IP-Adressen mit MAC-Adressen
+            verknüpft.</td
+          >
+          <td class="border px-4 py-2">Windows, Linux</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mt-8 max-w-4xl">
+      Diese Befehle sind grundlegende Werkzeuge für die Netzwerkanalyse und
+      -konfiguration. Sie helfen Ihnen dabei, Probleme zu identifizieren und
+      Netzwerkeinstellungen zu verwalten.
+    </p>
+  </div>
+</BaseLayout>

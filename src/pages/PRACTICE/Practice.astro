@@ -1,0 +1,593 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center p-6">
+    <h1 class="text-3xl font-bold mb-6">Fragen und Antworten API 1</h1>
+
+    <!-- Question Section -->
+    <div class="border border-gray-300 p-4 mb-4 shadow-md max-w-4xl w-full">
+      <p id="question" class="text-xl font-semibold mb-4">Was ist Scrum?</p>
+      <p id="answer" class="mb-4 hidden">
+        Scrum ist eine agile Methode zur Organisation und Verwaltung von
+        Projekten, insbesondere in der Softwareentwicklung. Es basiert auf
+        iterativen und inkrementellen Arbeitsweisen, bei denen Projekte in
+        kurzen, festen Zeiträumen, sogenannten Sprints, umgesetzt werden. Das
+        Ziel von Scrum ist es, Flexibilität und Anpassungsfähigkeit zu fördern,
+        um schnell auf Veränderungen und neue Anforderungen reagieren zu können.
+        Scrum betont die regelmäßige Zusammenarbeit im Team, Transparenz und
+        kontinuierliche Verbesserung.
+      </p>
+      <!-- User's Answer Section -->
+      <textarea
+        id="userInput"
+        class="border border-gray-300 p-2 w-full mb-4"
+        rows="4"
+        placeholder="Schreiben Sie Ihre Antwort hier..."></textarea>
+      <button
+        id="clearTextButton"
+        class="bg-red-500 text-white p-2 rounded-lg mb-4"
+        >Antwort löschen</button
+      >
+
+      <button id="showAnswer" class="bg-gray-400 text-white p-2 rounded-lg mb-4"
+        >Lösung anzeigen</button
+      >
+      <button id="nextQuestion" class="bg-green-800 text-white p-2 rounded-lg"
+        >Nächste Frage</button
+      >
+    </div>
+  </div>
+
+  <script>
+    import { marked } from "marked";
+
+    const questions = [
+      {
+        question: "Was ist Iteration in der Programmierung?",
+        answer:
+          "Iteration ist, wenn ein Vorgang wiederholt wird, zum Beispiel mit einer Schleife, bis eine bestimmte Bedingung erfüllt ist.",
+      },
+      {
+        question: "Was ist Rekursion?",
+        answer:
+          "Rekursion bedeutet, dass eine Funktion sich selbst aufruft, um ein Problem schrittweise zu lösen, bis ein einfaches Basisproblem erreicht ist.",
+      },
+      {
+        question: "Was bedeutet imperativ in der Programmierung?",
+        answer:
+          "Imperativ bedeutet, dass wir genau angeben, wie ein Problem Schritt für Schritt gelöst werden soll.",
+      },
+      {
+        question: "Was bedeutet deklarativ in der Programmierung?",
+        answer:
+          "Deklarativ bedeutet, dass wir beschreiben, was wir erreichen wollen, ohne den genauen Ablauf der Schritte anzugeben.",
+      },
+      {
+        question: "Was ist OOP?",
+        answer:
+          "OOP steht für Objektorientierte Programmierung. Es ist ein Programmieransatz, bei dem Programme in Objekte mit Daten und Funktionen unterteilt werden.",
+      },
+      {
+        question: "Was bedeutet Polymorphismus in der Programmierung?",
+        answer:
+          "Polymorphismus bedeutet, dass dieselbe Methode oder Funktion in verschiedenen Klassen unterschiedlich funktionieren kann.",
+      },
+      {
+        question: "Was ist Vererbung?",
+        answer:
+          "Vererbung bedeutet, dass eine Klasse Eigenschaften und Methoden einer anderen Klasse erben kann, um sie wiederzuverwenden.",
+      },
+      {
+        question: "Was versteht man unter Enkapsulation?",
+        answer:
+          "Enkapsulation bedeutet, dass Daten und Funktionen einer Klasse verborgen werden, damit sie nur von der Klasse selbst verändert werden können.",
+      },
+      {
+        question: "Was ist eine Klasse in der Programmierung?",
+        answer:
+          "Eine Klasse ist wie eine Vorlage oder ein Bauplan, aus dem Objekte erstellt werden. Sie definiert Eigenschaften und Methoden.",
+      },
+      {
+        question: "Was ist ein Objekt in der Programmierung?",
+        answer:
+          "Ein Objekt ist eine Instanz einer Klasse. Es ist ein Ding, das Daten und Funktionen hat, basierend auf der Klasse.",
+      },
+      {
+        question: "Was ist Scrum?",
+        answer:
+          "Scrum ist eine agile Methode zur Organisation und Verwaltung von Projekten,insbesondere in der Softwareentwicklung. Es basiert auf iterativen und inkrementellen Arbeitsweisen, bei denen Projekte in kurzen, festen Zeiträumen, sogenannten Sprints, umgesetzt werden. Das Ziel von Scrum ist es, Flexibilität und Anpassungsfähigkeit zu fördern, um schnell auf Veränderungen und neue Anforderungen reagieren zu können. Scrum betont die regelmäßige Zusammenarbeit im Team, Transparenz und kontinuierliche Verbesserung.",
+      },
+      {
+        question: "Welche Merkmale beschreiben ein Projekt?",
+        answer:
+          "Die Merkmale eines Projekts sind: Einzigartigkeit, Zielorientierung, zeitliche Begrenzung, Ressourcennutzung, einmalige Ergebnisse, Unsicherheit und Risiko, Komplexität, Interdisziplinarität, spezifische Anforderungen, Änderungsanfälligkeit und Projektorganisation.",
+      },
+      {
+        question: "Was ist Kanban und welche Merkmale beschreibt es?",
+        answer:
+          "Kanban ist eine Methode zur Organisation und Verbesserung von Arbeitsabläufen. Es hilft dabei, Aufgaben visuell darzustellen und den Arbeitsfluss zu optimieren. Die wichtigen Merkmale von Kanban sind: Visuelle Darstellung, Arbeit in Fortschritt begrenzen, kontinuierliche Verbesserung, Transparenz und Fokus auf den Fluss.",
+      },
+      {
+        question: "Was sind die Vorteile und Nachteile von Kanban?",
+        answer:
+          "Die Vorteile von Kanban sind: Verbesserte Übersichtlichkeit durch visuelle Darstellung der Aufgaben, Flexibilität bei der Anpassung an Änderungen und Prioritäten, Reduzierung der Überlastung durch Begrenzung der gleichzeitig bearbeiteten Aufgaben und Förderung der kontinuierlichen Verbesserung und Effizienzsteigerung. Die Nachteile von Kanban sind: Es kann schwierig zu implementieren sein, wenn die Aufgaben komplex sind oder viele Abhängigkeiten haben, es erfordert regelmäßige Wartung und Anpassung des Kanban-Boards, und bei unklaren Zielen kann es schwierig sein, den Überblick zu behalten.",
+      },
+      {
+        question:
+          "Welche Projektschritte gibt es und was sind ihre kurzen Beschreibungen?",
+        answer:
+          "Die Projektschritte sind: \n\n1. **Projektinitiierung**: Definition des Projekts und der Ziele, Erstellung des Projektplans. \n2. **Beschreibung des Istzustands**: Analyse und Dokumentation des aktuellen Standes. \n3. **Definition des Soll-Konzepts**: Festlegung der gewünschten Ergebnisse und Ziele des Projekts. \n4. **Planung**: Erstellung eines detaillierten Plans, der Zeitrahmen, Ressourcen und Budget umfasst. \n5. **Durchführung**: Umsetzung der geplanten Aufgaben und Aktivitäten. \n6. **Überwachung und Kontrolle**: Überprüfung des Fortschritts, Identifizierung von Abweichungen und Anpassungen. \n7. **Abschluss**: Abschluss des Projekts, Evaluierung der Ergebnisse und Dokumentation.",
+      },
+      {
+        question: "Was bedeutet SMART und welche Kriterien umfasst es?",
+        answer:
+          "SMART steht für: \n\n1. **Spezifisch**: Das Ziel muss klar und genau definiert sein. Es sollte keine Unklarheiten darüber geben, was erreicht werden soll. \n2. **Messbar**: Es muss möglich sein, den Fortschritt und die Erreichung des Ziels zu messen. Klare Kriterien helfen dabei, den Erfolg zu bewerten. \n3. **Erreichbar**: Das Ziel sollte realistisch und erreichbar sein. Es muss in den gegebenen Ressourcen und dem Zeitrahmen machbar sein. \n4. **Relevant**: Das Ziel sollte wichtig und relevant für die Person oder das Projekt sein. Es sollte einen echten Nutzen bringen und im Einklang mit den größeren Zielen stehen. \n5. **Terminiert**: Es sollte eine klare Frist oder ein Enddatum für das Erreichen des Ziels geben. Ein festgelegter Zeitrahmen hilft, den Fortschritt zu überwachen und die Motivation zu erhalten.",
+      },
+      {
+        question: "Was sind Stakeholder und wer kann Stakeholder sein?",
+        answer:
+          "Stakeholder sind Personen oder Gruppen, die ein Interesse an einem Projekt haben oder von den Ergebnissen des Projekts betroffen sind. Sie können sowohl intern als auch extern zum Projekt gehören. Zu den Stakeholdern können gehören: **Projektauftraggeber**, die das Projekt initiieren und finanzieren; **Projektteam**, die Mitarbeiter, die direkt an der Durchführung des Projekts beteiligt sind; **Kunden**, die das Endprodukt oder die Dienstleistung des Projekts nutzen; **Lieferanten**, die Ressourcen oder Dienstleistungen bereitstellen; **Endbenutzer**, die das Projektprodukt oder -ergebnis nutzen werden; und Regulierungsbehörden, die Vorschriften und Standards festlegen, die das Projekt einhalten muss.",
+      },
+      {
+        question:
+          "Was ist ein Router, wozu dient er und in welcher Schicht des OSI-Modells befindet er sich normalerweise?",
+        answer:
+          "Ein Router ist ein Netzwerkgerät, das Datenpakete zwischen verschiedenen Netzwerken weiterleitet. Er verbindet Netzwerke und entscheidet, wie die Datenpakete ihren Zielort erreichen. Ein Router arbeitet normalerweise in der Schicht 3 (Netzwerkschicht) des OSI-Modells, da er IP-Adressen verwendet, um Datenpakete weiterzuleiten und Routing-Entscheidungen zu treffen.",
+      },
+      {
+        question:
+          "Was ist die kurze Form der IPv6-Adresse '2001:0db8:0000:0042:0000:8a2e:0370:7334'?",
+        answer: "2001:db8:0:42::8a2e:370:7334",
+      },
+      {
+        question:
+          "Wie lautet der Host-Teil der IPv6-Adresse '2001:0db8:85a3:0000:0000:8a2e:0370:7334', wenn die Netzwerkadresse '2001:0db8:85a3:0000::' ist?",
+        answer:
+          "Der Host-Teil der IPv6-Adresse ist '8a2e:0370:7334'.\n\n**Erklärung**: Die Netzwerkadresse '2001:0db8:85a3:0000::' gibt den Netzwerkteil der Adresse an. Der Host-Teil besteht aus den verbleibenden Teilen der Adresse, nachdem der Netzwerkteil entfernt wurde. In diesem Fall ist der Host-Teil '8a2e:0370:7334'.",
+      },
+      {
+        question:
+          "Wie lautet der Host-Teil der IPv4-Adresse '192.168.1.100', wenn die Netzwerkadresse '192.168.1.0/24' ist?",
+        answer:
+          "Der Host-Teil der IPv4-Adresse ist '100'.\n\n**Erklärung**: Die Netzwerkadresse '192.168.1.0/24' gibt den Netzwerkteil der Adresse an, wobei die ersten 24 Bits für das Netzwerk verwendet werden. Die verbleibenden Bits, die für den Host-Teil verwendet werden, sind '100'. Dies entspricht der Adresse innerhalb des Netzwerks, die eindeutig für ein bestimmtes Gerät verwendet wird.",
+      },
+      {
+        question:
+          "Wie lautet der Host-Teil der IPv4-Adresse '192.168.10.45', wenn die Netzwerkadresse '192.168.10.0/20' ist?",
+        answer:
+          "Der Host-Teil der IPv4-Adresse ist '45'.\n\n**Erklärung**: Die Netzwerkadresse '192.168.10.0/20' gibt den Netzwerkteil der Adresse an, wobei die ersten 20 Bits für das Netzwerk verwendet werden. Die verbleibenden Bits, die für den Host-Teil verwendet werden, sind '45'. Dies entspricht der Adresse innerhalb des Netzwerks, die eindeutig für ein bestimmtes Gerät verwendet wird. In diesem Fall ermöglicht die größere Netzmaske (/20) eine größere Anzahl von Hosts im Netzwerk im Vergleich zu einer Netzmaske wie /24.",
+      },
+      {
+        question:
+          "Was ist die Broadcast-Adresse für das Netzwerk '192.168.1.0/24'?",
+        answer:
+          "Die Broadcast-Adresse für das Netzwerk '192.168.1.0/24' ist '192.168.1.255'.\n\n**Erklärung**: In einem IPv4-Netzwerk mit der Maske /24 (255.255.255.0) werden die letzten 8 Bits für die Host-Adresse verwendet. Die Broadcast-Adresse ist die höchste Adresse innerhalb des Netzwerks und wird verwendet, um Nachrichten an alle Geräte im Netzwerk zu senden. Für das Netzwerk '192.168.1.0/24' ergibt sich die Broadcast-Adresse, indem man alle Bits des Host-Teils auf 1 setzt, was '192.168.1.255' ergibt.",
+      },
+      {
+        question: "Was bedeutet 'Gateway' im Kontext von Netzwerken?",
+        answer:
+          "Ein Gateway ist ein Verbindungspunkt zwischen zwei verschiedenen Netzwerken, der die Kommunikation ermöglicht. Es kann Daten weiterleiten und unterschiedliche Protokolle oder Technologien verbinden. Oft ist ein Router das Gateway, das den Datenverkehr zwischen dem lokalen Netzwerk und dem Internet steuert. Das Gateway sorgt dafür, dass die Daten korrekt zwischen den Netzwerken übertragen werden.",
+      },
+      {
+        question: "Was ist SQL?",
+        answer:
+          "SQL (Structured Query Language) ist eine standardisierte Sprache, die verwendet wird, um Daten in relationalen Datenbanken zu verwalten und zu manipulieren. Mit SQL können Sie Daten abfragen, einfügen, aktualisieren und löschen.",
+      },
+      {
+        question: "Was ist der Unterschied zwischen DELETE und DROP?",
+        answer:
+          "Der `DELETE`-Befehl wird verwendet, um Daten aus einer Tabelle zu löschen, während die Tabelle selbst erhalten bleibt. Beispiel:\n```sql\nDELETE FROM Kunden WHERE Name = 'Max Mustermann';\n```\nDer `DROP`-Befehl entfernt eine gesamte Tabelle aus der Datenbank. Beispiel:\n```sql\nDROP TABLE Kunden;\n```\nDies entfernt die Tabelle „Kunden“ und alle darin enthaltenen Daten.",
+      },
+      {
+        question: "Wie verwendet man den INSERT-Befehl?",
+        answer:
+          "Der `INSERT`-Befehl wird verwendet, um neue Daten in eine Tabelle einzufügen. Zum Beispiel:\n```sql\nINSERT INTO Kunden (Name, Alter) VALUES ('Max Mustermann', 30);\n```\nDies fügt einen neuen Kunden mit dem Namen „Max Mustermann“ und dem Alter 30 in die Tabelle „Kunden“ ein.",
+      },
+      {
+        question:
+          "Wie kann ich alle Namen der Personen aus der Tabelle `Kunden` finden, die älter als 30 Jahre sind?",
+        answer: "```sql\nSELECT Name FROM Kunden WHERE Alter > 30;\n```",
+      },
+      {
+        question:
+          "Wie kann man die Adresse eines Kunden mit dem Namen 'Max Mustermann' in der Tabelle `Kunden` ändern?",
+        answer:
+          "```sql\nUPDATE Kunden SET Adresse = 'Neue Straße 123' WHERE Name = 'Max Mustermann';\n```",
+      },
+      {
+        question: "Wie kann man einen neuen Kunden zur Tabelle hinzufügen?",
+        answer:
+          "```sql\nINSERT INTO Kunden (Name, Alter, Adresse) VALUES ('Anna Müller', 28, 'Beispielweg 45');```",
+      },
+      {
+        question:
+          "Wie löscht man alle Kunden, die in der Stadt 'Berlin' wohnen?",
+        answer: "```sql\nDELETE FROM Kunden WHERE Stadt = 'Berlin';\n```",
+      },
+      {
+        question:
+          "Wie entfernt man die Tabelle 'Kunden' vollständig aus der Datenbank?",
+        answer: "```sql\nDROP TABLE Kunden;\n```",
+      },
+      {
+        question:
+          "Was ist ein Switch, wozu dient er und in welcher Schicht des OSI-Modells befindet er sich normalerweise?",
+        answer:
+          "Ein Switch ist ein Netzwerkgerät, das Datenpakete innerhalb eines Netzwerks weiterleitet. Er verbindet Geräte innerhalb eines LANs (Local Area Network) und leitet die Daten an den richtigen Empfänger basierend auf MAC-Adressen weiter. Ein Switch arbeitet normalerweise in der Schicht 2 (Sicherungsschicht) des OSI-Modells, da er MAC-Adressen verwendet, um die Weiterleitung von Datenpaketen zu steuern.",
+      },
+      {
+        question: "Was ist Datenschutz?",
+        answer:
+          "Datenschutz sorgt dafür, dass persönliche Daten vor unbefugtem Zugriff geschützt sind. Er stellt sicher, dass diese Daten nur für festgelegte Zwecke verwendet werden und dass die Rechte der Personen, deren Daten betroffen sind, respektiert werden.",
+      },
+      {
+        question: "Was ist das BSI?",
+        answer:
+          "Das Bundesamt für Sicherheit in der Informationstechnik (BSI) ist die zentrale Stelle in Deutschland für IT-Sicherheit. Es bietet Beratung und Unterstützung zum Schutz von IT-Systemen und Daten und entwickelt Sicherheitsstandards.",
+      },
+      {
+        question: "Was sind personenbezogene Daten?",
+        answer:
+          "Personenbezogene Daten sind alle Informationen, die sich auf eine identifizierte oder identifizierbare Person beziehen. Dazu gehören Name, Adresse, E-Mail-Adresse und auch Daten wie Geburtsdatum oder IP-Adresse.",
+      },
+      {
+        question:
+          "Welche gesetzlichen Grundlagen gibt es für Datenschutz in Deutschland?",
+        answer:
+          "Datenschutz-Grundverordnung (DSGVO), Bundesdatenschutzgesetz (BDSG), Telekommunikation-Telemedien-Datenschutzgesetz (TTDSG), Gesetz über den Datenschutz bei der Verarbeitung von Daten in der Polizei- und Justizverwaltung (PDSG).",
+      },
+      {
+        question: "Welche Anforderungen gibt es an den Datenschutz?",
+        answer:
+          "Daten nur begrenzt speichern, nur notwendige Daten sammeln, Zugriff einschränken, Sicherheit gewährleisten, Transparenz bieten, regelmäßige Überprüfung.",
+      },
+      {
+        question: "Was ist eine Firewall?",
+        answer:
+          "Eine Firewall ist eine Schutzmaßnahme, die den ein- und ausgehenden Netzwerkverkehr überwacht und verdächtige Aktivitäten blockiert. Sie agiert als eine Barriere zwischen deinem internen Netzwerk (oder Gerät) und unsicheren externen Netzwerken wie dem Internet.",
+      },
+      {
+        question: "Was ist Malware?",
+        answer:
+          "Malware, abgeleitet von ‚malicious software‘, ist eine bösartige Software, die entwickelt wurde, um Schaden anzurichten, Daten zu stehlen oder die Kontrolle über ein System zu übernehmen.",
+      },
+      {
+        question: "Beispiele für Malware",
+        answer: "Trojaner, Spyware, Ransomware, Würmer.",
+      },
+      {
+        question: "Was ist Phishing?",
+        answer:
+          "Phishing ist eine Art von Angriff, der sich auf soziale Manipulation (Social Engineering) stützt. Bei einem Phishing-Angriff werden Benutzer dazu verleitet, sensible Informationen preiszugeben, wie z. B. Passwörter oder Kreditkarteninformationen. Diese Angriffe erfolgen häufig per E-Mail oder über gefälschte Websites.",
+      },
+      {
+        question: "Was ist ein Trojaner?",
+        answer:
+          "Ein Trojaner ist eine Art von Malware, die sich als nützliche oder harmlos aussehende Software tarnt, um unbemerkt auf einem Computer installiert zu werden. Er muss in der Regel heruntergeladen und installiert werden, oft durch den Benutzer, der glaubt, dass die Software sicher oder nützlich ist.",
+      },
+      {
+        question: "Was ist ein Virus und was ist ein Antivirus-Programm?",
+        answer:
+          "Ein Virus ist eine Art von Malware, die sich selbst repliziert und andere Dateien infizieren kann. Ein Antivirus-Programm ist eine Software, die darauf abzielt, Viren und andere schädliche Software zu erkennen, zu blockieren und zu entfernen.",
+      },
+      {
+        question: "Was sind Gruppenrichtlinien?",
+        answer:
+          "Gruppenrichtlinien sind ein Werkzeug zur zentralen Verwaltung und Steuerung von Computern und Benutzereinstellungen in einem Netzwerk. Sie ermöglichen es, Administratoren Richtlinien zentral zu definieren und auf Gruppen von Computern oder Benutzern anzuwenden.",
+      },
+      {
+        question: "Beispiele für Gruppenrichtlinien Einstellungen",
+        answer:
+          "Softwareeinschränkungen, Passwortrichtlinien, Desktop-Hintergründe, Netzwerkzugriffsrechte.",
+      },
+      {
+        question: "Vorteile der Verwendung von Gruppenrichtlinien",
+        answer:
+          "Zentrale Verwaltung, Erhöhung der Sicherheit, Einheitliche Benutzererfahrung, Vermeidung von manuellen Konfigurationen.",
+      },
+      {
+        question: "Was ist die Härtung von Betriebssystemen?",
+        answer:
+          "Die Härtung von Betriebssystemen ist ein wesentlicher Schritt, um die Sicherheit und Stabilität eines Systems zu verbessern. Sie umfasst Maßnahmen zur Reduzierung von Sicherheitsrisiken und zur Verhinderung von Angriffen. Ziel ist es, das Betriebssystem widerstandsfähiger gegen Bedrohungen und Schwachstellen zu machen.",
+      },
+      {
+        question: "Welche Maßnahmen gehören zur Härtung von Betriebssystemen?",
+        answer:
+          "Maßnahmen zur Härtung von Betriebssystemen umfassen die Deaktivierung unnötiger Dienste, regelmäßige Updates und Patches, Verwendung starker Passwörter, Konfiguration von Firewalls, Minimierung von Benutzerrechten, Überwachung und Protokollierung sowie die Verwendung von Antivirus-Software.",
+      },
+      {
+        question: "Welche Kriterien sollte ein sicheres Passwort erfüllen?",
+        answer:
+          "Ein sicheres Passwort sollte folgende Kriterien erfüllen: eine Mindestlänge von 12 Zeichen, eine Mischung aus Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen, keine persönlichen Informationen enthalten, einzigartig für jede Anwendung sein und die Verwendung eines Passwortmanagers umfassen.",
+      },
+      {
+        question:
+          "Welche Rechte haben Sie bezüglich Ihrer personenbezogenen Daten?",
+        answer:
+          "Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten: \n\n**Recht auf Auskunft** (Erfahren, welche Daten gesammelt wurden und wie sie verwendet werden), \n\n**Recht auf Berichtigung** (Korrektur oder Ergänzung fehlerhafter oder unvollständiger Daten), \n\n**Recht auf Löschung** (Verlangen der Löschung von Daten, wenn sie nicht mehr benötigt werden oder die Einwilligung widerrufen wird), \n\n**Recht auf Einschränkung** der Verarbeitung (Einschränkung der Datenverarbeitung unter bestimmten Bedingungen),\n\n**Recht auf Datenübertragbarkeit** (Erhalt Ihrer Daten in einem strukturierten, gängigen und maschinenlesbaren Format zur Übermittlung an einen anderen Verantwortlichen), \n\n**Recht auf Widerspruch** (Widerspruch gegen die Verarbeitung von Daten, wenn diese auf berechtigten Interessen basiert oder für Direktwerbung verwendet wird), \n\n**Recht auf Beschwerde** (Beschwerde bei einer Datenschutzbehörde, wenn Sie der Meinung sind, dass Ihre Datenrechte verletzt wurden)",
+      },
+      {
+        question: "Was ist eine USV (unterbrechungsfreie Stromversorgung)?",
+        answer:
+          "Eine USV (unterbrechungsfreie Stromversorgung) sorgt dafür, dass Geräte bei einem Stromausfall weiter mit Strom versorgt werden. Sie ist besonders wichtig für Computer, Server oder andere kritische Systeme, die nicht unerwartet abgeschaltet werden dürfen.",
+      },
+      {
+        question: "Welche Arten von USV gibt es?",
+        answer:
+          "Es gibt drei Hauptarten von USV: \n\n1. **Offline/Standby-USV**: Diese USV ist die einfachste und günstigste Variante. Sie springt erst dann ein, wenn der Strom ausfällt oder Spannungsprobleme auftreten. In normalen Zeiten bleibt das Gerät im Standby-Modus. \n2. **Line-Interactive-USV**: Diese USV kann Spannungsprobleme wie Überspannungen oder Unterspannungen regulieren. Sie greift also nicht nur bei einem Stromausfall ein, sondern schützt auch vor Spannungsabweichungen. \n3. **Online-USV (Doppelwandler)**: Diese USV liefert ständig Strom aus ihrer Batterie, wodurch die Geräte vollständig vor Stromschwankungen und Ausfällen geschützt sind. Sie ist die sicherste, aber auch teuerste Variante.",
+      },
+      {
+        questions: "Was ist eine VLAN?",
+        answer:
+          "Eine **VLAN (Virtuelle Lokale Netzwerkanbindung)** ist eine Technologie, die es ermöglicht, Geräte innerhalb eines Netzwerks zu gruppieren, auch wenn sie an verschiedenen Orten angeschlossen sind. Mit einer VLAN kann man das Netzwerk logisch aufteilen, ohne physisch neue Netzwerke einrichten zu müssen.",
+      },
+      {
+        questions: "Nennen Sie die wichtige Merkmale von VLAN",
+        answer:
+          "**Segmentierung:** Netzwerke können in kleinere, logisch getrennte Gruppen unterteilt werden, um den Datenverkehr besser zu verwalten. \n\n**Sicherheit:** VLANs erhöhen die Sicherheit, indem sie den Zugriff auf verschiedene Teile des Netzwerks einschränken. \n\n**Flexibilität:** Geräte können sich physisch bewegen, aber sie bleiben in derselben VLAN-Gruppe, was die Netzverwaltung erleichtert. \n\n**Effizienz:** Durch die Trennung von Netzwerken wird der unnötige Datenverkehr reduziert, was die Leistung verbessert. \n\n**Identifikation:** VLANs werden über IDs (VLAN IDs) identifiziert, die helfen, den Datenverkehr zuzuordnen.",
+      },
+      {
+        question: "Was ist eine VPN (Virtual Private Network)?",
+        answer:
+          "Eine VPN (Virtual Private Network) ist eine Technologie, die es ermöglicht, sicher und privat über das Internet zu kommunizieren. Sie schafft ein verschlüsseltes Netzwerk, das über das öffentliche Internet aufgebaut wird, um Daten zu schützen und die Privatsphäre zu wahren.",
+      },
+      {
+        question: "Welche Arten von VPN gibt es?",
+        answer:
+          "Es gibt verschiedene Arten von VPN: \n\n1. **Site-to-Site VPN**: Verbindet zwei Netzwerke an verschiedenen Standorten. Es wird oft von Unternehmen genutzt, um entfernte Büros sicher miteinander zu verbinden. \n2. **Remote Access VPN**: Ermöglicht es Einzelpersonen, sich sicher mit ihrem Unternehmensnetzwerk zu verbinden, egal wo sie sich befinden. Ideal für Homeoffice oder unterwegs. \n3. **Client-to-Site VPN**: Verbindet einen einzelnen Computer mit einem Netzwerk. Es wird verwendet, um sicher auf ein Netzwerk zuzugreifen, als ob der Computer direkt darin wäre. \n4. **Peer-to-Peer VPN**: Jeder Computer im Netzwerk kann direkt mit anderen Computern kommunizieren, ohne einen zentralen Server. Dies wird oft für den Austausch von Daten verwendet.",
+      },
+      {
+        question: "Welche Vor- und Nachteile haben ADSL und SDSL?",
+        answer:
+          "**ADSL (Asymmetric Digital Subscriber Line)** bietet hohe Download-Geschwindigkeiten, was es ideal für das Streaming von Videos und das Laden von Webseiten macht. Jedoch hat es geringere Upload-Geschwindigkeiten im Vergleich zum Download und ist abhängig von der Entfernung zur Vermittlungsstelle, was die Leistung beeinträchtigen kann. \n\n**SDSL (Symmetric Digital Subscriber Line)** bietet hingegen gleichmäßige Download- und Upload-Geschwindigkeiten, was ideal für Anwendungen ist, die hohe Upload-Geschwindigkeiten erfordern, wie z.B. die Übertragung großer Dateien. Allerdings kann SDSL teurer sein als ADSL und ist oft auf kürzere Entfernungen vom Verteilerkasten zum Endgerät angewiesen, um optimale Leistung zu gewährleisten.",
+      },
+      {
+        question: "Was sind die Vor- und Nachteile von UEFI und BIOS?",
+        answer:
+          "**BIOS (Basic Input/Output System)** ist die ältere Technologie und bietet eine einfache Möglichkeit zur Hardware-Initialisierung und zum Laden des Betriebssystems. \n\nVorteile sind die einfache Implementierung und die gute Kompatibilität mit älterer Hardware. \n\nNachteile sind die begrenzte Unterstützung für große Festplatten (über 2 TB) und längere Startzeiten. \n\n**UEFI (Unified Extensible Firmware Interface)** ist die modernere Technologie, die große Festplatten unterstützt und schnellere Startzeiten ermöglicht. Außerdem bietet UEFI eine grafische Benutzeroberfläche und zusätzliche Sicherheitsfunktionen wie „Secure Boot“. \n\nNachteile sind die mögliche Komplexität und die Notwendigkeit neuerer Hardware für die Nutzung aller Funktionen.",
+      },
+      {
+        question: "Was ist Cache und wozu dient er?",
+        answer:
+          "Cache ist ein Speicherbereich, der verwendet wird, um häufig benötigte Daten schnell bereitzustellen. Er dient dazu, den Zugriff auf Daten zu beschleunigen und die Leistung eines Systems zu verbessern. Cache speichert Kopien von Daten, die oft verwendet werden, damit diese schneller abgerufen werden können, ohne dass die Datenquelle jedes Mal neu abgefragt werden muss.",
+      },
+      {
+        question: "Was sind die Vor- und Nachteile von IPv4 und IPv6?",
+        answer:
+          "IPv4 und IPv6 sind die beiden Hauptprotokolle zur Adressierung im Internet, und jedes hat seine eigenen Vor- und Nachteile.\n\n**IPv4**:\n- **Vorteile**:\n  - Weit verbreitet und gut unterstützt.\n  - Einfach zu konfigurieren und mit vorhandenen Netzwerken kompatibel.\n- **Nachteile**:\n  - Begrenzte Anzahl von Adressen (ca. 4,3 Milliarden).\n  - Kein integrierter Schutz vor Sicherheitsproblemen.\n  - Keine native Unterstützung für moderne Netzwerktechnologien wie IPsec.\n\n**IPv6**:\n- **Vorteile**:\n  - Fast unbegrenzte Anzahl von Adressen (340 Sextillionen), was die Adressknappheit behebt.\n  - Verbesserte Sicherheitsfunktionen, wie integrierte IPsec-Unterstützung.\n  - Effizientere Datenübertragung und bessere Netzwerkverwaltung.\n- **Nachteile**:\n  - Weniger weit verbreitet und ältere Systeme unterstützen es möglicherweise nicht.\n  - Komplexere Konfiguration und Verwaltung im Vergleich zu IPv4.\n  - Erfordert möglicherweise Hardware- und Software-Upgrades.",
+      },
+      {
+        question: "Was sind die Vorteile von JBOD im Vergleich zu RAID 0?",
+        answer:
+          "JBOD (Just a Bunch of Disks) und RAID 0 sind zwei verschiedene Methoden zur Anordnung von Festplatten, und jede hat ihre eigenen Vor- und Nachteile.\n\n**JBOD**:\n- **Vorteile**:\n  - **Flexibilität bei der Festplattengröße**: JBOD kann Festplatten unterschiedlicher Größen verwenden, ohne dass eine spezielle Konfiguration erforderlich ist.\n  - **Einfache Einrichtung**: Keine komplexe Konfiguration oder spezielle Hardware ist erforderlich.\n  - **Kein Datenverlust bei Festplattenschaden**: Wenn eine Festplatte ausfällt, gehen nur die Daten auf dieser spezifischen Festplatte verloren, nicht die gesamten Daten.\n\n**RAID 0**:\n- **Vorteile**:\n  - **Leistungssteigerung**: RAID 0 verteilt die Daten auf mehrere Festplatten, was zu schnelleren Lese- und Schreibgeschwindigkeiten führt.\n  - **Gesamter Speicherplatz wird verwendet**: Die gesamte Kapazität der Festplatten wird für die Datenspeicherung genutzt, jedoch wird dabei die Größe der kleinsten Festplatte verwendet, wenn Festplatten unterschiedlicher Größe im Array enthalten sind.\n\n**Zusammenfassung**: Während JBOD vor allem durch seine Flexibilität und Einfachheit besticht, bietet RAID 0 eine signifikante Leistungssteigerung, jedoch ohne zusätzlichen Schutz vor Datenverlust und mit der Einschränkung, dass nur der Speicherplatz der kleinsten Festplatte genutzt wird, wenn diese unterschiedliche Größen haben.",
+      },
+      {
+        question:
+          "Was sind logische Prozessoren und welche wichtigen Merkmale haben sie?",
+        answer:
+          "Logische Prozessoren sind virtuelle Prozessoren, die von der Hardware unterstützt werden, um die Leistung eines Computers zu steigern. Sie entstehen durch die Technologie der Hyper-Threading oder ähnlichen Verfahren, bei denen ein physischer Prozessor in mehrere logische Prozessoren aufgeteilt wird.\n\n**Wichtige Merkmale**:\n- **Virtuelle Prozessoren**: Sie teilen die Aufgaben eines physischen Prozessors auf, um die Effizienz zu erhöhen.\n- **Erhöhte Multitasking-Fähigkeiten**: Erlauben es dem Computer, mehrere Aufgaben gleichzeitig zu bearbeiten.\n- **Optimierte Leistung**: Bessere Nutzung der Hardware-Ressourcen durch parallele Verarbeitung.\n- **Kompatibilität**: Unterstützt durch moderne Prozessoren und Betriebssysteme.",
+      },
+      {
+        question:
+          "Welcher Befehl wird verwendet, um die IP-Konfigurationen der Netzwerkschnittstellen in Windows und Linux anzuzeigen?",
+        answer:
+          "**Windows**: Der Befehl `ipconfig` wird verwendet, um die IP-Konfigurationen der Netzwerkschnittstellen anzuzeigen.\n**Linux**: Der Befehl `ifconfig` oder `ip a` wird verwendet, um ähnliche Informationen in Linux-basierten Systemen zu erhalten.",
+      },
+      {
+        question:
+          "Welcher Befehl testet die Erreichbarkeit eines Hosts im Netzwerk durch Senden von Echo-Anfragen und ist in Windows und Linux verfügbar?",
+        answer: "ping",
+      },
+      {
+        question:
+          "Welcher Befehl zeigt den Pfad, den Datenpakete zu einem Zielserver nehmen, und welcher Befehl wird auf Linux für denselben Zweck verwendet?",
+        answer:
+          "**Windows**: Der Befehl `tracert` wird verwendet, um den Pfad der Datenpakete zu verfolgen.\n**Linux**: Der Befehl `traceroute` wird verwendet, um dasselbe auf Linux-basierten Systemen zu tun.",
+      },
+      {
+        question:
+          "Welcher Befehl fragt DNS-Server nach Informationen über Domain-Namen und IP-Adressen und ist in Windows und Linux verfügbar?",
+        answer: "nslookup",
+      },
+      {
+        question:
+          "Nenne die Schichten des OSI-Modells auf Deutsch und Englisch.",
+        answer:
+          "7. Application (Anwendung)\n6. Presentation (Darstellung)\n5. Session (Sitzung)\n4. Transport (Transport)\n3. Network (Vermittlung)\n2. Data Link (Sicherung)\n1. Physical (Bitübertragung)",
+      },
+      {
+        question:
+          "Welche Schichten des OSI-Modells und ihre entsprechenden Protokolle sind vorhanden?",
+        answer:
+          "7. Application (Anwendung): HTTP, FTP, SMTP\n6. Presentation (Darstellung): SSL, TLS, JPEG, ASCII\n5. Session (Sitzung): NetBIOS, RPC\n4. Transport (Transport): TCP, UDP\n3. Network (Vermittlung): IP, ICMP\n2. Data Link (Sicherung): Ethernet, PPP\n1. Physical (Bitübertragung): Ethernet, USB, WLAN",
+      },
+      {
+        question:
+          "Beschreibe die folgenden PC-Modelle: Notebook, All-in-One-PC, Thin-Client und Desktop.",
+        answer:
+          "1. **Notebook**: Ein tragbarer Computer, der für mobiles Arbeiten und die Nutzung unterwegs entwickelt wurde. Er hat einen eingebauten Bildschirm, eine Tastatur und einen Akku. Vorteil: Hohe Mobilität und einfache Nutzung unterwegs. Nachteil: Weniger leistungsstark als Desktops und schwieriger aufzurüsten.\n\n2. **All-in-One-PC**: Ein PC, der alle Hardware-Komponenten wie Prozessor, Festplatte und Display in einem einzigen Gehäuse integriert. Vorteil: Platzsparendes Design. Nachteil: Weniger flexibel bei Upgrades und Reparaturen.\n\n3. **Thin-Client**: Ein minimalistisch ausgestatteter Computer, der hauptsächlich auf die Verarbeitung über einen Server angewiesen ist. Vorteil: Kostengünstig und einfach zu warten. Nachteil: Abhängig von einer stabilen und schnellen Netzwerkverbindung.\n\n4. **Desktop**: Ein stationärer Computer, der in einem Tower-Gehäuse untergebracht ist. Vorteil: Hohe Leistungsfähigkeit und Flexibilität beim Aufrüsten der Komponenten. Nachteil: Weniger mobil und benötigt mehr Platz.",
+      },
+      {
+        question:
+          "Beschreibe die Unterschiede zwischen den RAID-Typen RAID 0, RAID 1, RAID 5, RAID 6 und RAID 10.",
+        answer:
+          "1. **RAID 0 (Striping)**: Verwendet mehrere Festplatten, um Daten aufzuteilen und die Leistung zu verbessern. Keine Datensicherheit; bei Ausfall einer Festplatte gehen alle Daten verloren.\n\n2. **RAID 1 (Mirroring)**: Spiegelt Daten auf zwei Festplatten, um hohe Datensicherheit zu bieten. Daten sind auf beiden Festplatten identisch; bei Ausfall einer Festplatte bleiben die Daten auf der anderen erhalten. Keine Verbesserung der Geschwindigkeit.\n\n3. **RAID 5 (Striping mit Parität)**: Kombiniert Leistung und Datensicherheit, indem Daten und Paritätsinformationen auf mindestens drei Festplatten verteilt werden. Fällt eine Festplatte aus, können die Daten wiederhergestellt werden. Bietet gute Leistung und Schutz vor Datenverlust.\n\n4. **RAID 6 (Doppelte Parität)**: Ähnlich wie RAID 5, aber mit doppelter Parität, die es ermöglicht, dass bis zu zwei Festplatten ausfallen können, ohne Daten zu verlieren. Erfordert mindestens vier Festplatten und hat eine geringere Leistung als RAID 5.\n\n5. **RAID 10 (Kombination aus RAID 1 und RAID 0)**: Kombiniert Striping (RAID 0) für Leistung und Mirroring (RAID 1) für Datensicherheit. Bietet hohe Leistung und hohe Datensicherheit, benötigt jedoch mindestens vier Festplatten.",
+      },
+      {
+        question:
+          "Was sind SAN (Storage Area Network) und NAS (Network Attached Storage)? Nenne die Vorteile und Nachteile der Verwendung von SAN und NAS.",
+        answer:
+          "1. **SAN (Storage Area Network)**: Ein SAN ist ein Netzwerk, das speziell für den Zugriff auf Speichergeräte konzipiert ist.\n   - **Vorteile**:\n     - Hohe Leistung und Geschwindigkeit durch dedizierte Netzwerkverbindungen.\n     - Erlaubt den Zugriff auf Speicher über verschiedene Server und Plattformen.\n     - Ideal für große Unternehmen und Rechenzentren mit hohen Anforderungen an die Speicherkapazität und -geschwindigkeit.\n   - **Nachteile**:\n     - Höhere Kosten aufgrund der spezialisierten Hardware und Infrastruktur.\n     - Komplexe Einrichtung und Verwaltung.\n\n2. **NAS (Network Attached Storage)**: Ein NAS ist ein Speichergerät, das über ein Netzwerk zugänglich ist.\n   - **Vorteile**:\n     - Einfach einzurichten und zu verwalten.\n     - Günstiger und einfacher in der Anschaffung und Verwaltung als SAN.\n     - Ideal für kleinere Unternehmen oder Heimnetzwerke, die weniger komplexe Speicheranforderungen haben.\n   - **Nachteile**:\n     - Geringere Leistung im Vergleich zu SAN, da es auf ein allgemeines Netzwerk zugreift.\n     - Weniger flexibel als SAN bei der Skalierung und Integration in größere Netzwerke.",
+      },
+      {
+        question:
+          "Was sind die Vorteile und Nachteile der Verwendung von Festplatten (HDD) und SSDs (Solid-State-Drive)?",
+        answer:
+          "1. **Festplatte (HDD)**:\n   - **Vorteile**:\n     - **Kapazität**: Bietet viel Speicherplatz zu einem niedrigeren Preis. Große Datenmengen können günstig gespeichert werden.\n     - **Preis**: Günstiger pro Gigabyte im Vergleich zu SSDs.\n   - **Nachteile**:\n     - **Geschwindigkeit**: Langsamer als SSDs, da die Daten mechanisch gelesen werden.\n     - **Haltbarkeit**: Anfälliger für physische Schäden und Abnutzung aufgrund der mechanischen Teile.\n\n2. **SSD (Solid-State-Drive)**:\n   - **Vorteile**:\n     - **Geschwindigkeit**: Viel schneller als HDDs. Daten werden fast sofort geladen, da keine mechanischen Teile vorhanden sind.\n     - **Haltbarkeit**: Robuster und weniger anfällig für physische Schäden, da keine beweglichen Teile vorhanden sind.\n   - **Nachteile**:\n     - **Kapazität**: Oft weniger Speicherplatz als HDDs und teurer pro Gigabyte.\n     - **Preis**: Teurer im Vergleich zu HDDs.",
+      },
+      {
+        question:
+          "Beschreibe die vier Seiten des 4-Ohren-Modells von Friedemann Schulz von Thun. (Sachebene, Selbstoffenbarung, Beziehungsebene, Appellseite) Erkläre, was sie in der Kommunikation bedeutet.",
+        answer:
+          '1. **Sachebene (Inhalt)**: Dies ist die objektive Information, die in der Nachricht enthalten ist. Sie beantwortet die Frage: „Worum geht es?“ Beispiel: „Es ist 8:00 Uhr.“ – Dies ist lediglich die Angabe der Uhrzeit.\n\n2. **Selbstoffenbarung**: Dies zeigt, was der Sprecher über sich selbst preisgibt. Es beantwortet die Frage: „Was sagt der Sprecher über sich?“ Beispiel: „Es ist 8:00 Uhr.“ könnte bedeuten: „Ich bin gestresst, weil wir spät dran sind."\n\n3. **Beziehungsebene**: Diese Seite zeigt, was der Sprecher über die Beziehung zum Hörer ausdrückt. Sie beantwortet die Frage: „Was denkt der Sprecher über den Hörer?“ Beispiel: „Es ist 8:00 Uhr.“ könnte bedeuten: „Ich glaube, du traust mir nicht zu, die Uhrzeit zu kennen."\n\n4. **Appellseite**: Diese Seite beschreibt, was der Sprecher vom Hörer möchte. Sie beantwortet die Frage: „Was soll der Hörer tun?“ Beispiel: „Es ist 8:00 Uhr.“ könnte bedeuten: „Beeil dich!“',
+      },
+      {
+        question:
+          "Welche Methoden werden in der Bedarfsanalyse verwendet, um die Bedürfnisse und Anforderungen von Kunden zu identifizieren? Nenne die Methoden.",
+        answer:
+          "1. **Umfragen**: Durch gezielte Fragen wird Feedback von den Kunden gesammelt.\n2. **Interviews**: Persönliche Gespräche, um detaillierte Informationen zu erhalten.\n3. **Beobachtung**: Analyse des Verhaltens der Kunden in realen Situationen.\n4. **Workshops**: Gemeinsame Diskussionen, um Anforderungen und Wünsche zu erfassen.\n5. **Focus Groups**: Gruppendiskussionen mit ausgewählten Kunden, um Meinungen zu sammeln.\n6. **Analysieren von Daten**: Nutzung vorhandener Daten, um Trends und Muster zu erkennen.",
+      },
+      {
+        question:
+          "Welche Inhalte sind in einem Kaufvertrag geregelt und was kann individuell vereinbart werden? Nenne die Hauptinhalte und mögliche individuelle Vereinbarungen.",
+        answer:
+          "**Inhalte, die geregelt sind:**\n1. **Vertragspartner:** Es ist geregelt, wer der Käufer und der Verkäufer ist.\n2. **Vertragsgegenstand:** Der Kaufgegenstand muss klar definiert sein.\n3. **Kaufpreis:** Der zu zahlende Preis muss festgelegt sein.\n4. **Übergabe und Zahlung:** Es wird geregelt, wann und wie die Ware übergeben und die Zahlung erfolgen soll.\n5. **Lieferbedingungen:** Die Bedingungen für die Lieferung, wie Zeitpunkt, Ort und Kosten, sind geregelt.\n\n**Individuell vereinbarte Punkte:**\n1. **Garantievereinbarungen:** Zusätzliche Garantien können vereinbart werden.\n2. **Rückgaberecht:** Rückgaberechte oder Umtauschmöglichkeiten können festgelegt werden.\n3. **Sonderkonditionen:** Besondere Bedingungen oder Rabatte können individuell vereinbart werden.",
+      },
+      {
+        question:
+          "Was ist ein Lastenheft und welche typischen Inhalte enthält es?",
+        answer:
+          "Ein Lastenheft beschreibt alle Anforderungen und Wünsche, die der Auftraggeber an ein Produkt oder eine Dienstleistung hat. Es dient als Grundlage für die Planung und das Angebot eines Projekts.\n\n**Typische Inhalte eines Lastenhefts:**\n1. **Zielsetzung:** Das Ziel des Projekts.\n2. **Anforderungen:** Funktionen und Eigenschaften, die erfüllt werden müssen.\n3. **Rahmenbedingungen:** Technische und organisatorische Bedingungen wie Budget und Zeitplan.\n4. **Verwendung:** Wer das Produkt nutzen wird und wie.\n5. **Erwartete Ergebnisse:** Die konkreten Ergebnisse am Ende des Projekts.\n6. **Beschreibung der Ausgangssituation:** Aktueller Zustand vor Projektbeginn.\n7. **Qualitätsanforderungen:** Anforderungen an die Qualität des Produkts.\n8. **Zeitliche Rahmenbedingungen:** Zeitplan und Deadlines.",
+      },
+      {
+        question:
+          "Was ist der Unterschied zwischen einem Lastenheft und einem Pflichtenheft?",
+        answer:
+          "**Unterschied zwischen Lastenheft und Pflichtenheft:**\n- **Lastenheft:** Wird vom Auftraggeber erstellt und beschreibt, was gemacht werden soll.\n- **Pflichtenheft:** Wird vom Auftragnehmer erstellt und erklärt, wie die Anforderungen aus dem Lastenheft umgesetzt werden.",
+      },
+      {
+        question: "Was ist Leasing?",
+        answer:
+          "Leasing bedeutet, dass man ein Objekt, wie z.B. ein Auto oder ein Gerät, für eine bestimmte Zeit mietet und dafür monatliche Raten zahlt. Das Objekt gehört während der Mietzeit dem Leasinggeber, aber man darf es nutzen. Am Ende des Vertrags gibt man das Objekt zurück oder hat manchmal die Möglichkeit, es zu kaufen.",
+      },
+      {
+        question: "Was sind die Vorteile und Nachteile des Leasings?",
+        answer:
+          "**Vorteile des Leasings:**\n1. **Geld sparen:** Man muss nicht sofort den vollen Preis zahlen, sondern nur monatliche Raten.\n2. **Steuerlich absetzbar:** Für Unternehmen können die Leasingraten oft von der Steuer abgesetzt werden.\n3. **Planbare Kosten:** Die Raten sind fest, sodass man die monatlichen Ausgaben besser planen kann.\n4. **Immer neue Technik:** Mit Leasing kann man immer die neueste Technik nutzen, ohne sich an alte Geräte zu binden.\n\n**Nachteile des Leasings:**\n1. **Kein Eigentum:** Man besitzt das Objekt nicht, es gehört dem Leasinggeber.\n2. **Höhere Gesamtkosten:** Über die Zeit kann Leasing teurer sein als ein direkter Kauf.\n3. **Vertrag läuft lange:** Man ist oft an lange Verträge gebunden und hat wenig Flexibilität, das Objekt früher zurückzugeben.\n4. **Wertverlust:** Bei manchen Verträgen muss man am Ende des Leasings für den Wertverlust des Objekts aufkommen.",
+      },
+      {
+        question:
+          "Welche wichtigen Aspekte müssen bei der Preisbestimmung für einen Service berücksichtigt werden?",
+        answer:
+          "1. **Marktanalyse:** Wie hoch sind die Preise für ähnliche Dienstleistungen auf dem Markt?\n2. **Kostenstruktur:** Welche Kosten entstehen bei der Bereitstellung des Services?\n3. **Wert des Services:** Welchen Mehrwert bietet der Service dem Kunden?\n4. **Zielgruppe:** Wer ist der Kunde und welche Preisvorstellungen haben sie?\n5. **Preisstrategien:** Welche Preisstrategie wird angewendet?\n6. **Angebot und Nachfrage:** Wie hoch ist die Nachfrage nach dem Service?\n7. **Preispsychologie:** Wie beeinflussen psychologische Aspekte das Kaufverhalten?",
+      },
+      {
+        question:
+          "Welches Support-Level würde auf folgendes Beispiel zutreffen: Ein schwerwiegendes Systemproblem, das spezielle Kenntnisse über die Architektur der Software oder Hardware erfordert?",
+        answer:
+          "Dieses Problem würde dem **Third-Level-Support** zugeordnet werden, da es spezielle Kenntnisse und Expertenwissen über die Software- oder Hardware-Architektur erfordert.",
+      },
+      {
+        question: "Was ist ein Ticketsystem und welche Support-Level gibt es?",
+        answer:
+          "Ein Ticketsystem hilft bei der Organisation und Verwaltung von Anfragen und Problemen. Es gibt drei Haupt-Support-Level:\n1. **First-Level-Support:** Erste Anlaufstelle für grundlegende Probleme und Fragen.\n2. **Second-Level-Support:** Übernimmt komplexere Probleme, die vom First-Level-Support nicht gelöst werden konnten.\n3. **Third-Level-Support:** Kümmert sich um die komplexesten und technisch anspruchsvollsten Probleme.",
+      },
+      {
+        question:
+          "Was sind die typischen Aufgaben und Beispiele für die Inhalte der verschiedenen Support-Level (First-Level, Second-Level, Third-Level)?",
+        answer:
+          "Die typischen Aufgaben und Beispiele für die Inhalte der Support-Level sind:\n\n1. **First-Level-Support:**\n   - Aufgaben: Bearbeitung grundlegender Probleme und Fragen.\n   - Beispiel: Zurücksetzen von Passwörtern und Behebung einfacher Softwareprobleme.\n\n2. **Second-Level-Support:**\n   - Aufgaben: Übernahme komplexerer Probleme, die vom First-Level-Support nicht gelöst werden konnten. Oft arbeiten hier Spezialisten mit tiefergehenden technischen Kenntnissen.\n   - Beispiel: Analyse spezifischer Softwarefehler, die der First-Level-Support nicht lösen konnte.\n\n3. **Third-Level-Support:**\n   - Aufgaben: Bearbeitung der komplexesten und technisch anspruchsvollsten Probleme. Erfordert tiefgehendes Wissen und Expertenkenntnisse.\n   - Beispiel: Lösung schwerwiegender Systemprobleme, die spezielle Kenntnisse über die Software- oder Hardware-Architektur erfordern.",
+      },
+      {
+        question: "Welche Vorteile hat eine zentrale IT-Infrastruktur?",
+        answer:
+          "Die Vorteile einer zentralen IT-Infrastruktur sind: \n\n1. **Bessere Kontrolle**: Alle Daten und Systeme werden an einem Ort verwaltet, was die Überwachung und Pflege erleichtert. \n2. **Kosteneffizienz**: Durch zentrale Verwaltung kann man Kosten bei der Hardware und Softwarelizenzen einsparen. \n3. **Sicherheit**: Zentrale Systeme bieten besseren Schutz vor Bedrohungen durch einfachere Implementierung von Sicherheitsmaßnahmen. \n4. **Weniger Ausfälle**: Ausfälle können schneller behoben werden, da alle Systeme zentral verwaltet werden. \n5. **Bessere Skalierbarkeit**: Die IT-Infrastruktur kann leichter erweitert werden.",
+      },
+      {
+        question: "Wie konvertiert man Bit in Byte?",
+        answer:
+          "Um Bit in Byte zu konvertieren, teilt man die Anzahl der Bit durch 8, da 1 Byte gleich 8 Bit ist.\nBeispiel: 16.000 Bit / 8 = 2.000 Byte.",
+      },
+      {
+        question: "Wie konvertiert man TiB in GB?",
+        answer:
+          "Um TiB (Tebibyte) in GB (Gigabyte) zu konvertieren, multipliziert man die Anzahl der TiB mit 1.024, da 1 TiB gleich 1.024 GiB (Gibibyte) ist, und dann multipliziert man die GiB mit 1.024, um GB zu erhalten, da 1 GiB gleich 1.024 MB ist und 1 MB gleich 1.024 KB ist und 1 KB gleich 1.024 Byte ist und 1 Byte gleich 1 Byte ist.\nBeispiel: 1 TiB = 1.024 GiB und 1.024 GiB x 1.024 MB/GiB = 1.048.576 MB und 1.048.576 MB x 1.024 KB/MB = 1.073.741.824 KB und 1.073.741.824 KB x 1.024 Byte/KB = 1.099.511.627.776 Byte und 1.099.511.627.776 Byte / 1.000.000.000 Byte/GB = 1.099,51 GB.",
+      },
+      {
+        question: "Wie konvertiert man Gigabyte (GB) in Terabyte (TB)?",
+        answer:
+          "Um Gigabyte (GB) in Terabyte (TB) zu konvertieren, teilt man die Anzahl der Gigabyte durch 1.024, da 1 TB gleich 1.024 GB ist.\nBeispiel: 2.048 GB / 1.024 = 2 TB.",
+      },
+      {
+        question: "Wie konvertiert man Byte in Bit?",
+        answer:
+          "Um Byte in Bit zu konvertieren, multipliziert man die Anzahl der Byte mit 8, da 1 Byte gleich 8 Bit ist.\nBeispiel: 2.000 Byte x 8 = 16.000 Bit.",
+      },
+      {
+        question: "Wie konvertiert man Petabyte (PB) in Terabyte (TB)?",
+        answer:
+          "Um Petabyte (PB) in Terabyte (TB) zu konvertieren, multipliziert man die Anzahl der Petabyte mit 1.024, da 1 PB gleich 1.024 TB ist.\nBeispiel: 2 PB x 1.024 = 2.048 TB.",
+      },
+      {
+        question: "Wie konvertiert man Terabyte (TB) in Megabyte (MB)?",
+        answer:
+          "Um Terabyte (TB) in Megabyte (MB) zu konvertieren, multipliziert man die Anzahl der Terabyte mit 1.024.000, da 1 TB gleich 1.024 MB x 1.024 MB ist.\nBeispiel: 1 TB x 1.024 x 1.024 = 1.048.576 MB.",
+      },
+      {
+        question: "Was ist SaaS (Software as a Service)?",
+        answer:
+          "SaaS (Software as a Service) ist ein Cloud-Computing-Modell, bei dem Software über das Internet bereitgestellt wird. Anstatt Software lokal auf dem Computer zu installieren, greifen Benutzer über einen Webbrowser darauf zu. Beispiele für SaaS-Anwendungen sind Google Workspace, Microsoft Office 365 und Salesforce.",
+      },
+      {
+        question: "Was ist PaaS (Platform as a Service)?",
+        answer:
+          "PaaS (Platform as a Service) ist ein Cloud-Computing-Modell, das Entwicklern eine Plattform bietet, um Anwendungen zu erstellen, zu testen und bereitzustellen, ohne sich um die zugrunde liegende Infrastruktur kümmern zu müssen. Beispiele für PaaS-Dienste sind Google App Engine, Microsoft Azure und Heroku.",
+      },
+      {
+        question:
+          "Erstelle einen Pseudocode, um die Summe der Zahlen von 1 bis 10 zu berechnen.",
+        answer:
+          "Hier ist ein Beispiel für den Pseudocode, um die Summe der Zahlen von 1 bis 10 zu berechnen:\n\n1. **START**: Beginn des Algorithmus.\n2. **SETZE summe AUF 0**: Initialisiere die Variable zur Speicherung der Summe.\n3. **SETZE i AUF 1**: Initialisiere die Schleifenvariable.\n4. **SOLANGE i <= 10**: Wiederhole die folgenden Schritte, solange i kleiner oder gleich 10 ist.\n   - **SETZE summe AUF summe + i**: Füge i zur Summe hinzu.\n   - **SETZE i AUF i + 1**: Erhöhe die Schleifenvariable.\n5. **ENDE SOLANGE**: Beende die Schleife.\n6. **GIB summe AUS**: Gib die berechnete Summe aus.\n7. **ENDE**: Ende des Algorithmus.\n\nHier ein Beispiel für den Pseudocode:\n\n```\nSTART\nSETZE summe AUF 0\nSETZE i AUF 1\nSOLANGE i <= 10\n  SETZE summe AUF summe + i\n  SETZE i AUF i + 1\nENDE SOLANGE\nGIB summe AUS\nENDE\n```",
+      },
+      {
+        question:
+          "Schreibe einen Pseudocode, der überprüft, ob eine Zahl zwischen 1 und 100 liegt. Gib eine entsprechende Nachricht aus.",
+        answer:
+          'Hier ist ein Beispiel für den Pseudocode, um zu überprüfen, ob eine Zahl zwischen 1 und 100 liegt:\n\n1. **START**: Beginn des Algorithmus.\n2. **SETZE zahl AUF 50**: Initialisiere die Variable mit einer Zahl.\n3. **FALLS zahl <= 1 UND zahl &lt;= 100**: Überprüfe, ob die Zahl im Bereich von 1 bis 100 liegt.\n   - **GIB "Zahl liegt im Bereich" AUS**: Gib eine Nachricht aus, wenn die Bedingung erfüllt ist.\n   - **SONST**: Falls die Zahl außerhalb des Bereichs liegt.\n     - **GIB "Zahl liegt außerhalb des Bereichs" AUS**: Gib eine Nachricht aus.\n4. **ENDE FALLS**: Beende die Bedingung.\n5. **ENDE**: Ende des Algorithmus.\n\nHier ein Beispiel für den Pseudocode:\n\n```\nSTART\nSETZE zahl AUF 50\nFALLS zahl <= 1 UND zahl &lt;= 100\n  GIB "Zahl liegt im Bereich" AUS\nSONST\n  GIB "Zahl liegt außerhalb des Bereichs" AUS\nENDE FALLS\nENDE\n```',
+      },
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerElement = document.getElementById("answer");
+    const showAnswerButton = document.getElementById("showAnswer");
+    const nextQuestionButton = document.getElementById("nextQuestion");
+    const clearTextButton = document.getElementById("clearTextButton");
+    const userInput = document.getElementById(
+      "userInput"
+    ) as HTMLTextAreaElement;
+    let currentQuestionIndex = 0;
+
+    // Function to display question
+    async function displayQuestion(index) {
+      const { question, answer } = questions[index];
+      questionElement.textContent = question;
+      // Handle async if `marked` returns a Promise
+      answerElement.innerHTML = await marked.parse(answer); // Convert Markdown to HTML
+      answerElement.classList.add("hidden");
+
+      // Clear the textarea when a new question is displayed
+      userInput.value = "";
+    }
+
+    // Show the answer
+    showAnswerButton.addEventListener("click", () => {
+      answerElement.classList.remove("hidden");
+    });
+
+    // Move to the next question
+    nextQuestionButton.addEventListener("click", () => {
+      currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+      displayQuestion(currentQuestionIndex);
+    });
+
+    // Clear the textarea manually
+    clearTextButton.addEventListener("click", () => {
+      userInput.value = "";
+    });
+
+    // Initialize first question
+    displayQuestion(currentQuestionIndex);
+  </script>
+</BaseLayout>

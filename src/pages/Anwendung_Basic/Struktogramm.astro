@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Was ist ein Strukturdiagramm?
+    </h1>
+    <p class="mb-8 max-w-4xl">
+      Ein Strukturdiagramm ist ein grafisches Werkzeug zur Darstellung der
+      Struktur und Logik eines Programms oder Systems. Es zeigt die
+      hierarchische Beziehung und die Beziehungen zwischen verschiedenen
+      Komponenten oder Modulen eines Systems. Strukturdiagramme helfen dabei,
+      die Übersicht über ein System zu behalten und die Struktur von Programmen
+      visuell zu planen.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          Wichtige Merkmale von Strukturdiagrammen
+        </h2>
+        <ul class="list-decimal list-inside pl-6 space-y-2">
+          <li>
+            <strong>Hierarchische Darstellung</strong>: Zeigt die hierarchische
+            Struktur von Modulen oder Komponenten.
+          </li>
+          <li>
+            <strong>Visuelle Planung</strong>: Hilft bei der visuellen Planung
+            und Organisation von Programmen oder Systemen.
+          </li>
+          <li>
+            <strong>Modularität</strong>: Unterstützt die Darstellung der
+            Modularität und der Beziehungen zwischen verschiedenen Teilen eines
+            Systems.
+          </li>
+          <li>
+            <strong>Verbesserte Verständlichkeit</strong>: Erleichtert das
+            Verständnis komplexer Systeme durch eine klare grafische
+            Darstellung.
+          </li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          Beispiel: Strukturdiagramm für eine einfache Aufgabe
+        </h2>
+        <p class="mb-4">
+          Bestellungen hat die TESTAFER GmbH bisher in einer CSV-Datei
+          gespeichert. Diese sollen aber zuküntig in einer Datenbank gespeichert
+          werden. Dabei sollen auch alle Bestellungen ab dem Jahr 2021 gezählt
+          werden.
+        </p>
+        <img
+          src="/Struktogramm.png"
+          alt="Strukturdiagramm für die Berechnung der Summe"
+          class="w-full max-w-4xl"
+        />
+        <p class="mt-4">
+          In diesem Strukturdiagramm wird gezeigt, wie das Hauptprogramm die
+          Variable <strong>i</strong> initialisiert und dann eine Schleife ausführt,
+          um die Werte von <strong>i</strong> auszugeben und zu erhöhen. Die Schleife
+          endet, wenn <strong>i</strong> den Wert 5 überschreitet.
+        </p>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Vorteile von Strukturdiagrammen</h2>
+        <ul class="list-disc pl-4 space-y-2">
+          <li>
+            Erleichtert die visuelle Planung und Organisation von Programmen.
+          </li>
+          <li>
+            Hilft dabei, komplexe Systeme durch klare grafische Darstellung zu
+            verstehen.
+          </li>
+          <li>
+            Fördert die Modularität und Strukturierung von Programmen oder
+            Systemen.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

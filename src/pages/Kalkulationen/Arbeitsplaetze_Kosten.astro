@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Kostenberechnung der CAD-Arbeitsplätze
+    </h1>
+
+    <p class="mb-8 max-w-4xl">
+      Eine Firma mit 6 Arbeitsplätzen legt folgendes Angebot vor:
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Angebotene Kosten</h2>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b">
+              <th class="text-left p-2">Posten</th>
+              <th class="text-left p-2">Kosten (EUR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-2">Monitor</td>
+              <td class="p-2">500</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">PC</td>
+              <td class="p-2">850</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Software Leasing (pro Monat und Arbeitsplatz)</td>
+              <td class="p-2">55</td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-2">Wartungspauschale (pro Jahr für alle Geräte)</td>
+              <td class="p-2">1500</td>
+            </tr>
+            <tr>
+              <td class="p-2">Rabatt auf PC und Monitor</td>
+              <td class="p-2">7%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="border-t mb-1">
+          Die Berechnung erfolgt auf Basis der folgenden Annahmen:
+        </p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Nutzungsdauer der Monitore: 4 Jahre (48 Monate)</li>
+          <li>Nutzungsdauer der PCs: 3 Jahre (36 Monate)</li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          Berechnung der laufenden Kosten pro Monat
+        </h2>
+
+        <h3 class="text-lg font-semibold mb-2">
+          Gesamtkosten für Monitore und PCs
+        </h3>
+        <p>Gesamtkosten für Monitore: 500 EUR × 6 = 3000 EUR</p>
+        <p>Gesamtkosten für PCs: 850 EUR × 6 = 5100 EUR</p>
+
+        <h3 class="text-lg font-semibold mb-2">Rabatt auf Monitore und PCs</h3>
+        <p>Rabatt auf Monitore: 3000 EUR × 0.07 = 210 EUR</p>
+        <p>Kosten nach Rabatt Monitore: 3000 EUR - 210 EUR = 2790 EUR</p>
+        <p>Rabatt auf PCs: 5100 EUR × 0.07 = 357 EUR</p>
+        <p>Kosten nach Rabatt PCs: 5100 EUR - 357 EUR = 4743 EUR</p>
+
+        <h3 class="text-lg font-semibold mb-2">Monatliche Abschreibung</h3>
+        <p>
+          Monatliche Abschreibung der Monitore: 2790 EUR / 48 Monate = 58.13
+          EUR/Monat
+        </p>
+        <p>
+          Monatliche Abschreibung der PCs: 4743 EUR / 36 Monate = 131.75
+          EUR/Monat
+        </p>
+
+        <h3 class="text-lg font-semibold mb-2">
+          Kosten für Software Leasing und Wartungspauschale
+        </h3>
+        <p>
+          Kosten für Software Leasing (für 6 Arbeitsplätze): 55 EUR × 6 = 330
+          EUR/Monat
+        </p>
+        <p>
+          Monatliche Wartungspauschale: 1500 EUR / 12 Monate = 125 EUR/Monat
+        </p>
+
+        <h3 class="text-lg font-semibold mb-2">Gesamtkosten pro Monat</h3>
+        <p>
+          Gesamtkosten monatlich: 58.13 EUR (Monitore) + 131.75 EUR (PCs) + 330
+          EUR (Software Leasing) + 125 EUR (Wartungspauschale) = <span
+            class="bg-green-400 px-1">644.88 EUR</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

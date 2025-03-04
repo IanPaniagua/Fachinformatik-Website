@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl
+font-bold mb-6 text-center">
+      Prozeduren vs. Funktionen
+    </h1>
+    <p class="mb-8 max-w-3xl text-left px-4">
+      In der Programmierung gibt es zwei grundlegende Konzepte: Prozeduren und
+      Funktionen. Beide dienen dazu, den Code in kleinere, wiederverwendbare
+      Abschnitte zu unterteilen, um Aufgaben effizient zu organisieren. Doch was
+      unterscheidet sie genau, und welche Programmiersprachen nutzen sie mehr?
+    </p>
+    <div class="max-w-3xl w-full px-4">
+      <h2 class="text-xl font-bold mb-4">Was ist eine Prozedur?</h2>
+      <p class="mb-4">
+        Eine <strong>Prozedur</strong> ist eine Abfolge von Anweisungen, die nacheinander
+        ausgeführt werden, um eine bestimmte Aufgabe zu erfüllen. Sie gibt typischerweise
+        keinen Wert zurück, sondern führt nur eine Aktion aus. Prozeduren sind besonders
+        in prozeduralen Programmiersprachen wie <strong>Pascal</strong>
+        oder <strong>Basic</strong> üblich, wo der Fokus auf der Ausführung von Schritten
+        liegt.
+      </p>
+      <p>
+        <em>Beispiel:</em> In Pascal: <pre
+          class="bg-gray-100
+rounded-md p-4 mt-2"><code> procedure Begrüßung; begin writeln('Hallo,
+willkommen!'); end; </code></pre>
+      </p>
+      <p class="mt-4">
+        Hier zeigt die Prozedur
+        <code>Begrüßung</code> eine Begrüßungsnachricht an, gibt jedoch keinen Wert
+        zurück.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl
+font-bold mb-4">Was ist eine Funktion?</h2>
+      <p class="mb-4">
+        Eine
+        <strong>Funktion</strong> ist ähnlich wie eine Prozedur, jedoch gibt sie
+        nach der Ausführung einen Wert zurück. Funktionen sind weit verbreitet in
+        Sprachen wie <strong>Python</strong>, <strong>JavaScript</strong> und
+        <strong>C++</strong>, wo es wichtig ist, dass Berechnungen oder
+        Operationen ein Ergebnis liefern, das weiterverwendet werden kann.
+      </p>
+      <p>
+        <em>Beispiel:</em>
+        In Python: <pre
+          class="bg-gray-100 rounded-md p-4 mt-2"><code> def addiere(a,
+b): return a + b </code></pre>
+      </p>
+      <p class="mt-4">
+        Die Funktion
+        <code>addiere</code> nimmt zwei Zahlen als Eingabe und gibt deren Summe zurück.
+        Das Ergebnis kann in anderen Teilen des Codes verwendet werden.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl font-bold
+mb-4">
+        Unterschiede zwischen Prozeduren und Funktionen
+      </h2>
+      <ul class="list-disc
+pl-6 space-y-2">
+        <li>
+          <strong>Rückgabewert:</strong> Prozeduren geben keinen Wert zurück, Funktionen
+          hingegen liefern nach der Ausführung einen Wert.
+        </li>
+        <li>
+          <strong>Verwendung:</strong> Prozeduren sind ideal für Abläufe, die keine
+          Berechnungsergebnisse benötigen, z. B. für die Anzeige von Text. Funktionen
+          hingegen werden oft für Berechnungen oder zur Verarbeitung von Daten genutzt.
+        </li>
+        <li>
+          <strong>Typische Programmiersprachen:</strong> Sprachen wie Pascal und
+          Basic nutzen häufig Prozeduren. Python, JavaScript und C++ legen mehr Wert
+          auf Funktionen, da diese Sprachen oft datenverarbeitende Aufgaben ausführen.
+        </li>
+      </ul>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl
+font-bold mb-4">
+        Warum nutzen manche Sprachen mehr Prozeduren und andere mehr Funktionen?
+      </h2>
+      <p class="mb-4">
+        In älteren prozeduralen Programmiersprachen wie <strong>Pascal</strong> und
+        <strong>Basic</strong> ist das Konzept der Prozedur stärker verankert. Diese
+        Sprachen sind so konzipiert, dass sie Schritt-für-Schritt-Anweisungen ausführen
+        und weniger auf Rückgabewerte angewiesen sind. In moderneren Sprachen wie
+        <strong>Python</strong> und
+        <strong>JavaScript</strong> werden jedoch Funktionen bevorzugt, da diese
+        flexibler sind und Ergebnisse liefern, die für komplexe Berechnungen und
+        Datenverarbeitung weiterverwendet werden können.
+      </p>
+      <p>
+        Auch die funktionale Programmierung, die besonders in Sprachen wie <strong
+          >Haskell</strong
+        > und
+        <strong>Scala</strong> verbreitet ist, setzt auf Funktionen ohne Seiteneffekte,
+        die immer einen Rückgabewert haben. Dies macht den Code leichter verständlich
+        und reduziert Fehlerquellen.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full px-4
+mt-8">
+      <h2 class="text-xl font-bold mb-2">Zusammenfassung</h2>
+      <p>
+        Prozeduren und Funktionen sind zwei wichtige Bausteine in der
+        Programmierung. Während Prozeduren einfache Abläufe steuern, die keinen
+        Wert zurückgeben, sind Funktionen ideal für Berechnungen und die
+        Rückgabe von Ergebnissen. Die Wahl zwischen Prozedur und Funktion hängt
+        stark von der Programmiersprache und den spezifischen Anforderungen des
+        Projekts ab.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

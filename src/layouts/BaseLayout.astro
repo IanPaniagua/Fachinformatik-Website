@@ -1,0 +1,231 @@
+---
+const themes = [
+  {
+    name: "Projektmanagement",
+    subthemes: [
+      { name: "Projekt Merkmale", path: "/Projekmanagement/Projekt_Merkmale" },
+      { name: "SMART-Ziele", path: "/Projekmanagement/Smart" },
+      { name: "Scrum", path: "/Projekmanagement/Scrum" },
+      { name: "Kanban", path: "/Projekmanagement/Kanban" },
+      { name: "Projektschritte", path: "/Projekmanagement/Projektschritte" },
+      { name: "Stakeholder", path: "/Projekmanagement/Stakeholder" },
+    ],
+  },
+  {
+    name: "Sicherheit",
+    subthemes: [
+      { name: "Passwort Kriterien", path: "/Sicherheit/Passwort" },
+      { name: "Datenschutz", path: "/Sicherheit/Datenschutz" },
+      { name: "VPN", path: "/Sicherheit/VPN" },
+      { name: "Personalbezogenendaten", path: "/Sicherheit/Personalbezogenendaten" },
+      { name: "USV", path: "/Sicherheit/USV" },
+      { name: "Firewall vs Mallware", path: "/Sicherheit/Firewall_vs_Mallware" },
+      { name: "Härtung", path: "/Sicherheit/Haertung" },
+      { name: "Gruppenrichtlinien", path: "/Sicherheit/Gruppenrichtlinien" },
+    ],
+  },
+  {
+    name: "Systemintegration",
+    subthemes: [
+      { name: "RAID", path: "/Systemintegration/RAID" },
+      { name: "JBOD", path: "/Systemintegration/JBOD" },
+      { name: "SSD vs Festplatten", path: "/Systemintegration/SSD_vs_Festplatten" },
+      { name: "SAN vs NAS", path: "/Systemintegration/SAN_vs_NAS" },
+      { name: "Logische Prozessoren", path: "/Systemintegration/Logische_Prozessoren" },
+      { name: "Cache", path: "/Systemintegration/Cache" },
+      { name: "OSI Modells", path: "/Systemintegration/OSI_Modells" },
+      { name: "IPV4 vs IPV6", path: "/Systemintegration/IPV4_vs_IPV6" },
+      { name: "Netzwerk Kommandos", path: "/Systemintegration/Netzwerk_Kommandos" },
+      { name: "ADSL vs SDSL", path: "/Systemintegration/ADSL_vs_SDSL" },
+      { name: "PC Modells", path: "/Systemintegration/PC_Modells" },
+      { name: "BIOS vs UEFI", path: "/Systemintegration/BIOS_vs_UEFI" },
+      { name: "Router vs Switch", path: "/Systemintegration/Router_vs_Switch" },
+      { name: "Zentrale IT-Infrastuktur", path: "/Systemintegration/Zentrale_IT-Infrastuktur" },
+      { name: "CMS vs DMS", path: "/Systemintegration/CMS_vs_DMS" },
+      { name: "SaaS vs PaaS", path: "/Systemintegration/SaaS_vs_PaaS" },
+      { name: "OSI Problemloesung", path: "/Systemintegration/OSI_Problemloesung" },
+      { name: "OSI VLAN", path: "/Systemintegration/VLAN" },
+    ],
+  },
+  {
+    name: "Wirtschaft",
+    subthemes: [
+      { name: "Lastenheft", path: "/Wirtschaft/Lastenheft" },
+      { name: "Service Preis Bestimmung", path: "/Wirtschaft/Service_Preis_Bestimmung" },
+      { name: "Bedarfsanalyse Kunden", path: "/Wirtschaft/Bedarfsanalyse_Kunden" },
+      { name: "4-Ohren-Modell", path: "/Wirtschaft/4-Ohren-Modell" },
+      { name: "Ticketsystems", path: "/Wirtschaft/Ticketsystems" },
+      { name: "Kaufvertrag", path: "/Wirtschaft/Kaufvertrag" },
+      { name: "Leasing", path: "/Wirtschaft/Leasing" },
+    ],
+  },
+  {
+    name: "SQL",
+    subthemes: [
+      { name: "SQL Basic", path: "/SQL/SQL_Basic" },
+      { name: "SQL API2", path: "/SQL/SQL_API2" },
+    ],
+  },
+  {
+    name: "Kalkulationen",
+    subthemes: [
+      { name: "Datenvolumenberechnung", path: "/Kalkulationen/Datenvolumenberechnung" },
+      { name: "Ticketsystem Kosten", path: "/Kalkulationen/Ticketsystem_Kosten" },
+      { name: "Arbeitsplätze Kosten", path: "/Kalkulationen/Arbeitsplaetze_Kosten" },
+      { name: "Speichbedarf Berechnung", path: "/Kalkulationen/Speichbedarf_Berechnung" },
+      { name: "Zahlensysteme", path: "/Kalkulationen/Zahlensysteme" },
+      { name: "Stromkosten Berechnung", path: "/Kalkulationen/Stromkosten_Berechnung" },
+      { name: "Übertragunsdauer", path: "/Kalkulationen/Übertragunsdauer" },
+    ],
+  },
+
+  {
+    name: "Anwendung_Basic",
+    subthemes: [
+      { name: "Pseudocode", path: "/Anwendung_Basic/Pseudocode" },
+      { name: "Struktogramm", path: "/Anwendung_Basic/Struktogramm" },
+    ],
+  },
+  {
+    name: "PRACTICE",
+    subthemes: [
+      { name: "Practice", path: "/PRACTICE/Practice" },
+    ],
+  }
+];
+
+const themesPI2 = [
+{
+    name: "WISO",
+    subthemes: [
+      { name: "Mutterschutz", path: "/Wirtschaft_API2/Mutterschutz" },
+      { name: "Bewerbung", path: "/Wirtschaft_API2/Bewerbung" },
+      { name: "Mindesturlaub", path: "/Wirtschaft_API2/Mindesturlaub" },
+      { name: "Arbeitszeugnis", path: "/Wirtschaft_API2/Arbeitszeugnis" },
+      { name: "Betriebsrats", path: "/Wirtschaft_API2/Betriebsrats" },
+      { name: "Arbeitslosengeld", path: "/Wirtschaft_API2/Arbeitslosengeld" },
+      { name: "Wirtschaftsformen", path: "/Wirtschaft_API2/Wirtschaftsformen" },
+    ],
+  },
+  {
+    name: "Diagramm",
+    subthemes: [
+      { name: "Gantt Diagramm", path: "/Diagramm/Gantt_Diagramm" },
+      { name: "UML-Klassenhierarchie", path: "/Diagramm/UML-Klassenhierarchie" },
+      { name: "UML-Anwendungsfalldiagramm", path: "/Diagramm/UML-Anwendungsfalldiagramm" },
+    ],
+  },
+  {
+    name: "Programme",
+    subthemes: [
+      { name: "Programmierparadigmen", path: "/Programme/Programmierparadigmen" },
+      { name: "Prozedure vs Funktion", path: "/Programme/Prozedure_vs_Funktion" },
+      { name: "Imperativ vs Deklarativ", path: "/Programme/Imperativ_vs_Deklarativ" },
+    ],
+  },
+  {
+    name: "OPP",
+    subthemes: [
+      { name: "OPP", path: "/OPP/OPP" },
+    ],
+  },
+  {
+    name: "Algorithmen",
+    subthemes: [
+      { name: "Algorithmen Grundlagen", path: "/Algorithmen/Algorithmen_Grundlagen" },
+      { name: "Insertion Sort", path: "/Algorithmen/Insertion_Sort" },
+    ],
+  },
+  
+]
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/global.css">
+    <title>Fachinformatiker Prüfungsvorbereitung</title>
+    <style>
+      /* Custom scrollbar styles for the main content area */
+      .scrollable {
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #4a5568 #2d3748; /* Firefox */
+      }
+
+      .scrollable::-webkit-scrollbar {
+        width: 8px; /* Chrome, Safari, and Edge */
+      }
+
+      .scrollable::-webkit-scrollbar-track {
+        background: #2d3748;
+      }
+
+      .scrollable::-webkit-scrollbar-thumb {
+        background-color: #4a5568;
+        border-radius: 10px;
+        border: 2px solid #2d3748;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-gray-500 text-white p-4 text-center z-10">
+      <h1 class="text-xl font-bold">Fachinformatiker Prüfungsvorbereitung</h1>
+    </header>
+
+    <div class="flex flex-1 mt-16">
+      <!-- Left Sidebar -->
+      <aside class="fixed top-16 left-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto z-10">
+        <h2 class="text-xl font-bold mb-4">Prüfung Themen</h2>
+        <h3 class="text-xl font-bold mb-4 bg-gray-400 rounded-lg pl-2">API 1</h3>
+        <nav>
+          {themes.map((theme) => (
+            <details class="mb-2">
+              <!-- Theme as accordion -->
+              <summary class="cursor-pointer font-bold">{theme.name}</summary>
+              {theme.subthemes.map((subtheme) => (
+                <a href={subtheme.path} class="block p-2 hover:bg-gray-700 pl-6">
+                  {subtheme.name}
+                </a>
+              ))}
+            </details>
+          ))}
+        </nav>
+        <h3 class="text-xl font-bold mb-4 bg-gray-400 rounded-lg pl-2 mt-1"> API 2</h3>
+        <nav>
+          {themesPI2.map((themeAPI2) => (
+            <details class="mb-2">
+              <!-- Theme as accordion -->
+              <summary class="cursor-pointer font-bold">{themeAPI2.name}</summary>
+              {themeAPI2.subthemes.map((subtheme) => (
+                <a href={subtheme.path} class="block p-2 hover:bg-gray-700 pl-6">
+                  {subtheme.name}
+                </a>
+              ))}
+            </details>
+          ))}
+        </nav>
+      </aside>
+
+      <!-- Main content area -->
+      <main class="flex-1 ml-64 mr-64 p-8 scrollable">
+          <!-- Mensaje para pantallas pequeñas -->
+  <div class="fixed inset-0 flex items-center justify-center bg-yellow-200 text-gray-800 p-4 text-center text-lg font-bold md:hidden z-20">
+    <p>Diese Webseite ist momentan nicht responsiv. Bitte öffnen Sie sie auf einem größeren Bildschirm.</p>
+  </div>
+        <slot />
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="fixed top-16 right-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto">
+        
+        <a href="/PRACTICE/Practice" class="block bg-gray-500 text-white p-4 rounded-lg text-center text-lg font-semibold hover:bg-gray-400">Übungen API 1</a>
+        <a href="/PRACTICE/Practice_API2" class="block bg-gray-500 text-white p-4 mt-4 rounded-lg text-center text-lg font-semibold hover:bg-gray-400">Übungen API 2</a>
+      </aside>
+    </div>
+  </body>
+</html>

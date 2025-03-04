@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">UEFI und BIOS</h1>
+    <p class="mb-8 max-w-4xl">
+      UEFI (Unified Extensible Firmware Interface) und BIOS (Basic Input/Output
+      System) sind zwei grundlegende Technologien, die den Start eines Computers
+      steuern. Beide sind dafür verantwortlich, die Hardware zu initialisieren
+      und das Betriebssystem zu laden.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">BIOS (Basic Input/Output System)</h2>
+        <p>
+          BIOS ist die ältere Technologie, die seit den 1980er Jahren verwendet
+          wird. Es führt beim Start des Computers einen sogenannten POST-Test
+          (Power-On Self Test) durch, um die Hardware zu überprüfen. Nach diesem
+          Test lädt es das Betriebssystem von der Festplatte.
+        </p>
+        <p class="mt-2">
+          <strong>Vorteil:</strong> BIOS ist einfach und funktioniert gut mit älterer
+          Hardware.
+        </p>
+        <p class="mt-2">
+          <strong>Nachteil:</strong> BIOS unterstützt keine großen Festplatten (größer
+          als 2 TB) und ist langsamer beim Starten.
+        </p>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          UEFI (Unified Extensible Firmware Interface)
+        </h2>
+        <p>
+          UEFI ist der moderne Nachfolger des BIOS. Es bietet eine grafische
+          Benutzeroberfläche und unterstützt größere Festplatten sowie
+          schnellere Startzeiten. UEFI hat zudem zusätzliche
+          Sicherheitsfunktionen, wie „Secure Boot“, das sicherstellt, dass nur
+          vertrauenswürdige Software beim Start geladen wird.
+        </p>
+        <p class="mt-2">
+          <strong>Vorteil:</strong> UEFI unterstützt große Festplatten, startet schneller
+          und bietet moderne Sicherheitsfunktionen.
+        </p>
+        <p class="mt-2">
+          <strong>Nachteil:</strong> UEFI kann komplexer sein und erfordert in manchen
+          Fällen eine neuere Hardware.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

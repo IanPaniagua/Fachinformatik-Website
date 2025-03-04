@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      UML-Anwendungsfalldiagramm
+    </h1>
+
+    <p class="mb-8 max-w-4xl">
+      Ein UML-Anwendungsfalldiagramm <strong>(Use Case Diagram) </strong>ist ein
+      visuelles Modell, das die Interaktionen zwischen Benutzern (auch als
+      Akteure bezeichnet) und einem System zeigt. Es hilft dabei, die
+      funktionalen Anforderungen eines Systems zu verstehen und darzustellen,
+      wie verschiedene Benutzergruppen mit den verschiedenen Funktionen oder
+      Prozessen des Systems interagieren.
+    </p>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      Wichtige Bestandteile eines Anwendungsfalldiagramms
+    </h2>
+    <ul class="list-none pl-6 space-y-4 max-w-4xl">
+      <li>
+        <strong>Akteure</strong>: Personen oder Systeme, die mit dem System
+        interagieren. Sie können Benutzer oder andere Systeme sein.
+      </li>
+      <li>
+        <strong>Anwendungsfälle (Use Cases)</strong>: Beschreiben bestimmte
+        Funktionen oder Aktionen, die das System ausführen soll. Diese werden in
+        ovalen Formen dargestellt.
+      </li>
+      <li>
+        <strong>Systemgrenze</strong>: Zeigt den Umfang des Systems und trennt
+        die Anwendungsfälle vom äußeren Umfeld.
+      </li>
+      <li>
+        <strong>Beziehungen</strong>: Verbindungen zwischen Akteuren und
+        Anwendungsfällen, die zeigen, wie die Interaktionen ablaufen. Diese
+        werden mit Linien dargestellt.
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      Vorteile eines Anwendungsfalldiagramms
+    </h2>
+    <div class="grid grid-cols-2 gap-4 max-w-4xl w-full">
+      <div class="border border-gray-300 p-4">
+        <h3 class="text-lg text-center font-semibold mb-2">Vorteile</h3>
+        <ul class="list-disc pl-4 space-y-2">
+          <li>
+            Einfach zu verstehen, auch für Personen ohne technische Kenntnisse.
+          </li>
+          <li>Zeigt klar, welche Anforderungen ein System erfüllen soll.</li>
+          <li>
+            Hilft bei der Identifizierung der Rollen und Verantwortlichkeiten
+            der Akteure.
+          </li>
+          <li>
+            Fördert eine bessere Kommunikation zwischen Entwicklern und
+            Stakeholdern.
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4">
+        <h3 class="text-lg text-center font-semibold mb-2">Nachteile</h3>
+        <ul class="list-disc pl-4 space-y-2">
+          <li>
+            Zeigt keine technischen Details oder inneren Abläufe des Systems.
+          </li>
+          <li>Kann bei komplexen Systemen schwer zu verwalten sein.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      Beispiel eines UML-Anwendungsfalldiagramms
+    </h2>
+
+    <p class="mb-8 max-w-4xl">
+      Die OptiSoft-XXL Gmbh möchte ihre Servicequalität verbessern. Der
+      bestehende Prozess zeigt Schwachstellen. Zuerst unterziehen Sie den
+      Prozess der Störungsmeldungen einer Ist-Analyse. Hierzu erhalten Sie von
+      der IT-Abteilung die folgenden Informationen:
+    </p>
+
+    <ul class="list-disc list-inside max-w-4xl mb-8">
+      <li>Kunden senden Störungsmeldungen</li>
+      <li>Die Störungsmeldungen werden von der IT-Abteilung erfasst</li>
+      <li>
+        Die IT-Abteilung erstellt die Arbeitsplanung für die kommende Woche
+        freitags. Dies beinhaltet auch immer eine Priorisierung.
+      </li>
+      <li>
+        Die Arbeitsaufträge werden vom Serviceteam bearbeitet. Dies beinhaltet
+        immer eine Rückmeldung.
+      </li>
+    </ul>
+
+    <!-- Hier würde das Bild eingefügt werden -->
+    <img
+      src="/UML-Anwendungsfalldiagramm.png"
+      alt="Beispiel UML-Anwendungsfalldiagramm"
+      class="mb-8 max-w-4xl w-full"
+    />
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      Für welche Projekte ist ein Anwendungsfalldiagramm geeignet?
+    </h2>
+    <p class="max-w-4xl">
+      Anwendungsfalldiagramme sind besonders nützlich in der frühen Phase der
+      Softwareentwicklung. Sie eignen sich für Projekte, in denen es wichtig
+      ist, die Anforderungen klar zu definieren und die Interaktionen zwischen
+      verschiedenen Benutzergruppen und dem System zu verstehen. Diese Diagramme
+      werden häufig in IT-Projekten, Webanwendungen, und in der Entwicklung von
+      Geschäftssystemen verwendet.
+    </p>
+  </div>
+</BaseLayout>

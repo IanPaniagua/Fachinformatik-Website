@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Firewall und Malware</h1>
+    <p class="mb-8 max-w-4xl">
+      In der digitalen Welt gibt es zahlreiche Bedrohungen für Computersysteme,
+      und es ist wichtig zu verstehen, wie man sich dagegen schützen kann. Zwei
+      zentrale Begriffe sind dabei die <strong>Firewall</strong> und <strong
+        >Malware</strong
+      >. Hier erfährst du, was sie sind, wie sie funktionieren und welche
+      Beispiele es gibt.
+    </p>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">Was ist eine Firewall?</h2>
+      <p class="max-w-4xl mb-4">
+        Eine Firewall ist eine Schutzmaßnahme, die den ein- und ausgehenden
+        Netzwerkverkehr überwacht und verdächtige Aktivitäten blockiert. Sie
+        agiert als eine Barriere zwischen deinem internen Netzwerk (oder Gerät)
+        und unsicheren externen Netzwerken wie dem Internet.
+      </p>
+      <h3 class="text-lg font-bold mb-2">Beispiele für Firewalls</h3>
+      <ul class="list-disc list-inside pl-6 space-y-4 max-w-4xl">
+        <li>
+          <strong>Software-Firewall</strong>: Ein Programm, das auf deinem
+          Computer installiert wird, um den Datenverkehr zu überwachen und zu
+          filtern. Beispiel: Windows Defender Firewall.
+        </li>
+        <li>
+          <strong>Hardware-Firewall</strong>: Ein physisches Gerät, das
+          Netzwerke schützt, indem es den Datenverkehr filtert, bevor er deine
+          Geräte erreicht. Beispiel: Cisco ASA (Adaptive Security Appliance).
+        </li>
+        <li>
+          <strong>Netzwerk-Firewall</strong>: Eine Firewall, die Netzwerke
+          schützt und den Verkehr zwischen dem Internet und dem internen
+          Netzwerk eines Unternehmens kontrolliert.
+        </li>
+      </ul>
+    </div>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">Was ist Malware?</h2>
+      <p class="max-w-4xl mb-4">
+        Malware, abgeleitet von „malicious software“, ist eine bösartige
+        Software, die entwickelt wurde, um Schaden anzurichten, Daten zu stehlen
+        oder die Kontrolle über ein System zu übernehmen. Malware kann auf
+        verschiedene Arten in ein System gelangen, zum Beispiel über unsichere
+        Downloads, E-Mail-Anhänge oder Schwachstellen im Netzwerk.
+      </p>
+      <h3 class="text-lg font-bold mb-2">Beispiele für Malware</h3>
+      <ul class="list-disc list-inside pl-6 space-y-4 max-w-4xl">
+        <li>
+          <strong>Trojaner</strong>: Ein Trojaner ist eine Art von Malware, die
+          sich als nützliche oder harmlos aussehende Software tarnt, um
+          unbemerkt auf einem Computer installiert zu werden. Er muss in der
+          Regel heruntergeladen und installiert werden, oft durch den Benutzer,
+          der glaubt, dass die Software sicher oder nützlich ist. Beispiel:
+          „Emotet“ Trojaner.
+        </li>
+        <li>
+          <strong>Spyware</strong>: Software, die heimlich Informationen über
+          das Nutzungsverhalten eines Benutzers sammelt und an Dritte
+          weiterleitet. Beispiel: „Keylogger“.
+        </li>
+        <li>
+          <strong>Ransomware</strong>: Malware, die Daten auf einem Computer
+          verschlüsselt und die Freigabe erst nach einer Lösegeldzahlung
+          verspricht. Beispiel: „WannaCry“ Ransomware.
+        </li>
+        <li>
+          <strong>Würmer</strong>: Malware, die sich selbstständig über
+          Netzwerke verbreitet und mehrere Systeme infizieren kann, ohne dass
+          Benutzerinteraktion erforderlich ist. Beispiel: „Blaster“ Wurm.
+        </li>
+        <li>
+          <strong>Phishing</strong>: Phishing ist eine Art von Angriff, der sich
+          auf soziale Manipulation (Social Engineering) stützt. Bei einem
+          Phishing-Angriff werden Benutzer dazu verleitet, sensible
+          Informationen preiszugeben, wie z. B. Passwörter oder
+          Kreditkarteninformationen. Diese Angriffe erfolgen häufig per E-Mail
+          oder über gefälschte Websites.
+        </li>
+      </ul>
+    </div>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">
+        Zusammenarbeit von Firewall und Antivirus
+      </h2>
+      <p class="max-w-4xl">
+        Um dein System umfassend zu schützen, arbeiten Firewalls häufig mit <strong
+          >Antivirus-Programmen</strong
+        > zusammen. Während die Firewall den unerlaubten Datenverkehr blockiert,
+        scannt das Antivirus-Programm nach schädlichen Dateien und entfernt diese.
+        Dadurch wird sichergestellt, dass sowohl der Datenverkehr als auch das System
+        vor Bedrohungen wie Malware geschützt sind.
+      </p>
+    </div>
+
+    <p class="mt-8 max-w-4xl">
+      Zusammenfassend: Eine <strong>Firewall</strong> schützt vor unerwünschten Netzwerkzugriffen,
+      während <strong>Malware</strong> bösartige Software ist, die dein System angreift.
+      Beide spielen eine zentrale Rolle in der IT-Sicherheit, und der Einsatz von
+      Firewalls, Antivirus-Software und regelmäßigem Patch-Management ist unerlässlich,
+      um moderne Bedrohungen abzuwehren.
+    </p>
+  </div>
+</BaseLayout>

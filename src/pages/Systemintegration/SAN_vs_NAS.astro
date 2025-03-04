@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">SAN vs NAS</h1>
+
+    <div class="flex flex-col md:flex-row max-w-4xl w-full">
+      <!-- SAN vs NAS Comparison Table -->
+      <div class="flex-1 border border-gray-300 p-4 mx-2 mb-4">
+        <h2 class="text-xl font-bold mb-4">SAN (Storage Area Network)</h2>
+        <ul class="list-none space-y-4">
+          <li>
+            <strong>Definition:</strong> Ein SAN ist ein Netzwerk, das speziell für
+            den Zugriff auf Speichergeräte konzipiert ist.
+          </li>
+          <li>
+            <strong>Leistung:</strong> Hohe Leistung und Geschwindigkeit durch dedizierte
+            Netzwerkverbindungen.
+          </li>
+          <li>
+            <strong>Verwendung:</strong> Wird häufig in großen Unternehmen und Rechenzentren
+            eingesetzt.
+          </li>
+          <li>
+            <strong>Flexibilität:</strong> Erlaubt den Zugriff auf Speicher über
+            verschiedene Server und Plattformen.
+          </li>
+          <li>
+            <strong>Kosten:</strong> Höhere Kosten aufgrund der spezialisierten Hardware
+            und Infrastruktur.
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-1 border border-gray-300 p-4 mx-2 mb-4">
+        <h2 class="text-xl font-bold mb-4">NAS (Network Attached Storage)</h2>
+        <ul class="list-none space-y-4">
+          <li>
+            <strong>Definition:</strong> Ein NAS ist ein Speichergerät, das über
+            ein Netzwerk zugänglich ist.
+          </li>
+          <li>
+            <strong>Leistung:</strong> Geringere Leistung im Vergleich zu SAN, da
+            es auf ein allgemeines Netzwerk zugreift.
+          </li>
+          <li>
+            <strong>Verwendung:</strong> Ideal für kleinere Unternehmen oder Heimnetzwerke.
+          </li>
+          <li>
+            <strong>Flexibilität:</strong> Einfach einzurichten und zu verwalten,
+            aber weniger flexibel als SAN.
+          </li>
+          <li>
+            <strong>Kosten:</strong> Günstiger und einfacher in der Anschaffung und
+            Verwaltung als SAN.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

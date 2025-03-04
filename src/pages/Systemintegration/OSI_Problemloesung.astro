@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Problemlösung mit dem OSI-Modell
+    </h1>
+    <p class="mb-8 max-w-4xl">
+      Das OSI-Modell hilft einem IT-Techniker, Netzwerkprobleme strukturiert zu
+      lösen. Es teilt die Kommunikation in sieben Schichten auf. Der Techniker
+      beginnt oft bei der untersten Schicht und arbeitet sich nach oben, um den
+      Fehler zu finden.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Schichten des OSI-Modells</h2>
+        <ul class="list-decimal list-inside pl-6 space-y-2">
+          <li>
+            <strong>Physikalische Schicht</strong>: Überprüfung von Hardware,
+            Kabeln und physischen Verbindungen. Lösung: Der Techniker
+            kontrolliert, ob die Kabel richtig angeschlossen sind und ob Geräte
+            wie Router oder Switches funktionieren.
+          </li>
+          <li>
+            <strong>Sicherungsschicht</strong>: Überprüfung der MAC-Adressen und
+            Netzwerk-Switches. Lösung: Der Techniker überprüft die MAC-Tabellen
+            von Switches und sucht nach Kollisionen oder Netzwerkschleifen.
+          </li>
+          <li>
+            <strong>Vermittlungsschicht</strong>: Kontrolle der IP-Adressen und
+            des Routings. Lösung: Es wird sichergestellt, dass die IP-Adressen
+            und Routing-Tabellen korrekt eingerichtet sind. Tools wie <code
+              >ping</code
+            > oder <code>traceroute</code> werden genutzt.
+          </li>
+          <li>
+            <strong>Transportschicht</strong>: Überprüfung von
+            TCP/UDP-Protokollen und Ports. Lösung: Der Techniker stellt sicher,
+            dass die richtigen Protokolle verwendet und die Ports geöffnet sind.
+          </li>
+          <li>
+            <strong>Sitzungsschicht</strong>: Kontrolle der Verbindungen
+            zwischen Anwendungen. Lösung: Es wird sichergestellt, dass Sitzungen
+            korrekt aufgebaut und verwaltet werden.
+          </li>
+          <li>
+            <strong>Darstellungsschicht</strong>: Überprüfung der Kodierung und
+            Verschlüsselung von Daten. Lösung: Der Techniker stellt sicher, dass
+            Daten richtig kodiert und entschlüsselt werden.
+          </li>
+          <li>
+            <strong>Anwendungsschicht</strong>: Kontrolle der
+            Netzwerkanwendungen und Protokolle wie HTTP, FTP, SMTP. Lösung: Der
+            Techniker prüft, ob die Anwendungen korrekt funktionieren und ob DNS
+            richtig konfiguriert ist.
+          </li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          Vorteile des OSI-Modells bei der Problemlösung
+        </h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border border-gray-300 p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-2">Vorteile</h3>
+            <ul class="list-disc pl-4 space-y-2">
+              <li>Strukturiertes Vorgehen bei der Fehlersuche.</li>
+              <li>Ermöglicht eine gezielte Eingrenzung des Problems.</li>
+              <li>
+                Jede Schicht bietet spezifische Informationen zur Fehlerursache.
+              </li>
+              <li>Kann helfen, komplexe Probleme schneller zu lösen.</li>
+            </ul>
+          </div>
+          <div class="border border-gray-300 p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-2">Nachteile</h3>
+            <ul class="list-disc pl-4 space-y-2">
+              <li>Erfordert detailliertes Wissen über Netzwerkschichten.</li>
+              <li>
+                Die Analyse kann zeitaufwendig sein, wenn viele Schichten
+                überprüft werden müssen.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold mb-2">
+          Wann wird das OSI-Modell verwendet?
+        </h2>
+        <p>
+          Das OSI-Modell wird häufig in Netzwerken eingesetzt, um
+          Kommunikationsprobleme zu identifizieren. Es wird besonders dann
+          verwendet, wenn ein Netzwerk nicht richtig funktioniert oder
+          Verbindungen unterbrochen werden. Das Modell hilft dabei, Schritt für
+          Schritt nach der Ursache des Problems zu suchen.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

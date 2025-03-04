@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">SaaS und PaaS</h1>
+    <p class="mb-8 max-w-4xl">
+      SaaS (Software as a Service) und PaaS (Platform as a Service) sind zwei
+      verschiedene Cloud-Computing-Modelle, die Unternehmen helfen, ihre
+      IT-Ressourcen effizient zu nutzen. Während SaaS Software über das Internet
+      bereitstellt, bietet PaaS eine Plattform für die Entwicklung und
+      Verwaltung von Anwendungen ohne die Notwendigkeit, die zugrunde liegende
+      Infrastruktur zu verwalten.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">SaaS (Software as a Service)</h2>
+        <p class="mb-4">
+          SaaS ermöglicht den Zugriff auf Software über das Internet, ohne dass
+          eine lokale Installation erforderlich ist. Benutzer können über einen
+          Webbrowser auf die Software zugreifen und benötigen keine eigene
+          Hardware oder Infrastruktur zur Ausführung der Anwendung.
+        </p>
+        <div class="p-4 mb-4">
+          <h3 class="text-lg font-semibold mb-2">Vorteile von SaaS</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>
+              Keine Notwendigkeit zur Installation und Wartung von Software.
+            </li>
+            <li>
+              Zugriff auf die Software von überall mit Internetverbindung.
+            </li>
+            <li>Kosteneffizient, da keine Hardware benötigt wird.</li>
+            <li>Automatische Updates und Wartung durch den Anbieter.</li>
+          </ul>
+        </div>
+        <div class="p-4 mb-4">
+          <h3 class="text-lg font-semibold mb-2">Nachteile von SaaS</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>Abhängigkeit von einer stabilen Internetverbindung.</li>
+            <li>
+              Potenzielle Sicherheitsbedenken bei der Speicherung von Daten auf
+              externen Servern.
+            </li>
+            <li>Begrenzte Anpassungsmöglichkeiten je nach Anbieter.</li>
+          </ul>
+        </div>
+        <p class="mt-2">
+          <strong>Beispiele für SaaS:</strong> Google Workspace, Microsoft Office
+          365, Salesforce. <br />
+        </p>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">PaaS (Platform as a Service)</h2>
+        <p class="mb-4">
+          PaaS bietet eine Plattform, auf der Entwickler Anwendungen erstellen,
+          testen und bereitstellen können, ohne sich um die zugrunde liegende
+          Infrastruktur kümmern zu müssen. Es bietet die notwendigen Werkzeuge
+          und Umgebungen, um die Entwicklung und Verwaltung von Anwendungen zu
+          erleichtern.
+        </p>
+        <div class="p-4 mb-4">
+          <h3 class="text-lg font-semibold mb-2">Vorteile von PaaS</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>
+              Entwickler können sich auf die Entwicklung von Anwendungen
+              konzentrieren, ohne sich um die Infrastruktur kümmern zu müssen.
+            </li>
+            <li>Skalierbarkeit und Flexibilität bei der Ressourcennutzung.</li>
+            <li>
+              Verkürzte Entwicklungszeiten durch bereitgestellte Tools und
+              Dienste.
+            </li>
+            <li>
+              Einfaches Testen und Bereitstellen von Anwendungen in
+              verschiedenen Umgebungen.
+            </li>
+          </ul>
+        </div>
+        <div class="p-4 mb-4">
+          <h3 class="text-lg font-semibold mb-2">Nachteile von PaaS</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>
+              Abhängigkeit vom Anbieter für die Wartung und Updates der
+              Plattform.
+            </li>
+            <li>
+              Potenzielle Einschränkungen bei der Anpassung der Plattform gemäß
+              spezifischen Anforderungen.
+            </li>
+            <li>
+              Kosten können steigen, wenn zusätzliche Dienste und Ressourcen
+              benötigt werden.
+            </li>
+          </ul>
+        </div>
+        <p class="mt-2">
+          <strong>Beispiele für PaaS:</strong> Google App Engine, Microsoft Azure,
+          Heroku.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

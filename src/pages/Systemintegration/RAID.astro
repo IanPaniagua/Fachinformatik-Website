@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">RAID-Typen</h1>
+    <div class="max-w-4xl w-full">
+      <p class="mb-8">
+        RAID (Redundant Array of Independent Disks) ist eine Methode, mehrere
+        Festplatten so zu kombinieren, dass entweder die Leistung verbessert
+        oder die Datensicherheit erhöht wird. Hier sind die wichtigsten
+        RAID-Typen:
+      </p>
+
+      <h2 class="text-xl text-start font-bold mb-4 mt-8">RAID 0 (Striping)</h2>
+      <p class="mb-8">
+        Bei RAID 0 werden Daten auf mehrere Festplatten verteilt. Dadurch wird
+        die Leistung verbessert, weil mehrere Festplatten gleichzeitig arbeiten.
+        Allerdings gibt es keine Datensicherheit: Wenn eine Festplatte ausfällt,
+        sind alle Daten verloren.
+      </p>
+      <p class="mb-8">
+        <strong>Mindestens benötigte Festplatten:</strong> 2
+      </p>
+
+      <h2 class="text-xl text-start font-bold mb-4 mt-8">RAID 1 (Mirroring)</h2>
+      <p class="mb-8">
+        Bei RAID 1 werden die Daten auf zwei Festplatten gespiegelt. Das
+        bedeutet, dass die gleichen Daten auf beiden Festplatten gespeichert
+        werden. Wenn eine Festplatte ausfällt, sind die Daten immer noch auf der
+        anderen Festplatte vorhanden. Dies bietet hohe Datensicherheit, aber
+        keine Verbesserung der Geschwindigkeit.
+      </p>
+      <p class="mb-8">
+        <strong>Mindestens benötigte Festplatten:</strong> 2
+      </p>
+
+      <h2 class="text-xl text-start font-bold mb-4 mt-8">
+        RAID 5 (Striping mit Parität)
+      </h2>
+      <p class="mb-8">
+        RAID 5 kombiniert Leistung und Datensicherheit. Daten und eine
+        sogenannte Parität werden über mindestens drei Festplatten verteilt.
+        Fällt eine Festplatte aus, können die Daten mithilfe der
+        Paritätsinformationen wiederhergestellt werden. Die Leistung ist gut,
+        und es gibt einen gewissen Schutz vor Datenverlust.
+      </p>
+      <p class="mb-8">
+        <strong>Mindestens benötigte Festplatten:</strong> 3 (2 + 1 Parität)
+      </p>
+
+      <h2 class="text-xl text-start font-bold mb-4 mt-8">
+        RAID 6 (Doppelte Parität)
+      </h2>
+      <p class="mb-8">
+        RAID 6 funktioniert ähnlich wie RAID 5, aber es wird eine doppelte
+        Parität verwendet. Dadurch können bis zu zwei Festplatten ausfallen,
+        ohne dass Daten verloren gehen. Es erfordert jedoch mindestens vier
+        Festplatten und hat eine etwas geringere Leistung als RAID 5.
+      </p>
+      <p class="mb-8">
+        <strong>Mindestens benötigte Festplatten:</strong> 4 (2 + 2 Parität)
+      </p>
+
+      <h2 class="text-xl text-start font-bold mb-4 mt-8">
+        RAID 10 (Kombination aus RAID 1 und RAID 0)
+      </h2>
+      <p class="mb-8">
+        RAID 10 kombiniert die Vorteile von RAID 0 und RAID 1. Es verwendet
+        Striping für Leistung und Mirroring für Datensicherheit. Man benötigt
+        mindestens vier Festplatten. Dies ist eine gute Lösung für Systeme, die
+        sowohl hohe Leistung als auch hohe Datensicherheit erfordern.
+      </p>
+      <p class="mb-8">
+        <strong>Mindestens benötigte Festplatten:</strong> 4
+      </p>
+    </div>
+  </div>
+</BaseLayout>

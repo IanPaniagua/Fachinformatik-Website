@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Was ist JBOD?</h1>
+    <div class="max-w-4xl w-full">
+      <p class="mb-8">
+        JBOD steht für "Just a Bunch of Disks" und bedeutet, dass mehrere
+        Festplatten ohne spezielle Anordnung oder Sicherheitsmechanismen
+        zusammen genutzt werden. Jede Festplatte wird unabhängig behandelt, und
+        die Daten werden nicht aufgeteilt oder gespiegelt.
+      </p>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">
+        Vorteile und Nachteile von JBOD
+      </h2>
+      <div class="grid grid-cols-2 gap-4 border border-gray-300">
+        <div class="border-r border-gray-300 p-4">
+          <h3 class="text-lg font-bold mb-2 text-center">Vorteile</h3>
+          <ul class="list-none space-y-2">
+            <li>Kann Festplatten mit unterschiedlicher Größe verwenden.</li>
+            <li>
+              Einfach einzurichten, keine spezielle Konfiguration notwendig.
+            </li>
+            <li>
+              Keine Datenverluste auf den verbleibenden Festplatten, wenn eine
+              ausfällt.
+            </li>
+          </ul>
+        </div>
+        <div class="p-4">
+          <h3 class="text-lg font-bold mb-2 text-center">Nachteile</h3>
+          <ul class="list-none space-y-2">
+            <li>
+              Keine Leistungsverbesserung im Vergleich zu einer einzelnen
+              Festplatte.
+            </li>
+            <li>
+              Keine Datensicherheit, wenn eine Festplatte ausfällt, gehen die
+              Daten auf dieser Festplatte verloren.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Wann JBOD verwenden?</h2>
+      <p class="mb-8">
+        JBOD ist eine gute Option, wenn du Festplatten mit unterschiedlicher
+        Größe kombinieren möchtest und du keinen besonderen Wert auf höhere
+        Geschwindigkeit oder Datensicherheit legst. Es ist nützlich, wenn du
+        viel Speicherplatz benötigst und keine redundante Sicherung brauchst.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

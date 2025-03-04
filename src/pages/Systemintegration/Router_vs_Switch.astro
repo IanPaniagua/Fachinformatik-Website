@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Router vs. Switch</h1>
+    <div class="max-w-4xl w-full">
+      <p class="mb-8">
+        Router und Switch sind zwei grundlegende Netzwerkgeräte, die
+        unterschiedliche Funktionen in einem Computernetzwerk erfüllen. Sie
+        arbeiten auf verschiedenen Schichten des OSI-Modells und haben
+        unterschiedliche Aufgaben und Eigenschaften.
+      </p>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Router</h2>
+      <ul class="list-none pl-6 space-y-4">
+        <li>
+          <strong>Funktion:</strong> Ein Router verbindet verschiedene Netzwerke
+          miteinander und leitet Datenpakete zwischen ihnen weiter. Er verwendet
+          IP-Adressen, um den besten Pfad für die Datenübertragung zu bestimmen.
+        </li>
+        <li>
+          <strong>Schicht des OSI-Modells:</strong> Router arbeiten hauptsächlich
+          auf der Netzwerk-Schicht (Schicht 3) des OSI-Modells.
+        </li>
+        <li>
+          <strong>Verwendung:</strong> Router werden verwendet, um Netzwerke zu verbinden,
+          wie z. B. ein Heimnetzwerk mit dem Internet oder verschiedene Unternehmensnetzwerke.
+        </li>
+      </ul>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Switch</h2>
+      <ul class="list-none pl-6 space-y-4">
+        <li>
+          <strong>Funktion:</strong> Ein Switch verbindet Geräte innerhalb eines
+          Netzwerks und leitet Datenpakete nur an das spezifische Zielgerät weiter,
+          anstatt an alle Geräte im Netzwerk. Er verwendet MAC-Adressen, um die Daten
+          an das richtige Ziel zu senden.
+        </li>
+        <li>
+          <strong>Schicht des OSI-Modells:</strong> Switches arbeiten hauptsächlich
+          auf der Daten-Link-Schicht (Schicht 2) des OSI-Modells.
+        </li>
+        <li>
+          <strong>Verwendung:</strong> Switches werden verwendet, um Geräte innerhalb
+          eines Netzwerks zu verbinden, wie z. B. Computer in einem Büro oder Server
+          in einem Rechenzentrum.
+        </li>
+      </ul>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Vergleich</h2>
+      <table class="table-auto w-full border border-gray-300">
+        <thead>
+          <tr>
+            <th class="border px-4 py-2">Merkmal</th>
+            <th class="border px-4 py-2">Router</th>
+            <th class="border px-4 py-2">Switch</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2">Funktion</td>
+            <td class="border px-4 py-2"
+              >Verbindet verschiedene Netzwerke und leitet Datenpakete weiter</td
+            >
+            <td class="border px-4 py-2"
+              >Verbindet Geräte innerhalb eines Netzwerks und leitet Daten an
+              das spezifische Ziel</td
+            >
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Schicht des OSI-Modells</td>
+            <td class="border px-4 py-2">Netzwerk-Schicht (Schicht 3)</td>
+            <td class="border px-4 py-2">Daten-Link-Schicht (Schicht 2)</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Verwendung</td>
+            <td class="border px-4 py-2"
+              >Verbindung von Netzwerken, z. B. Heimnetzwerk mit Internet</td
+            >
+            <td class="border px-4 py-2"
+              >Verbindung von Geräten innerhalb eines Netzwerks, z. B.
+              Bürocomputer</td
+            >
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>

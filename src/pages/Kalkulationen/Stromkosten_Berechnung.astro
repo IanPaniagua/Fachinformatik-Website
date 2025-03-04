@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Stromkosten Berechnung</h1>
+
+    <p class="mb-8 max-w-4xl">
+      Ein Computer wird an 250 Arbeitstagen jeweils 8 Stunden am Tag betrieben.
+      Das Netzteil hat einen Wirkungsgrad von 85% und wird im Durchschnitt zu
+      60% ausgelastet. Die Leistungsaufnahme des Netzteils beträgt 500W.
+      Berechnen Sie die Stromkosten bei einem Preis von 0,35 EUR pro kWh.
+    </p>
+
+    <div class="max-w-4xl w-full border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-2">Lösung:</h2>
+
+      <h3 class="text-lg font-semibold mb-2">
+        Berechnung des Gesamtkonsums in Kilowattstunden (kWh):
+      </h3>
+
+      <p class="mb-4">
+        <strong>Leistungsaufnahme des PCs:</strong> Die Eingangsleistung des PCs
+        beträgt 500W (Watt).
+      </p>
+
+      <p class="mb-4">
+        <strong>Wirkungsgrad des Netzteils:</strong> Das Netzteil hat einen Wirkungsgrad
+        von 85%. Die tatsächliche Leistungsaufnahme aufgrund der Ineffizienz ist:
+      </p>
+
+      <p class="mb-4">
+        <span class="bg-orange-200 px-1"
+          >Tatsächliche Leistungsaufnahme = Leistungsaufnahme / Wirkungsgrad</span
+        ><br />=> 500 W / 0,85 = 588,24 W
+      </p>
+
+      <p class="mb-4">
+        <strong>Durchschnittliche Auslastung:</strong> Der PC ist im Durchschnitt
+        zu 60% ausgelastet. Daher beträgt die tatsächlich in Nutzung befindliche
+        Leistung:
+      </p>
+
+      <p class="mb-4">Leistung in Nutzung = 588,24 W × 0,60 = 352,94 W</p>
+
+      <p class="mb-4">
+        <strong>Umrechnung in Kilowatt:</strong>
+      </p>
+
+      <p class="mb-4">
+        Leistung in Nutzung (kW) = 352,94 W / 1000 = 0,35294 kW
+      </p>
+
+      <p class="mb-4">
+        <strong>Betriebsstunden:</strong> Der PC läuft 8 Stunden pro Tag an 250 Arbeitstagen
+        im Jahr.
+      </p>
+
+      <p class="mb-4">Gesamtstunden = 8 h/Tag × 250 Tage = 2000 h</p>
+
+      <p class="mb-4">
+        <strong>Gesamtverbrauch in kWh:</strong>
+      </p>
+
+      <p class="mb-4">
+        Gesamtverbrauch (kWh) = 0,35294 kW × 2000 h = 705,88 kWh
+      </p>
+
+      <h3 class="text-lg font-semibold mb-2">
+        Berechnung der Gesamtkosten für Strom:
+      </h3>
+
+      <p class="mb-4">
+        <strong>Strompreis:</strong> 0,35 EUR pro kWh.
+      </p>
+
+      <p class="mb-4">
+        <strong>Gesamtkosten:</strong>
+      </p>
+
+      <p class="mb-4">Gesamtkosten = 705,88 kWh × 0,35 EUR/kWh = 247,06 EUR</p>
+
+      <h3 class="text-lg font-semibold mb-2">Zusammenfassung</h3>
+
+      <p>
+        Die Gesamtkosten für den Stromverbrauch des PCs über ein Jahr betragen
+        <span class="bg-green-400 px-1">247,06 EUR.</span>
+      </p>
+    </div>
+  </div>
+</BaseLayout>

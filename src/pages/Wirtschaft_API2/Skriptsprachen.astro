@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <article class="prose lg:prose-xl prose-slate max-w-4xl">
+      <h1 class="text-3xl font-bold mb-6 text-center">Skriptsprache</h1>
+
+      <p class="mb-8 max-w-4xl">
+        Eine Skriptsprache ist eine Programmiersprache, die oft für kleinere
+        Aufgaben oder Automatisierungen verwendet wird. Sie wird direkt
+        ausgeführt und muss nicht vorher in eine andere Form übersetzt werden.
+      </p>
+
+      <div class="max-w-4xl w-full">
+        <div class="border border-gray-300 p-2 mb-4">
+          <h2 class="text-xl text-center font-bold mb-2">
+            Unterschiede zwischen Server-seitige und Client-seitige
+            Skriptsprachen
+          </h2>
+          <ul class="list-decimal list-inside pl-6 space-y-2">
+            <li>
+              <strong>Server-seitige </strong>: Diese laufen auf dem Server,
+              bevor die Website an den Benutzer geschickt wird. Beispiele sind
+              **PHP** oder **Python**. Sie werden oft genutzt, um Datenbanken
+              abzufragen oder Formulare zu verarbeiten.
+            </li>
+            <li>
+              <strong>Client-seitige </strong>: Diese laufen direkt im
+              Webbrowser des Benutzers. Beispiele sind **JavaScript**. Sie
+              werden verwendet, um Benutzerinteraktionen und Animationen auf der
+              Website zu erstellen.
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-bold mb-2">Vorteile und Nachteile</h2>
+          <p>
+            Server-seitige Skripte sind sicherer, da sie auf dem Server laufen,
+            aber können die Ladezeit der Website beeinflussen. Client-seitige
+            Skripte sind schneller für den Benutzer, aber anfälliger für
+            Sicherheitsrisiken.
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

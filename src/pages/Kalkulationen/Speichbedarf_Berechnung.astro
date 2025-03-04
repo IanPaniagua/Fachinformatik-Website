@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Berechnung des Speicherbedarfs und der Farbwerte in PLY-Dateien
+    </h1>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <div class="mb-4">
+          <p class="font-bold">
+            In einer PLY-Datei sind 3840 Punkte gespeichert. Jeder Punkt wird
+            durch x, y und z Koordinaten bestimmt. Jede Koordinate wird durch
+            einen 32-Bit-Float-Wert codiert. Berechnen Sie, wie viele Kibibyte
+            Sie benötigen, um 3840 Punkte zu speichern. Der Speicherbedarf des
+            Datei-Headers und Farbcodierungen sollen nicht berücksichtigt
+            werden.
+          </p>
+
+          <p>
+            Jede Koordinate (x, y, z) wird durch einen 32-Bit-Float-Wert
+            codiert. Das bedeutet, dass jede Koordinate 32 Bit (4 Byte) Speicher
+            benötigt.
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Pro Punkt: 3 Koordinaten × 4 Byte = 12 Byte</li>
+            <li>Für 3840 Punkte: 3840 × 12 Byte = 46.080 Byte</li>
+            <li>Das sind 46.080 Byte / 1024 = 45 Kibibyte</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <p class="font-bold">
+            Jeder Punkt soll jetzt im RGB-Farbraum mit je 8 Bit pro Farbkanal
+            codiert werden. Berechnen Sie, wie viele verschiedene Farben sich
+            damit darstellen lassen.
+          </p>
+
+          <p>
+            Im RGB-Farbraum gibt es drei Kanäle: Rot, Grün und Blau. Jeder Kanal
+            wird mit 8 Bit codiert, was bedeutet, dass es für jeden Farbkanal
+            2^8 = 256 mögliche Werte gibt.
+          </p>
+          <p>Die Gesamtanzahl der möglichen Farben ist:</p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>
+              256 (Rot) × 256 (Grün) × 256 (Blau) = 16.777.216 verschiedene
+              Farben
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <p class="font-bold">
+            Berechnen Sie, wie viel Prozent Speicher Sie pro Bildpunkt
+            zusätzlich benötigen, um die Farbwerte zu speichern.
+          </p>
+
+          <p>
+            Ursprünglich benötigt jeder Punkt 12 Byte (für die Koordinaten x, y,
+            z). Um zusätzlich die Farbwerte im RGB-Farbraum zu speichern, werden
+            3 Byte benötigt (1 Byte pro Farbkanal).
+          </p>
+          <ul class="list-disc pl-6 mb-4">
+            <li>Speicher pro Punkt mit Koordinaten: 12 Byte</li>
+            <li>
+              Speicher pro Punkt mit Koordinaten und Farben: 12 Byte + 3 Byte =
+              15 Byte
+            </li>
+            <li>Zusätzlicher Speicherbedarf: (3 Byte / 12 Byte) × 100 = 25%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

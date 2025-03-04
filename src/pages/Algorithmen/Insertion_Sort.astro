@@ -1,0 +1,168 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Der Insertion Sort Algorithmus
+    </h1>
+    <p class="mb-8 max-w-4xl">
+      Insertion Sort ist ein einfacher und intuitiver Algorithmus zur Sortierung
+      von Daten. Er funktioniert ähnlich wie das Sortieren von Spielkarten:
+      Indem jedes neue Element an die richtige Stelle eingefügt wird, entsteht
+      schrittweise eine sortierte Liste. Dieser Algorithmus eignet sich
+      besonders für kleine Datenmengen oder fast sortierte Listen.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Wie funktioniert Insertion Sort?</h2>
+        <p class="mb-8 max-w-4xl">
+          Der Algorithmus arbeitet, indem er die Liste in einen sortierten und
+          einen unsortierten Teil aufteilt. Jedes Element aus dem unsortierten
+          Teil wird nacheinander an der richtigen Position in den sortierten
+          Teil eingefügt.
+        </p>
+        <h3 class="text-lg font-bold mb-2">Beispiel:</h3>
+        <p>
+          Angenommen, wir möchten die Liste <code>[7, 3, 5, 2]</code> sortieren:
+        </p>
+        <ol class="list-decimal pl-5">
+          <li>
+            Starte mit dem ersten Element: <code>[7]</code> ist bereits sortiert.
+          </li>
+          <li>
+            Das zweite Element <code>3</code> wird eingefügt: <code>[3, 7]</code
+            >.
+          </li>
+          <li>
+            Das dritte Element <code>5</code> wird an der richtigen Stelle eingefügt:
+            <code>[3, 5, 7]</code>.
+          </li>
+          <li>
+            Das letzte Element <code>2</code> wird eingefügt: <code
+              >[2, 3, 5, 7]</code
+            >.
+          </li>
+        </ol>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Pseudocode für Insertion Sort</h2>
+        <pre
+          class="bg-gray-100 p-4 rounded text-sm overflow-auto">
+          Algorithm InsertionSort(array):
+            for i from 1 to length(array) - 1 do:
+                key = array[i]
+                j = i - 1
+                while j >= 0 and array[j] &gt; key do:
+                    array[j + 1] = array[j]
+                    j = j - 1
+                array[j + 1] = key
+        </pre>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Erklärung des Pseudocodes</h2>
+        <p>
+          Der Pseudocode des Insertion Sort Algorithmus funktioniert wie folgt:
+        </p>
+        <ul class="list-decimal pl-5">
+          <li>
+            Zuerst wird der Algorithmus von `i = 1` bis zum Ende der Liste
+            durchlaufen. Dabei wird das aktuelle Element, genannt <code
+              >key</code
+            >, aus dem unsortierten Teil der Liste entnommen.
+          </li>
+          <li>
+            Mit dem Index <code>j</code> wird der letzte Index des sortierten Teils
+            der Liste referenziert. Dieser Wert wird von `i - 1` gesetzt.
+          </li>
+          <li>
+            Im <code>while</code>-Loop wird überprüft, ob das Element an Index
+            `j` größer ist als das <code>key</code>-Element. Wenn ja, wird das
+            Element an Index `j` nach rechts verschoben, und `j` wird um eins
+            verringert.
+          </li>
+          <li>
+            Sobald das richtige Element gefunden ist, an dem das <code>key</code
+            >-Element eingefügt werden soll, wird es an der richtigen Position
+            in der sortierten Liste platziert, was durch die Zeile <code
+              >array[j + 1] = key</code
+            > geschieht.
+          </li>
+        </ul>
+        <h3 class="text-lg font-bold mb-2">
+          Warum wird <code>array[j + 1] = array[j]</code> verwendet?
+        </h3>
+        <p>
+          Wenn wir ein Element aus dem unsortierten Teil der Liste entnehmen
+          (das
+          <code>key</code>), müssen wir die größeren Elemente in der sortierten
+          Liste nach rechts verschieben, um Platz für das <code>key</code
+          >-Element zu schaffen. Dabei wird der Wert von <code>array[j]</code> in
+          <code>array[j + 1]</code> verschoben. Das Element <code>key</code>
+          bleibt jedoch gespeichert, sodass es später an der richtigen Position eingefügt
+          werden kann.
+        </p>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">
+          Wann sollte Insertion Sort verwendet werden?
+        </h2>
+        <p>Insertion Sort ist besonders geeignet für:</p>
+        <ul class="list-disc pl-5">
+          <li>
+            Kleine Datensätze, da der Algorithmus einfach zu implementieren ist.
+          </li>
+          <li>Fast sortierte Listen, da er hier sehr effizient arbeitet.</li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Vorteile und Nachteile</h2>
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="w-full">
+            <h3 class="font-bold">Vorteile:</h3>
+            <ul class="list-disc pl-5">
+              <li>Einfache Implementierung.</li>
+              <li>Effizient für kleine oder fast sortierte Listen.</li>
+              <li>
+                Stabil: Die Reihenfolge gleicher Elemente bleibt erhalten.
+              </li>
+            </ul>
+          </div>
+          <div class="w-full">
+            <h3 class="font-bold">Nachteile:</h3>
+            <ul class="list-disc pl-5">
+              <li>Langsam für große Datensätze.</li>
+              <li>
+                Quadratische Zeitkomplexität: <code>O(n²)</code> im Worst Case.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Zeitkomplexität (Big-O-Notation)</h2>
+        <p>
+          Die Zeitkomplexität von Insertion Sort hängt davon ab, wie die Daten
+          anfangs sortiert sind:
+        </p>
+        <ul class="list-disc pl-5">
+          <li>
+            <strong>Best Case:</strong>
+            <code>O(n)</code>, wenn die Liste bereits sortiert ist.
+          </li>
+          <li><strong>Average Case:</strong> <code>O(n²)</code>.</li>
+          <li>
+            <strong>Worst Case:</strong>
+            <code>O(n²)</code>, wenn die Liste in umgekehrter Reihenfolge ist.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

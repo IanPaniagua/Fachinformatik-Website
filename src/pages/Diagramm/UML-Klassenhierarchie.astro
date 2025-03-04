@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Klassenhierarchie</h1>
+    <p class="mb-8 max-w-4xl">
+      Eine Klassenhierarchie beschreibt die Struktur von Klassen in einem
+      objektorientierten System, bei dem Klassen voneinander erben. Dies hilft
+      dabei, Gemeinsamkeiten und Unterschiede zwischen Klassen klar darzustellen
+      und eine bessere Organisation von Code zu erreichen. Durch Vererbung
+      können Unterklassen (Subklassen) die Eigenschaften und Methoden von
+      Oberklassen (Superklassen) erben und erweitern.
+    </p>
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-2">
+        Wichtige Merkmale einer Klassenhierarchie
+      </h2>
+      <ul class="list-none pl-6 space-y-4 max-w-4xl">
+        <li>
+          <strong>Oberklasse (Superklasse)</strong>: Die Oberklasse ist die
+          allgemeine Klasse, von der andere Klassen erben. Sie enthält die
+          allgemeinen Attribute und Methoden, die von mehreren Klassen geteilt
+          werden können.
+        </li>
+        <li>
+          <strong>Unterklasse (Subklasse)</strong>: Die Unterklasse erbt von der
+          Oberklasse. Sie kann zusätzliche Attribute und Methoden haben oder die
+          von der Oberklasse geerbten Methoden überschreiben
+          (Methodenüberschreibung).
+        </li>
+        <li>
+          <strong>Vererbung</strong>: Vererbung ermöglicht es, Code
+          wiederzuverwenden und gemeinsame Funktionalitäten in der Oberklasse zu
+          definieren, sodass sie in mehreren Subklassen genutzt werden können.
+        </li>
+        <li>
+          <strong>Polymorphismus</strong>: Subklassen können Methoden der
+          Oberklasse auf verschiedene Arten implementieren, was die Flexibilität
+          und Erweiterbarkeit des Systems erhöht.
+        </li>
+      </ul>
+    </div>
+    <div class="p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4 mt-8">
+        Vor und Nachteile der Klassenhierarchie
+      </h2>
+      <div class="grid grid-cols-2 gap-4 max-w-4xl w-full">
+        <div class="border border-gray-300 p-4">
+          <h3 class="text-lg text-center font-semibold mb-2">Vorteile</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>Erlaubt Wiederverwendung von Code durch Vererbung.</li>
+            <li>
+              Fördert eine klarere Organisation und Strukturierung von Klassen
+              in großen Projekten.
+            </li>
+            <li>
+              Ermöglicht polymorphes Verhalten, bei dem Subklassen die
+              Funktionalität der Oberklasse anpassen können.
+            </li>
+          </ul>
+        </div>
+        <div class="border border-gray-300 p-4">
+          <h3 class="text-lg text-center font-semibold mb-2">Nachteile</h3>
+          <ul class="list-disc pl-4 space-y-2">
+            <li>
+              Kann zu starren Strukturen führen, wenn die Hierarchie zu tief
+              oder komplex wird.
+            </li>
+            <li>
+              Fehler in Oberklassen können sich auf alle Subklassen auswirken,
+              was schwer zu debuggen sein kann.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-2">
+        Aktivität: Erstellen einer Klassenhierarchie
+      </h2>
+      <p class="mb-8 max-w-4xl">
+        Ihr Kunde möchte zukünftig eine neue Support-Software verwenden, die die
+        Verwaltung von Support-Tickets für verschiedene Kundentypen vereinfachen
+        soll. Sie möchten eine Klassenhierarchie entwerfen, welche die
+        gemeinsamen Eigenschaften und Methoden für die Verwaltung von
+        Support-Tickets abbildet.
+      </p>
+      <p class="mb-8 max-w-4xl">
+        Sie möchten zwei spezialisierte Support-Ticket-Klassen erstellen:
+      </p>
+      <ul class="list-disc pl-4 space-y-2 max-w-4xl">
+        <li>
+          <strong>Software-Support-Ticket:</strong> Eigenschaften: Ticketnummer,
+          Erstellungsdatum, Beschreibung, Betriebssystem, Softwareversion. Methoden:
+          Fehlerdiagnose(), Ticketstatusaktualisierung(), Softwareaktualisierung().
+        </li>
+        <li>
+          <strong>Hardware-Support-Ticket:</strong> Eigenschaften: Ticketnummer,
+          Erstellungsdatum, Beschreibung, Gerätetyp, Seriennummer. Methoden: Fehlerdiagnose(),
+          Ticketstatusaktualisierung(), Reparatur().
+        </li>
+      </ul>
+      <p class="mb-8 max-w-4xl">
+        Die Fehlerdiagnose erfolgt beim Hardware-Support-Ticket und beim
+        Software-Support-Ticket unterschiedlich. Zusätzliche Konstruktoren,
+        Zugriffsmodifikatoren und Methoden werden nicht benötigt.
+      </p>
+      <p class="mb-8 max-w-4xl font-bold">
+        Aufgabe: Erstellen Sie eine sinnvolle Klassenhierarchie mit einer
+        gemeinsamen übergeordneten Klasse "Kundenticket".
+      </p>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Lösung</h2>
+      <img
+        src="/Klassenhierarchie.png"
+        alt="Beispiel einer Klassenhierarchie"
+        class="w-full h-auto mb-8"
+      />
+    </div>
+  </div>
+</BaseLayout>

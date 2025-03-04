@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Einfache Erklärung der Zahlungssysteme und Konvertierungen
+    </h1>
+
+    <!-- Imagen explicativa -->
+    <img
+      src="/Zahlensysteme.webp"
+      alt="Erläuterung der Datenkonvertierung"
+      class="mb-6 max-w-full h-auto"
+    />
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Grundlagen der Einheiten</h2>
+        <p>
+          Bei der Arbeit mit Daten ist es wichtig, die unterschiedlichen
+          Einheiten zu verstehen, die zur Messung von Datenmengen verwendet
+          werden. Hier sind einige gängige Einheiten und wie sie konvertiert
+          werden können:
+        </p>
+
+        <h3 class="text-lg font-semibold mt-4 mb-2">Von Bit zu Pixel</h3>
+        <p>
+          Ein Pixel besteht normalerweise aus mehreren Farbkanälen (z. B. Rot,
+          Grün und Blau), die jeweils eine bestimmte Anzahl von Bits verwenden.
+          Wenn ein Bild z.B. 24 Bit pro Pixel verwendet (8 Bit für jeden
+          Farbkanal), dann benötigen Sie für die Gesamtberechnung die Anzahl der
+          Pixel und die Farbtiefe in Bits.
+        </p>
+
+        <h3 class="text-lg font-semibold mt-4 mb-2">
+          Von Kibibyte (KiB) zu Gigabyte (GB)
+        </h3>
+        <p>
+          1 Gigabyte (GB) = 1.024 MiB (Mebibyte) = 1.024 × 1.024 KiB = 1.048.576
+          KiB. Um von KiB zu GB zu konvertieren, teilen Sie die Anzahl der KiB
+          durch 1.048.576.
+        </p>
+
+        <h3 class="text-lg font-semibold mt-4 mb-2">Allgemeine Umrechnungen</h3>
+        <p>
+          Hier sind die grundlegenden Umrechnungen zwischen den häufigsten
+          Speichereinheiten:
+        </p>
+        <ul class="list-disc pl-6">
+          <li>1 Byte = 8 Bit</li>
+          <li>1 Kibibyte (KiB) = 1.024 Byte</li>
+          <li>1 Mebibyte (MiB) = 1.024 KiB</li>
+          <li>1 Gibibyte (GiB) = 1.024 MiB</li>
+          <li>1 Terabyte (TB) = 1.024 GiB</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

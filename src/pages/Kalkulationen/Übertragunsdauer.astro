@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Berechnung der Übertragungsdauer
+    </h1>
+
+    <p class="mb-8 max-w-4xl">
+      Hern Lopez möchte Daten mit einem Umfang von 2 GiB aufgrund des
+      Ergebnisses des Speedtests abspeichern. Der Speedtest zeigt folgende
+      Ergebnisse:
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Ergebnisse des Speedtests</h2>
+        <p><strong>Download:</strong> 100,45 Mbps</p>
+        <p><strong>Upload:</strong> 60,20 Mbps</p>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Berechnung</h2>
+        <p>2 GiB entsprechen 2.147.483.648 Bytes oder 17.179.869.184 Bits.</p>
+        <p>Erst die Umrechnung der Übertragungsraten in Bits pro Sekunde:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>100,45 Mbps = 100.450.000 Bits/sekunde</li>
+          <li>60,20 Mbps = 60.200.000 Bits/sekunde</li>
+        </ul>
+
+        <h3 class="text-lg font-semibold mb-2">
+          Zeitberechnung für die Übertragung
+        </h3>
+        <p><strong>Download:</strong></p>
+        <p>
+          Übertragungszeit = 17.179.869.184 Bits / 100.450.000 Bits/sekunde ≈
+          171,8 Sekunden
+        </p>
+        <p>
+          Gerundet auf volle Sekunden = 172 Sekunden = 2 Minuten und 52 Sekunden
+        </p>
+
+        <p><strong>Upload:</strong>(zum abspeichern)</p>
+        <p>
+          Übertragungszeit = 17.179.869.184 Bits / 60.200.000 Bits/sekunde ≈
+          285,7 Sekunden
+        </p>
+        <p>
+          Gerundet auf volle Sekunden = 286 Sekunden = <span
+            class="bg-green-400 px-1">4 Minuten und 46 Sekunden</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

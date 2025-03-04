@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Unterschiede zwischen IPv4 und IPv6
+    </h1>
+
+    <table class="border border-gray-300 max-w-4xl w-full">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-4 py-2">Merkmal</th>
+          <th class="border px-4 py-2">IPv4</th>
+          <th class="border px-4 py-2">IPv6</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border px-4 py-2">Adresslänge</td>
+          <td class="border px-4 py-2">32 Bit (4 Blöcke)</td>
+          <td class="border px-4 py-2">128 Bit (8 Blöcke)</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Adressformat</td>
+          <td class="border px-4 py-2">123.45.67.89 (Dezimal)</td>
+          <td class="border px-4 py-2"
+            >2001:0db8:85a3::8a2e:0370:7334 (Hexadezimal)</td
+          >
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Anzahl der Adressen</td>
+          <td class="border px-4 py-2">Ca. 4,3 Milliarden</td>
+          <td class="border px-4 py-2">Nahezu unendlich (340 Sextillionen)</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Konfiguration</td>
+          <td class="border px-4 py-2">Manuell oder über DHCP</td>
+          <td class="border px-4 py-2"
+            >Automatisch (Stateless Autoconfiguration)</td
+          >
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Sicherheit</td>
+          <td class="border px-4 py-2">Abhängig von Anwendungen</td>
+          <td class="border px-4 py-2">Integrierte IPsec-Unterstützung</td>
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Broadcast</td>
+          <td class="border px-4 py-2">Ja, unterstützt</td>
+          <td class="border px-4 py-2"
+            >Kein Broadcast, stattdessen Anycast und Multicast</td
+          >
+        </tr>
+        <tr>
+          <td class="border px-4 py-2">Kompatibilität</td>
+          <td class="border px-4 py-2"
+            >Wird immer noch weit verbreitet verwendet</td
+          >
+          <td class="border px-4 py-2">Wird zunehmend implementiert</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mt-8 max-w-4xl">
+      IPv4 und IPv6 sind die beiden wichtigsten Protokolle, die zur Übertragung
+      von Daten im Internet verwendet werden. IPv6 wurde eingeführt, um den
+      Mangel an verfügbaren IPv4-Adressen zu beheben und bietet auch verbesserte
+      Funktionen wie bessere Sicherheit und effizientere Datenübertragung.
+    </p>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      IPv4-Adressen: Netzadresse, Hostadresse und Broadcast
+    </h2>
+    <p class="mb-8 max-w-4xl">
+      Eine typische IPv4-Adresse besteht aus zwei Teilen: der Netzadresse und
+      der Hostadresse. Zum Beispiel bei der Adresse <strong
+        >192.168.1.10/24</strong
+      >:
+    </p>
+    <ul class="list-none pl-6 space-y-4 max-w-4xl">
+      <li>
+        <strong>Netzadresse</strong>: Die ersten 24 Bits (192.168.1.0) sind die
+        Netzadresse, die das Netzwerk identifiziert.
+      </li>
+      <li>
+        <strong>Hostadresse</strong>: Die letzten 8 Bits (.10) sind die
+        Hostadresse, die den spezifischen Computer im Netzwerk identifiziert.
+      </li>
+      <li>
+        <strong>Broadcast-Adresse</strong>: Die Broadcast-Adresse wäre <strong
+          >192.168.1.255</strong
+        >. Sie wird verwendet, um Nachrichten an alle Geräte im Netzwerk zu
+        senden.
+      </li>
+    </ul>
+
+    <h2 class="text-xl font-bold mb-4 mt-8">
+      IPv6-Adressen: Bildung, Kürzung und Subnetz-Präfix
+    </h2>
+    <p class="mb-8 max-w-4xl">
+      Eine IPv6-Adresse besteht aus 128 Bits, die in 8 Gruppen von je 16 Bits
+      unterteilt sind. Ein Beispiel für eine IPv6-Adresse lautet: <strong
+        >2001:0db8:85a3:0000:0000:8a2e:0370:7334</strong
+      >.
+    </p>
+    <ul class="list-none pl-6 space-y-4 max-w-4xl">
+      <li>
+        <strong>Kürzung</strong>: IPv6-Adressen können gekürzt werden, indem
+        führende Nullen und zusammenhängende Gruppen von Nullen weggelassen
+        werden. Zum Beispiel wird die Adresse <strong
+          >2001:0db8:85a3:0000:0000:8a2e:0370:7334</strong
+        > gekürzt zu <strong>2001:db8:85a3::8a2e:370:7334</strong>.
+      </li>
+      <li>
+        <strong>IPv6-Netzadresse</strong>: In der Adresse <strong
+          >2001:db8:85a3::/64</strong
+        > sind die ersten 64 Bits für das Netzwerk reserviert, die verbleibenden
+        64 Bits sind für den Host.
+      </li>
+      <li>
+        <strong>Subnetz-Präfix</strong>: Das Subnetz-Präfix gibt die Länge des
+        Netzteils der Adresse an. Bei <strong>/64</strong> sind die ersten 64 Bits
+        für das Netzwerk reserviert, was den größten Teil des IPv6-Adressraums für
+        Subnetze verfügbar macht.
+      </li>
+      <li>
+        <strong>Teilnetz-ID</strong>: Innerhalb des Netzwerks kann die
+        Teilnetz-ID verwendet werden, um verschiedene Subnetze innerhalb des
+        Hauptnetzes zu identifizieren. Die Teilnetz-ID ist Teil der
+        IPv6-Adresse, die für das Routing und die Organisation von Adressen
+        verwendet wird.
+      </li>
+    </ul>
+  </div>
+</BaseLayout>

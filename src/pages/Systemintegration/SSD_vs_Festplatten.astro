@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Festplatten (HDD) vs. SSD
+    </h1>
+    <div class="max-w-4xl w-full">
+      <p class="mb-8">
+        Festplatten (HDD) und SSDs sind zwei verschiedene Arten von
+        Speichergeräten, die in Computern verwendet werden. Beide haben ihre
+        eigenen Vor- und Nachteile, je nachdem, was man benötigt.
+      </p>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Festplatte (HDD)</h2>
+      <ul class="list-none pl-6 space-y-4">
+        <li>
+          <strong>Funktionsweise:</strong> HDDs speichern Daten auf rotierenden magnetischen
+          Scheiben. Ein mechanischer Arm liest und schreibt die Daten.
+        </li>
+        <li>
+          <strong>Kapazität:</strong> HDDs bieten viel Speicherplatz zu einem niedrigeren
+          Preis. Große Datenmengen können günstig gespeichert werden.
+        </li>
+        <li>
+          <strong>Geschwindigkeit:</strong> HDDs sind im Vergleich zu SSDs langsamer,
+          da die Daten mechanisch gelesen werden.
+        </li>
+        <li>
+          <strong>Haltbarkeit:</strong> Da sie mechanische Teile haben, sind HDDs
+          anfälliger für physische Schäden und Abnutzung.
+        </li>
+      </ul>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">SSD (Solid-State-Drive)</h2>
+      <ul class="list-none pl-6 space-y-4">
+        <li>
+          <strong>Funktionsweise:</strong> SSDs speichern Daten auf Flash-Speicherchips.
+          Es gibt keine beweglichen Teile.
+        </li>
+        <li>
+          <strong>Kapazität:</strong> SSDs haben oft weniger Speicherplatz als HDDs
+          und sind teurer pro Gigabyte.
+        </li>
+        <li>
+          <strong>Geschwindigkeit:</strong> SSDs sind viel schneller als HDDs. Sie
+          laden Daten fast sofort, da sie keine mechanischen Teile haben.
+        </li>
+
+        <li>
+          <strong>Haltbarkeit:</strong> SSDs sind robuster und weniger anfällig für
+          physische Schäden, da sie keine beweglichen Teile haben.
+        </li>
+      </ul>
+
+      <h2 class="text-xl font-bold mb-4 mt-8">Vergleich</h2>
+      <table class="table-auto w-full border border-gray-300">
+        <thead>
+          <tr>
+            <th class="border px-4 py-2">Merkmal</th>
+            <th class="border px-4 py-2">HDD</th>
+            <th class="border px-4 py-2">SSD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2">Speicherkapazität</td>
+            <td class="border px-4 py-2">Höher, günstiger</td>
+            <td class="border px-4 py-2">Geringer, teurer</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Geschwindigkeit</td>
+            <td class="border px-4 py-2">Langsamer</td>
+            <td class="border px-4 py-2">Viel schneller</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Haltbarkeit</td>
+            <td class="border px-4 py-2">Anfälliger für Schäden</td>
+            <td class="border px-4 py-2">Robuster</td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Preis</td>
+            <td class="border px-4 py-2">Günstiger</td>
+            <td class="border px-4 py-2">Teurer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</BaseLayout>

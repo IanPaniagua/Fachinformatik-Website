@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">USV und ihre Varianten</h1>
+    <p class="mb-8 max-w-4xl">
+      Eine USV (unterbrechungsfreie Stromversorgung) sorgt dafür, dass Geräte
+      bei einem Stromausfall weiter mit Strom versorgt werden. Sie ist besonders
+      wichtig für Computer, Server oder andere kritische Systeme, die nicht
+      unerwartet abgeschaltet werden dürfen. Es gibt verschiedene Arten von USV,
+      die je nach Bedarf eingesetzt werden.
+    </p>
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">Arten von USV</h2>
+      <ul class="list-decimal list-inside pl-6 space-y-4 max-w-4xl">
+        <li>
+          <strong>Offline/Standby-USV</strong>: Diese USV ist die einfachste und
+          günstigste Variante. Sie springt erst dann ein, wenn der Strom
+          ausfällt oder Spannungsprobleme auftreten. In normalen Zeiten bleibt
+          das Gerät im Standby-Modus.
+        </li>
+        <li>
+          <strong>Line-Interactive-USV</strong>: Diese USV kann
+          Spannungsprobleme wie Überspannungen oder Unterspannungen regulieren.
+          Sie greift also nicht nur bei einem Stromausfall ein, sondern schützt
+          auch vor Spannungsabweichungen.
+        </li>
+        <li>
+          <strong>Online-USV (Doppelwandler)</strong>: Diese USV liefert ständig
+          Strom aus ihrer Batterie, wodurch die Geräte vollständig vor
+          Stromschwankungen und Ausfällen geschützt sind. Sie ist die sicherste,
+          aber auch teuerste Variante.
+        </li>
+      </ul>
+    </div>
+    <p class="mt-8 max-w-4xl">
+      USV-Systeme sind unerlässlich, um empfindliche Geräte vor
+      Stromunterbrechungen und Spannungsproblemen zu schützen. Je nach
+      Anforderung und Budget kann man zwischen den verschiedenen Typen wählen.
+    </p>
+  </div>
+</BaseLayout>

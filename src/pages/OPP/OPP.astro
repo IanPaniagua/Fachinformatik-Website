@@ -1,0 +1,113 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Die Objektorientierte Programmierung (OPP)
+    </h1>
+    <p class="mb-8 max-w-4xl">
+      Die Objektorientierte Programmierung (OPP) ist eni Programieransatz, bei
+      dem Software in “Objekte” unterteilt wird. Diese Objekte repräsentieren
+      reale Dinge oder abstrakte Konzepte. Jedes Objekt hat Eigenschaften(Daten)
+      und Verhaltensweisen(Methoden), die seine Funktionen und die Interaktion
+      mit anderen Objekte beschreiben. Die Hauptkonzepte oder OPP sind klasse,
+      Objekt, Kapselung, Vererbung, Polymorphismus und Abstraktion.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Klasse</h2>
+        <p class="mb-8 max-w-4xl">
+          Eine Klasse ist wie ein Bauplan oder eine Vorlage, die gemeinsame
+          Eigenschaften und Verhaltensweisen für eine Gruppe von Objekten
+          definiert. Zum Beispiel könnte die Klasse Auto Eigenschaften wie Farbe
+          und Modell sowie Methoden wie starten() haben.
+        </p>
+        <div>
+          <img
+            src="/Klasse_OPP.png"
+            alt="Klasse image"
+            class="w-full max-w-4xl"
+          />
+        </div>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Objekt</h2>
+        <p class="mb-8 max-w-4xl">
+          Ein Objekt ist eine konkrete Instanz einer Klasse. Wenn wir ein Objekt
+          erstellen, erschaffen wir ein individuelles Element, das die
+          Eigenschaften und Verhaltensweisen der Klasse besitzt. Z.B ein Objekt
+          meinAuto wäre beispielsweise eine Instanz der Klasse Auto mit
+          bestimmten Werten für Farbe und Modell.
+        </p>
+        <img
+          src="/Objekt_OPP.png"
+          alt="Klasse image"
+          class="w-full max-w-4xl"
+        />
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Polymorphismus</h2>
+        <p class="mb-8 max-w-4xl">
+          Polymorphismus bedeutet, dass Objekte verschiedener Klassen gleich
+          behandelt werden können, solange sie eine gemeinsame Elternklasse
+          haben. Dabei können Methoden in den Kindklassen unterschiedlich
+          Funktionen (Methodenbeschreibung), sodass dasselbe Methodenkonzept je
+          nach Objekt unterschiedlich ausgeführt wird.
+        </p>
+        <img
+          src="/Polymorphismus_OPP.png"
+          alt="Klasse image"
+          class="w-full max-w-4xl"
+        />
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Abstraktion</h2>
+        <p class="mb-8 max-w-4xl">
+          Die Abstraktion bedeutet, sich auf die wichtigsten Merkmale eines
+          Objekts zu konzentrieren und unnötige Details auszublenden. Es wird
+          durch abstrakte Klassen oder Schnittstellen erreicht, die nur
+          notwendigen Methoden definieren, währen die spezifische
+          Implementierung in den Kindklassen erfolgt.
+        </p>
+        <img
+          src="/Abstraktion_OPP.png"
+          alt="Klasse image"
+          class="w-full max-w-4xl"
+        />
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Kapselung</h2>
+        <p class="mb-8 max-w-4xl">
+          Die kapselung bedeutet, die inneren Details eines Objekts zu verbergen
+          und nur das notwendige zugäntlich zu machen. Dies schützt die Daten im
+          Objekt vor unerwünschten Änderunden, da der Zugriff Kontrolliert wird,
+          oft durch spezielle Methoden (getter, setter).
+        </p>
+        <img
+          src="/Kapselung_OPP.png"
+          alt="Klasse image"
+          class="w-full max-w-4xl"
+        />
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Vererbung</h2>
+        <p class="mb-8 max-w-4xl">
+          Die vererbung ermöglict es, neue Klassen basieren auf bestehenden
+          Klassen zu erstellen. Die neue Klasse, auch “Kindklasse” gennant, erbt
+          die Eigenschaften und Methoden der “Elternlasse” der “SUPER” und kann
+          zusätliche Eigenschaften hinzufügen oder die geerbten verändern. Dies
+          spart Zeit und erleichtert die Wiederverwendung von code.
+        </p>
+        <img
+          src="/Vererbung_OPP.png"
+          alt="Klasse image"
+          class="w-full max-w-4xl"
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

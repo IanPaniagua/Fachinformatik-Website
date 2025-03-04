@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl
+font-bold mb-6 text-center">
+      Was sind Programmierparadigmen?
+    </h1>
+    <p class="mb-8 max-w-3xl text-left px-4">
+      Programmierparadigmen sind unterschiedliche Ansätze, wie Programme
+      geschrieben und strukturiert werden können. Sie helfen dabei, Probleme zu
+      lösen und den Code zu organisieren. Hier sind die wichtigsten Paradigmen
+      mit kurzen Erklärungen und Beispielen.
+    </p>
+    <div class="max-w-3xl w-full px-4">
+      <h2 class="text-xl font-bold mb-4">Wichtige Programmierparadigmen</h2>
+      <ul class="list-decimal list-inside space-y-6">
+        <li>
+          <strong>Imperatives Paradigma</strong>: Der Fokus liegt darauf, wie
+          etwas getan wird. Der Code besteht aus Anweisungen, die Schritt für
+          Schritt ausgeführt werden. <br />
+          <em>Beispiel:</em> In Python: <pre
+            class="bg-gray-100 rounded-md
+p-4 mt-2"><code> # Summe von 1 bis 10 berechnen summe = 0 for i in range(1, 11):
+summe += i print(summe) </code></pre>
+        </li>
+        <li>
+          <strong>Objektorientiertes Paradigma</strong>: Der Fokus liegt auf
+          Objekten, die Daten (Attribute) und Funktionen (Methoden) enthalten. <br
+          />
+          <em>Beispiel:</em> In Java: <pre
+            class="bg-gray-100 rounded-md p-4 mt-2"><code> class Auto &#123; String marke;
+Auto(String marke) &#123; this.marke = marke; &#125; void starten() &#123;
+System.out.println(marke + " startet!"); &#125; &#125; Auto meinAuto = new
+Auto("BMW"); meinAuto.starten(); </code></pre>
+        </li>
+        <li>
+          <strong>Funktionales Paradigma</strong>: Der Fokus liegt auf
+          Funktionen, die keine Seiteneffekte haben. Daten werden nicht
+          verändert, sondern neue erstellt. <br />
+          <em>Beispiel:</em> In Haskell: <pre
+            class="bg-gray-100 rounded-md p-4
+mt-2"><code> summe :: [Int] -> Int summe zahlen = sum zahlen -- Summe von 1 bis
+10 main = print (summe [1..10]) </code></pre>
+        </li>
+        <li>
+          <strong>Logisches Paradigma</strong>: Der Fokus liegt auf Fakten und
+          Regeln, aus denen logische Schlussfolgerungen gezogen werden. <br />
+          <em>Beispiel:</em> In Prolog: <pre
+            class="bg-gray-100 rounded-md p-4 mt-2"><code> vater(vater1, kind1).
+vater(vater2, kind2). eltern(X, Y) :- vater(X, Y). -- Frage: Wer ist Vater von
+kind1? ?- eltern(X, kind1). </code></pre>
+        </li>
+      </ul>
+    </div>
+    <div class="max-w-3xl px-4 mt-8">
+      <h2 class="text-xl font-bold mb-2">
+        Warum sind Programmierparadigmen wichtig?
+      </h2>
+      <p>
+        Jedes Paradigma eignet sich für unterschiedliche Probleme. Durch die
+        Auswahl des richtigen Paradigmas kann der Code einfacher, schneller und
+        effizienter geschrieben werden. Moderne Programmiersprachen unterstützen
+        oft mehrere Paradigmen.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

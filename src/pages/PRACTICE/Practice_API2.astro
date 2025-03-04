@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center p-6">
+    <h1 class="text-3xl font-bold mb-6">Fragen und Antworten API 2</h1>
+
+    <!-- Question Section -->
+    <div class="border border-gray-300 p-4 mb-4 shadow-md max-w-4xl w-full">
+      <p id="question" class="text-xl font-semibold mb-4">Was ist Scrum?</p>
+      <p id="answer" class="mb-4 hidden">
+        Scrum ist eine agile Methode zur Organisation und Verwaltung von
+        Projekten, insbesondere in der Softwareentwicklung. Es basiert auf
+        iterativen und inkrementellen Arbeitsweisen, bei denen Projekte in
+        kurzen, festen Zeiträumen, sogenannten Sprints, umgesetzt werden. Das
+        Ziel von Scrum ist es, Flexibilität und Anpassungsfähigkeit zu fördern,
+        um schnell auf Veränderungen und neue Anforderungen reagieren zu können.
+        Scrum betont die regelmäßige Zusammenarbeit im Team, Transparenz und
+        kontinuierliche Verbesserung.
+      </p>
+      <!-- User's Answer Section -->
+      <textarea
+        id="userInput"
+        class="border border-gray-300 p-2 w-full mb-4"
+        rows="4"
+        placeholder="Schreiben Sie Ihre Antwort hier..."></textarea>
+      <button
+        id="clearTextButton"
+        class="bg-red-500 text-white p-2 rounded-lg mb-4"
+        >Antwort löschen</button
+      >
+
+      <button id="showAnswer" class="bg-gray-400 text-white p-2 rounded-lg mb-4"
+        >Lösung anzeigen</button
+      >
+      <button id="nextQuestion" class="bg-green-800 text-white p-2 rounded-lg"
+        >Nächste Frage</button
+      >
+    </div>
+  </div>
+
+  <script>
+    import { marked } from "marked";
+
+    const questions = [
+      {
+        question: "Was ist Iteration in der Programmierung?",
+        answer:
+          "Iteration ist, wenn ein Vorgang wiederholt wird, zum Beispiel mit einer Schleife, bis eine bestimmte Bedingung erfüllt ist.",
+      },
+      {
+        question:
+          "Wie kann man eine Liste mit dem Insertion Sort Algorithmus sortieren? Schreibe den Pseudocode.",
+        answer:
+          "Algorithm InsertionSort(array):\n\n" +
+          "    for i from 1 to length(array) - 1 do:\n\n" +
+          "        key = array[i]\n\n" +
+          "        j = i - 1\n\n" +
+          "        while j >= 0 and array[j] > key do:\n\n" +
+          "            array[j + 1] = array[j]\n\n" +
+          "            j = j - 1\n\n" +
+          "        array[j + 1] = key\n\n" +
+          "**Erklärung**: Der Insertion Sort Algorithmus sortiert eine Liste, indem er jedes Element nacheinander an die richtige Position im bereits sortierten Teil der Liste einfügt. Der äußere Schleifenindex 'i' geht von 1 bis zum Ende der Liste. Der innere Schleifenindex 'j' sucht von der aktuellen Position rückwärts nach der richtigen Stelle für 'key', indem er größere Elemente nach rechts verschiebt.",
+      },
+      {
+        question: "Was ist Rekursion?",
+        answer:
+          "Rekursion bedeutet, dass eine Funktion sich selbst aufruft, um ein Problem schrittweise zu lösen, bis ein einfaches Basisproblem erreicht ist.",
+      },
+      {
+        question: "Was bedeutet imperativ in der Programmierung?",
+        answer:
+          "Imperativ bedeutet, dass wir genau angeben, wie ein Problem Schritt für Schritt gelöst werden soll.",
+      },
+      {
+        question: "Was bedeutet deklarativ in der Programmierung?",
+        answer:
+          "Deklarativ bedeutet, dass wir beschreiben, was wir erreichen wollen, ohne den genauen Ablauf der Schritte anzugeben.",
+      },
+      {
+        question: "Was ist OOP?",
+        answer:
+          "OOP steht für Objektorientierte Programmierung. Es ist ein Programmieransatz, bei dem Programme in Objekte mit Daten und Funktionen unterteilt werden.",
+      },
+      {
+        question: "Was bedeutet Polymorphismus in der Programmierung?",
+        answer:
+          "Polymorphismus bedeutet, dass dieselbe Methode oder Funktion in verschiedenen Klassen unterschiedlich funktionieren kann.",
+      },
+      {
+        question: "Was ist Vererbung?",
+        answer:
+          "Vererbung bedeutet, dass eine Klasse Eigenschaften und Methoden einer anderen Klasse erben kann, um sie wiederzuverwenden.",
+      },
+      {
+        question: "Was versteht man unter Enkapsulation?",
+        answer:
+          "Enkapsulation bedeutet, dass Daten und Funktionen einer Klasse verborgen werden, damit sie nur von der Klasse selbst verändert werden können.",
+      },
+      {
+        question: "Was ist eine Klasse in der Programmierung?",
+        answer:
+          "Eine Klasse ist wie eine Vorlage oder ein Bauplan, aus dem Objekte erstellt werden. Sie definiert Eigenschaften und Methoden.",
+      },
+      {
+        question: "Was ist ein Objekt in der Programmierung?",
+        answer:
+          "Ein Objekt ist eine Instanz einer Klasse. Es ist ein Ding, das Daten und Funktionen hat, basierend auf der Klasse.",
+      },
+      {
+        question:
+          "Wie kann man eine Variable erstellen und ihr den Wert 10 zuweisen?",
+        answer:
+          "variable := 10\n\n**Erklärung**: Mit 'variable := 10' wird eine Variable mit dem Namen 'variable' erstellt und der Wert '10' zugewiesen. Das Symbol ':=' zeigt die Zuweisung an.",
+      },
+      {
+        question: "Wie schreibt man eine Schleife, die von 1 bis 5 zählt?",
+        answer:
+          "Für i von 1 bis 5:\n\n  Ausgabe(i)\n\nEnde Für\n\n**Erklärung**: Die Schleife läuft von 1 bis 5. In jedem Schritt wird der Wert von 'i' ausgegeben. 'Für' gibt den Start und das Ende der Schleife an.",
+      },
+      {
+        question:
+          "Wie schreibt man eine While-Schleife, die läuft, bis der Zähler 10 erreicht?",
+        answer:
+          "solange counter < 10:\n\n  counter := counter + 1\n\n  Ausgabe(counter)\n\nEnde solange\n\n**Erklärung**: Die While-Schleife läuft so lange, wie die Bedingung 'counter < 10' wahr ist. Mit 'counter := counter + 1' wird der Wert des Zählers in jedem Schritt um 1 erhöht.",
+      },
+      {
+        question:
+          "Wie kann man ein Array erstellen und mit den Zahlen 1 bis 5 füllen?",
+        answer:
+          "array := [1, 2, 3, 4, 5]\n\n**Erklärung**: Das Array 'array' enthält eine Liste von Werten, die durch Kommas getrennt sind. Jedes Element kann mit seinem Index abgefragt werden.",
+      },
+      {
+        question:
+          "Wie kann man ein zweidimensionales Array erstellen und darauf zugreifen?",
+        answer:
+          "matrix := [[1, 2], [3, 4]]\nAusgabe(matrix[1][2])\n\n**Erklärung**: Das zweidimensionale Array 'matrix' ist wie eine Tabelle aufgebaut. 'matrix[1][2]' greift auf das Element in der ersten Zeile und der zweiten Spalte zu.",
+      },
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerElement = document.getElementById("answer");
+    const showAnswerButton = document.getElementById("showAnswer");
+    const nextQuestionButton = document.getElementById("nextQuestion");
+    const clearTextButton = document.getElementById("clearTextButton");
+    const userInput = document.getElementById(
+      "userInput"
+    ) as HTMLTextAreaElement;
+    let currentQuestionIndex = 0;
+
+    // Function to display question
+    async function displayQuestion(index) {
+      const { question, answer } = questions[index];
+      questionElement.textContent = question;
+      // Handle async if `marked` returns a Promise
+      answerElement.innerHTML = await marked.parse(answer); // Convert Markdown to HTML
+      answerElement.classList.add("hidden");
+
+      // Clear the textarea when a new question is displayed
+      userInput.value = "";
+    }
+
+    // Show the answer
+    showAnswerButton.addEventListener("click", () => {
+      answerElement.classList.remove("hidden");
+    });
+
+    // Move to the next question
+    nextQuestionButton.addEventListener("click", () => {
+      currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+      displayQuestion(currentQuestionIndex);
+    });
+
+    // Clear the textarea manually
+    clearTextButton.addEventListener("click", () => {
+      userInput.value = "";
+    });
+
+    // Initialize first question
+    displayQuestion(currentQuestionIndex);
+  </script>
+</BaseLayout>

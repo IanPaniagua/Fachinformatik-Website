@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Was ist eine VPN?</h1>
+    <p class="mb-8 max-w-4xl">
+      Eine VPN (Virtual Private Network) ist eine Technologie, die es
+      ermöglicht, sicher und privat über das Internet zu kommunizieren. Sie
+      schafft ein verschlüsseltes Netzwerk, das über das öffentliche Internet
+      aufgebaut wird, um Daten zu schützen und die Privatsphäre zu wahren.
+    </p>
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">Arten von VPN</h2>
+      <ul class="list-none pl-6 space-y-4 max-w-4xl">
+        <li>
+          <strong>Site-to-Site VPN</strong>: Verbindet zwei Netzwerke an
+          verschiedenen Standorten. Es wird oft von Unternehmen genutzt, um
+          entfernte Büros sicher miteinander zu verbinden.
+        </li>
+        <li>
+          <strong>Remote Access VPN</strong>: Ermöglicht es Einzelpersonen, sich
+          sicher mit ihrem Unternehmensnetzwerk zu verbinden, egal wo sie sich
+          befinden. Ideal für Homeoffice oder unterwegs.
+        </li>
+        <li>
+          <strong>Client-to-Site VPN</strong>: Verbindet einen einzelnen
+          Computer mit einem Netzwerk. Es wird verwendet, um sicher auf ein
+          Netzwerk zuzugreifen, als ob der Computer direkt darin wäre.
+        </li>
+        <li>
+          <strong>Peer-to-Peer VPN</strong>: Jeder Computer im Netzwerk kann
+          direkt mit anderen Computern kommunizieren, ohne einen zentralen
+          Server. Dies wird oft für den Austausch von Daten verwendet.
+        </li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

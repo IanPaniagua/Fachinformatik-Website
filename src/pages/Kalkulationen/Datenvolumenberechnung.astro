@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-start p-6 max-w-4xl mx-auto">
+    <h1 class="text-3xl text-center font-bold mb-6">
+      Berechnung des Scanvolumens und Speicherbedarfs
+    </h1>
+    <h2 class="text-xl font-bold mb-2">Beispiel:</h2>
+    <p class="mb-8">
+      Zur Qualitätssicherung werden die Poster der ArtPrint AG am Ende des
+      Produktionsprozesses eingescannt. Die neuen Produktionsmaschinen sind sehr
+      leistungsfähig und können hohe Druckvolumen erfüllen. Damit ist die
+      zukünftige Expansion der Geschäftsfelder gesichert. Ihnen liegen folgende
+      Angaben zur Leistungsfähigkeit vor:
+    </p>
+
+    <ul class="list-disc pl-6 mb-8">
+      <li>Pro Tag sind die Produktionsanlagen 12 Stunden in Betrieb.</li>
+      <li>Pro Stunde verlassen 80 Poster die Produktionsstraße.</li>
+      <li>
+        Von den gefertigten Postern werden 3/4 beidseitig gescannt, die übrigen
+        Poster werden nur von einer Seite gescannt.
+      </li>
+      <li>Erfasste Scanfläche: 40 cm x 30 cm</li>
+      <li>Auflösung: 300 dpi x 300 dpi</li>
+      <li>Farbtiefe: 16 Bit</li>
+      <li>1 Inch: 2,54 cm</li>
+    </ul>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">
+        a) Ermitteln Sie die Anzahl der gescannten Poster-Seiten pro Tag.
+      </h2>
+      <p>
+        Die Anzahl der gescannten Poster-Seiten pro Tag kann wie folgt berechnet
+        werden:
+      </p>
+      <p>
+        Die Produktionszeit pro Tag beträgt 12 Stunden. Pro Stunde werden 80
+        Poster produziert. Also:
+      </p>
+      <p>
+        <strong>Gesamtzahl der Poster pro Tag</strong> = 12 Stunden x 80 Poster/Stunde
+        = 960 Poster
+      </p>
+      <p>3/4 der Poster werden beidseitig gescannt:</p>
+      <p>
+        <strong>Poster mit beidseitigem Scan</strong> = 960 Poster x 3/4 = 720 Poster
+      </p>
+      <p>1/4 der Poster werden nur einseitig gescannt:</p>
+      <p>
+        <strong>Poster mit einseitigem Scan</strong> = 960 Poster x 1/4 = 240 Poster
+      </p>
+      <p>
+        <strong>Gesamte gescannte Poster-Seiten pro Tag</strong> = (720 Poster x
+        2 Seiten) + (240 Poster x 1 Seite) = 1440 + 240 = 1680 Seiten
+      </p>
+    </div>
+
+    <div class="border border-gray-300 p-4 mb-4">
+      <h2 class="text-xl font-bold mb-4">
+        b) Ermitteln Sie das zu speichernde Datenvolumen pro Tag.
+      </h2>
+      <p>
+        Um das zu speichernde Datenvolumen zu berechnen, müssen wir zuerst die
+        Größe der gescannten Daten in Bit berechnen. Die Berechnung erfolgt in
+        folgenden Schritten:
+      </p>
+      <p>Die Scanfläche beträgt 40 cm x 30 cm, was in Inch:</p>
+      <p><strong>Breite</strong> = 40 cm / 2,54 cm/Inch ≈ 15,75 Inch</p>
+      <p><strong>Höhe</strong> = 30 cm / 2,54 cm/Inch ≈ 11,81 Inch</p>
+      <p>Die Auflösung ist 300 dpi x 300 dpi, was:</p>
+      <p>
+        <strong>Breite in Pixel</strong> = 15,75 Inch x 300 dpi = 4725 Pixel
+      </p>
+      <p><strong>Höhe in Pixel</strong> = 11,81 Inch x 300 dpi = 3543 Pixel</p>
+      <p>Die Bildgröße in Pixeln ist daher:</p>
+      <p>
+        <strong>Bildgröße</strong> = 4725 Pixel x 3543 Pixel = 16.742.775 Pixel
+      </p>
+      <p>Die Farbtiefe beträgt 16 Bit:</p>
+      <p>
+        <strong>Größe eines Bildes in Bit</strong> = 16.742.775 Pixel x 16 Bit =
+        267.804.400 Bit
+      </p>
+      <p>Die Gesamtspeichergröße pro Tag ist:</p>
+      <p>
+        <strong>Datenvolumen pro Tag</strong> = 1680 Seiten x 267.804.400 Bit = 449.405.680.000
+        Bit
+      </p>
+      <p>
+        Um das Volumen in GiB zu berechnen, teilen wir durch 8 (Bit pro Byte)
+        und dann durch 1024 x 1024 x 1024 (Bytes pro GiB):
+      </p>
+      <p>
+        <strong>Datenvolumen in GiB</strong> = 449.405.680.000 Bit / (8 x 1024 x
+        1024 x 1024) ≈ 52,54 GiB
+      </p>
+      <p>
+        Gerundet auf das nächste volle GiB beträgt das zu speichernde
+        Datenvolumen pro Tag: <span class="bg-green-400 px-1">53 GiB</span>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Was ist eine VLAN?</h1>
+    <p class="mb-8 max-w-4xl">
+      Eine VLAN (Virtuelle Lokale Netzwerkanbindung) ist eine Technologie, die
+      es ermöglicht, Geräte innerhalb eines Netzwerks zu gruppieren, auch wenn
+      sie an verschiedenen Orten angeschlossen sind. Mit einer VLAN kann man das
+      Netzwerk logisch aufteilen, ohne physisch neue Netzwerke einrichten zu
+      müssen.
+    </p>
+
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Wichtige Merkmale von VLAN</h2>
+        <ul class="list-decimal list-inside pl-6 space-y-2">
+          <li>
+            <strong>Segmentierung</strong>: Netzwerke können in kleinere,
+            logisch getrennte Gruppen unterteilt werden, um den Datenverkehr
+            besser zu verwalten.
+          </li>
+          <li>
+            <strong>Sicherheit</strong>: VLANs erhöhen die Sicherheit, indem sie
+            den Zugriff auf verschiedene Teile des Netzwerks einschränken.
+          </li>
+          <li>
+            <strong>Flexibilität</strong>: Geräte können sich physisch bewegen,
+            aber sie bleiben in derselben VLAN-Gruppe, was die Netzverwaltung
+            erleichtert.
+          </li>
+          <li>
+            <strong>Effizienz</strong>: Durch die Trennung von Netzwerken wird
+            der unnötige Datenverkehr reduziert, was die Leistung verbessert.
+          </li>
+          <li>
+            <strong>Identifikation</strong>: VLANs werden über IDs (VLAN IDs)
+            identifiziert, die helfen, den Datenverkehr zuzuordnen.
+          </li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-xl font-bold mb-2">Vorteile und Nachteile von VLAN</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border border-gray-300 p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-2">Vorteile</h3>
+            <ul class="list-disc pl-4 space-y-2">
+              <li>
+                Erhöhte Netzwerksicherheit durch Trennung des Datenverkehrs.
+              </li>
+              <li>Bessere Kontrolle und Verwaltung des Netzwerks.</li>
+              <li>Flexibel bei der Netzwerkanpassung und Gerätezuordnung.</li>
+              <li>Effizientere Nutzung der Netzwerkressourcen.</li>
+            </ul>
+          </div>
+          <div class="border border-gray-300 p-4 rounded-lg shadow-md">
+            <h3 class="text-lg font-semibold mb-2">Nachteile</h3>
+            <ul class="list-disc pl-4 space-y-2">
+              <li>Komplexere Netzwerkkonfiguration und Verwaltung.</li>
+              <li>Benötigt spezielle Hardware wie VLAN-fähige Switches.</li>
+              <li>
+                Fehlerhafte Konfiguration kann zu Sicherheitsproblemen führen.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold mb-2">
+          Für welche Netzwerke ist VLAN geeignet?
+        </h2>
+        <p>
+          VLANs eignen sich besonders für größere Netzwerke, in denen der
+          Datenverkehr segmentiert werden muss, wie z.B. in Unternehmen, Schulen
+          oder großen Gebäuden. Sie sind auch ideal, wenn Sicherheit und
+          flexible Netzwerkverwaltung erforderlich sind.
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

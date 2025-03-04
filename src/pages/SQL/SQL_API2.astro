@@ -1,0 +1,220 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-6 text-center">Grundlagen von SQL</h1>
+    <div class="max-w-4xl w-full">
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Datenbanken und Tabellen</h2>
+        <p class="mb-8 max-w-4xl">
+          Eine Datenbank ist eine Sammlung von Tabellen, in denen Daten in
+          Zeilen und Spalten gespeichert werden.
+        </p>
+        <h2 class="text-2xl font-bold mb-2">Datentypen</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li><strong>INT</strong>: Ganzzahl</li>
+          <li><strong>VARCHAR</strong>: Text</li>
+          <li><strong>DATE</strong>: Datum</li>
+          <li><strong>BOOLEAN</strong>: Wahrheitswert</li>
+        </ul>
+      </div>
+
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Einfache Datenabfragen</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>SELECT</strong>: Befehl, um Daten aus einer oder mehreren
+            Tabellen abzurufen.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte1, spalte2 
+            FROM tabelle 
+            WHERE Bedingung 
+            ORDER BY spalte2 DESC 
+            LIMIT 10;</code>
+        </pre>
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Operatoren und Bedingungen</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>Vergleichsoperatoren:</strong>
+            <code>=, !=, <, >, <=, >=</code>
+          </li>
+          <li><strong>Logische Operatoren:</strong> AND, OR, NOT</li>
+          <li>
+            <strong>IN-Operator:</strong> Prüft, ob ein Wert in einer Liste von Werten
+            enthalten ist.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte1
+            FROM tabelle
+            WHERE spalte1 IN ('wert1', 'wert2');</code>
+        </pre>
+          </li>
+          <li>
+            <strong>BETWEEN-Operator:</strong> Definiert einen Wertbereich.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte1 FROM tabelle 
+            WHERE spalte1 BETWEEN wert1 AND wert2;</code>
+        </pre>
+          </li>
+          <li>
+            <strong>LIKE und Platzhalter:</strong> Sucht nach Mustern in Texten (%
+            und _).
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte1 FROM tabelle 
+            WHERE spalte1 LIKE 'A%';</code>
+        </pre>
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Aggregatfunktionen</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li><strong>COUNT, SUM, AVG, MAX, MIN</strong></li>
+          <li><strong>GROUP BY:</strong> Gruppiert Daten.</li>
+          <li>
+            <strong>HAVING:</strong> Filtert Ergebnisse nach der Gruppierung.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte1 FROM tabelle
+            GROUP BY spalte1
+            HAVING COUNT(*) > 1;</code>
+        </pre>
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Datenmanipulation</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>INSERT</strong>: Fügt neue Daten in eine Tabelle ein.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            INSERT INTO tabelle (spalte1, spalte2)
+            VALUES (wert1, wert2);</code>
+        </pre>
+          </li>
+          <li>
+            <strong>UPDATE</strong>: Ändert bestehende Daten.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            UPDATE tabelle SET spalte1 = wert1
+            WHERE bedingung;</code>
+        </pre>
+          </li>
+          <li>
+            <strong>DELETE</strong>: Löscht Daten aus einer Tabelle.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            DELETE FROM tabelle
+            WHERE bedingung;</code>
+        </pre>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mb-4 mt-8">
+          Beziehungen zwischen Tabellen und Joins
+        </h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>INNER JOIN</strong>: Gibt Zeilen zurück, wenn es
+            Übereinstimmungen in beiden Tabellen gibt.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT tabelle1.spalte, tabelle2.spalte 
+            FROM tabelle1 
+            INNER JOIN tabelle2 ON tabelle1.id = tabelle2.id;</code>
+        </pre>
+          </li>
+          <li>
+            <strong>LEFT JOIN</strong>: Gibt alle Zeilen der linken Tabelle und
+            passende Zeilen der rechten Tabelle zurück.
+          </li>
+          <li>
+            <strong>RIGHT JOIN</strong>: Gibt alle Zeilen der rechten Tabelle
+            und passende Zeilen der linken Tabelle zurück.
+          </li>
+          <li>
+            <strong>FULL JOIN</strong>: Gibt alle Zeilen zurück, wenn es eine
+            Übereinstimmung in einer der beiden Tabellen gibt.
+          </li>
+          <li>
+            <strong>SELF JOIN</strong>: Verknüpft eine Tabelle mit sich selbst.
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">Unterabfragen</h2>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>Unterabfrage in SELECT, WHERE und FROM:</strong> Eine Abfrage
+            innerhalb einer anderen Abfrage.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+          <code>
+            SELECT spalte FROM tabelle 
+            WHERE spalte = (SELECT spalte FROM andere_tabelle WHERE bedingung);</code>
+        </pre>
+          </li>
+        </ul>
+      </div>
+      <div class="border border-gray-300 p-4 mb-4">
+        <h2 class="text-2xl font-bold mb-4 mt-8">
+          Kombinieren von Abfragen mit UNION
+        </h2>
+        <p class="mb-4 max-w-4xl">
+          Der Befehl <strong>UNION</strong> wird verwendet, um die Ergebnisse von
+          zwei oder mehr SELECT-Abfragen zu kombinieren. Dabei werden Duplikate standardmäßig
+          entfernt.
+        </p>
+        <ul class="list-none pl-6 space-y-4 max-w-4xl text-lg">
+          <li>
+            <strong>Syntax:</strong>
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+            <code>
+      SELECT spalte1, spalte2
+      FROM tabelle1
+      UNION
+      SELECT spalte1, spalte2
+      FROM tabelle2;</code>
+            </pre>
+          </li>
+          <li>
+            <strong>UNION ALL:</strong> Behält alle Zeilen bei, einschließlich Duplikaten.
+            <pre
+              class="bg-gray-100 p-4 rounded-md text-sm w-full overflow-x-auto">
+            <code>
+      SELECT spalte1, spalte2
+      FROM tabelle1
+      UNION ALL
+      SELECT spalte1, spalte2
+      FROM tabelle2;</code>
+            </pre>
+          </li>
+          <li>
+            <strong>Anforderungen:</strong> Die Anzahl und der Typ der Spalten in
+            den SELECT-Abfragen müssen übereinstimmen.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

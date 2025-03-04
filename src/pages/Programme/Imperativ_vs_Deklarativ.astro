@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl
+font-bold mb-6 text-center">
+      Imperative vs. Deklarative Programmierung
+    </h1>
+    <p class="mb-8 max-w-3xl text-left px-4">
+      In der Programmierung gibt es verschiedene Paradigmen, um Probleme zu
+      lösen und den Code zu organisieren. Die beiden Hauptansätze sind die <strong
+        >imperative Programmierung</strong
+      > und die
+      <strong>deklarative Programmierung</strong>. Beide Paradigmen bieten
+      unterschiedliche Ansätze, um ein Problem anzugehen, und werden in
+      unterschiedlichen Programmiersprachen eingesetzt.
+    </p>
+    <div class="max-w-3xl
+w-full px-4">
+      <h2 class="text-xl font-bold mb-4">Was ist imperatives Programmieren?</h2>
+      <p class="mb-4">
+        Das <strong>imperative Programmierparadigma</strong> beschreibt <em
+          >wie</em
+        > ein bestimmtes Ergebnis erzielt werden soll. Der Entwickler gibt eine Schritt-für-Schritt-Anleitung,
+        in der jede Anweisung die nachfolgende beeinflusst. Der Fokus liegt auf dem
+        Ablauf, wobei Zustandsänderungen und Variablenmanipulationen üblich sind.
+        Imperative Programmierung ist besonders verbreitet in Sprachen wie <strong
+          >C</strong
+        >,
+        <strong>Java</strong> und <strong>Python</strong>.
+      </p>
+      <p>
+        <em>Beispiel:</em>
+        Summe von 1 bis 10 in Python berechnen: <pre
+          class="bg-gray-100 rounded-md p-4
+mt-2"><code> summe = 0 for i in range(1, 11): summe += i print(summe)
+</code></pre>
+      </p>
+      <p class="mt-4">
+        Hier wird Schritt für Schritt vorgegeben, wie die Berechnung abläuft,
+        wobei eine Schleife und eine Variable verwendet werden, die sich im
+        Verlauf verändert.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full
+px-4 mt-8">
+      <h2 class="text-xl font-bold mb-4">
+        Was ist deklaratives Programmieren?
+      </h2>
+      <p class="mb-4">
+        Das <strong>deklarative Programmierparadigma</strong> beschreibt <em
+          >was</em
+        > das Ergebnis sein soll, ohne vorzugeben, wie es erreicht wird. Der Code
+        fokussiert sich darauf, was das gewünschte Endergebnis ist, während die detaillierte
+        Durchführung vom System übernommen wird. Deklarative Programmierung ist häufig
+        in Sprachen wie
+        <strong>SQL</strong>, <strong>HTML</strong> und <strong>Haskell</strong>
+        zu finden.
+      </p>
+      <p>
+        <em>Beispiel:</em> Summe von 1 bis 10 in Haskell: <pre
+          class="bg-gray-100 rounded-md p-4 mt-2"><code> summe = sum [1..10] main = print
+summe </code></pre>
+      </p>
+      <p class="mt-4">
+        Hier wird nur angegeben, was das Ergebnis sein soll. Das System kümmert
+        sich um die eigentliche Berechnung.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl font-bold
+mb-4">
+        Hauptunterschiede zwischen imperativ und deklarativ
+      </h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>
+          <strong>Ansatz:</strong> Imperative Programmierung beschreibt, <em
+            >wie</em
+          > etwas gemacht wird, während deklarative Programmierung beschreibt, <em
+            >was</em
+          > das Ergebnis sein soll.
+        </li>
+        <li>
+          <strong>Zustandsänderung:</strong> Imperative Programmierung nutzt oft
+          veränderliche Variablen und Zustandsänderungen. Deklarative Programmierung
+          vermeidet solche Änderungen.
+        </li>
+        <li>
+          <strong>Programmiersprachen:</strong>
+          Sprachen wie C, Java und Python sind hauptsächlich imperativ, während SQL,
+          HTML und funktionale Sprachen wie Haskell als deklarativ gelten.
+        </li>
+      </ul>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl font-bold
+mb-4">
+        Warum verwenden einige Sprachen imperativen und andere deklarativen
+        Stil?
+      </h2>
+      <p class="mb-4">
+        Imperative Sprachen wie <strong>C</strong> und
+        <strong>Java</strong> wurden entwickelt, um direkte Kontrolle über die Hardware
+        zu haben, da sie detaillierte Anweisungen und Zustandsmanipulationen ermöglichen.
+        Sie eignen sich besonders für Algorithmen, die eine präzise Ablaufkontrolle
+        erfordern.
+      </p>
+      <p>
+        Deklarative Sprachen wie
+        <strong>SQL</strong> und <strong>HTML</strong> hingegen konzentrieren sich
+        darauf, dem System das gewünschte Ergebnis zu beschreiben, ohne den genauen
+        Ablauf anzugeben. Dies ist effizient, wenn der Fokus auf dem Endergebnis
+        liegt, beispielsweise bei Datenbankabfragen oder der Webseitengestaltung.
+      </p>
+    </div>
+    <div class="max-w-3xl w-full px-4 mt-8">
+      <h2 class="text-xl font-bold
+mb-2">Zusammenfassung</h2>
+      <p>
+        Imperative und deklarative Programmierung bieten verschiedene
+        Möglichkeiten, Code zu schreiben. Während imperative Ansätze
+        Schritt-für-Schritt-Anweisungen und Zustandsänderungen betonen, setzen
+        deklarative Ansätze auf das Endergebnis und vermeiden unnötige Details
+        im Ablauf. Die Wahl des Paradigmas hängt von den Anforderungen und der
+        Programmiersprache ab.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
