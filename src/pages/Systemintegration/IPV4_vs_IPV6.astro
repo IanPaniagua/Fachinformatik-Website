@@ -3,65 +3,67 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center mt-4 lg:mt-0">
     <h1 class="text-3xl font-bold mb-6 text-center">
       Unterschiede zwischen IPv4 und IPv6
     </h1>
 
-    <table class="border border-gray-300 max-w-4xl w-full">
-      <thead>
-        <tr class="bg-gray-200">
-          <th class="border px-4 py-2">Merkmal</th>
-          <th class="border px-4 py-2">IPv4</th>
-          <th class="border px-4 py-2">IPv6</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border px-4 py-2">Adresslänge</td>
-          <td class="border px-4 py-2">32 Bit (4 Blöcke)</td>
-          <td class="border px-4 py-2">128 Bit (8 Blöcke)</td>
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Adressformat</td>
-          <td class="border px-4 py-2">123.45.67.89 (Dezimal)</td>
-          <td class="border px-4 py-2"
-            >2001:0db8:85a3::8a2e:0370:7334 (Hexadezimal)</td
-          >
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Anzahl der Adressen</td>
-          <td class="border px-4 py-2">Ca. 4,3 Milliarden</td>
-          <td class="border px-4 py-2">Nahezu unendlich (340 Sextillionen)</td>
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Konfiguration</td>
-          <td class="border px-4 py-2">Manuell oder über DHCP</td>
-          <td class="border px-4 py-2"
-            >Automatisch (Stateless Autoconfiguration)</td
-          >
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Sicherheit</td>
-          <td class="border px-4 py-2">Abhängig von Anwendungen</td>
-          <td class="border px-4 py-2">Integrierte IPsec-Unterstützung</td>
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Broadcast</td>
-          <td class="border px-4 py-2">Ja, unterstützt</td>
-          <td class="border px-4 py-2"
-            >Kein Broadcast, stattdessen Anycast und Multicast</td
-          >
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">Kompatibilität</td>
-          <td class="border px-4 py-2"
-            >Wird immer noch weit verbreitet verwendet</td
-          >
-          <td class="border px-4 py-2">Wird zunehmend implementiert</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto max-w-4xl w-full">
+      <table class="border border-gray-300 w-full min-w-full">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Merkmal</th>
+            <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">IPv4</th>
+            <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">IPv6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Adresslänge</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">32 Bit (4 Blöcke)</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">128 Bit (8 Blöcke)</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Adressformat</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">123.45.67.89 (Dezimal)</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base"
+              >2001:0db8:85a3::8a2e:0370:7334 (Hexadezimal)</td
+            >
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Anzahl der Adressen</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Ca. 4,3 Milliarden</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Nahezu unendlich (340 Sextillionen)</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Konfiguration</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Manuell oder über DHCP</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base"
+              >Automatisch (Stateless Autoconfiguration)</td
+            >
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Sicherheit</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Abhängig von Anwendungen</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Integrierte IPsec-Unterstützung</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Broadcast</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Ja, unterstützt</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base"
+              >Kein Broadcast, stattdessen Anycast und Multicast</td
+            >
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Kompatibilität</td>
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base"
+              >Wird immer noch weit verbreitet verwendet</td
+            >
+            <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Wird zunehmend implementiert</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <p class="mt-8 max-w-4xl">
       IPv4 und IPv6 sind die beiden wichtigsten Protokolle, die zur Übertragung

@@ -41,9 +41,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   </div>
 
   <script>
-    import { marked } from "marked";
-
-    const questions = [
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Practice page script loaded');
+      
+      // Simple markdown parser function (basic implementation)
+      function parseMarkdown(text) {
+        return text
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')
+          .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+          .replace(/`([^`]+)`/g, '<code>$1</code>')
+          .replace(/\n/g, '<br>');
+      }
+      
+      const questions = [
       {
         question: "Was ist Iteration in der Programmierung?",
         answer:
@@ -557,14 +569,26 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     const userInput = document.getElementById(
       "userInput"
     ) as HTMLTextAreaElement;
+    
+    // Debug: Check if elements are found
+    console.log('Elements found:', {
+      questionElement: !!questionElement,
+      answerElement: !!answerElement,
+      showAnswerButton: !!showAnswerButton,
+      nextQuestionButton: !!nextQuestionButton,
+      clearTextButton: !!clearTextButton,
+      userInput: !!userInput
+    });
+    
     let currentQuestionIndex = 0;
 
     // Function to display question
     async function displayQuestion(index) {
+      console.log('Displaying question index:', index);
       const { question, answer } = questions[index];
       questionElement.textContent = question;
-      // Handle async if `marked` returns a Promise
-      answerElement.innerHTML = await marked.parse(answer); // Convert Markdown to HTML
+      // Convert Markdown to HTML using our simple parser
+      answerElement.innerHTML = parseMarkdown(answer);
       answerElement.classList.add("hidden");
 
       // Clear the textarea when a new question is displayed
@@ -573,21 +597,25 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
     // Show the answer
     showAnswerButton.addEventListener("click", () => {
+      console.log('Show answer button clicked');
       answerElement.classList.remove("hidden");
     });
 
     // Move to the next question
     nextQuestionButton.addEventListener("click", () => {
+      console.log('Next question button clicked');
       currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
       displayQuestion(currentQuestionIndex);
     });
 
     // Clear the textarea manually
     clearTextButton.addEventListener("click", () => {
+      console.log('Clear text button clicked');
       userInput.value = "";
     });
 
     // Initialize first question
     displayQuestion(currentQuestionIndex);
+    });
   </script>
 </BaseLayout>

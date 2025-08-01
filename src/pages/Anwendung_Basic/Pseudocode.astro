@@ -3,9 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col items-center">
-    <h1 class="text-3xl font-bold mb-6 text-center">Pseudocode</h1>
-    <p class="mb-8 max-w-4xl">
+  <div class="flex flex-col items-center mt-4 lg:mt-0">
+    <h1 class="text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-center">Pseudocode</h1>
+    <p class="mb-6 lg:mb-8 max-w-4xl px-4 lg:px-0">
       Pseudocode ist eine einfache Art, einen Algorithmus oder einen
       Programmablauf in Worten zu beschreiben, ohne eine bestimmte
       Programmiersprache zu verwenden. Er dient dazu, die Logik eines Programms
@@ -14,10 +14,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       einfache und verständliche Weise.
     </p>
 
-    <div class="max-w-4xl w-full">
-      <div class="border border-gray-300 p-4 mb-4">
-        <h2 class="text-xl font-bold mb-2">Wichtige Merkmale von Pseudocode</h2>
-        <ul class="list-decimal list-inside pl-6 space-y-2">
+    <div class="max-w-4xl w-full px-4 lg:px-0">
+      <div class="border border-gray-300 p-3 lg:p-4 mb-4">
+        <h2 class="text-lg lg:text-xl font-bold mb-2">Wichtige Merkmale von Pseudocode</h2>
+        <ul class="list-decimal list-inside pl-4 lg:pl-6 space-y-2 text-sm lg:text-base">
           <li>
             <strong>Keine Syntaxregeln</strong>: Pseudocode folgt keinen festen
             Regeln wie eine Programmiersprache.
@@ -38,67 +38,70 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </ul>
       </div>
 
-      <div class="border border-gray-300 p-4 mb-4">
-        <h2 class="text-xl font-bold mb-2">
+      <div class="border border-gray-300 p-3 lg:p-4 mb-4">
+        <h2 class="text-lg lg:text-xl font-bold mb-2">
           Beispiel: Pseudocode mit einer Schleife
         </h2>
-        <p class="mb-4">
+        <p class="mb-4 text-sm lg:text-base">
           Hier ist ein einfaches Beispiel, das zeigt, wie man eine Schleife in
           Pseudocode schreibt. In diesem Fall wird eine Schleife verwendet, um
           die Zahlen von 1 bis 5 auszugeben:
         </p>
-        <pre
-          class="bg-gray-100 p-4 rounded-md">
-          <code>
-            START
-            SETZE i AUF 1
-            SOLANGE i &lt;= 5
-              GIB i AUS
-              SETZE i AUF i + 1
-            ENDE SOLANGE
-            ENDE
-          </code>
-        </pre>
-        <p class="mt-4">
+        <div class="overflow-x-auto">
+          <pre class="bg-gray-100 p-3 lg:p-4 rounded-md text-xs lg:text-sm whitespace-pre">
+            <code>
+START
+SETZE i AUF 1
+SOLANGE i &lt;= 5
+  GIB i AUS
+  SETZE i AUF i + 1
+ENDE SOLANGE
+ENDE
+            </code>
+          </pre>
+        </div>
+        <p class="mt-4 text-sm lg:text-base">
           Dieser Pseudocode beschreibt, wie die Variable <strong>i</strong> initial
           auf 1 gesetzt wird. Dann wird eine Schleife ausgeführt, die den Wert von
           <strong>i</strong> ausgibt und ihn bei jedem Durchlauf um 1 erhöht. Die
           Schleife endet, wenn <strong>i</strong> den Wert 5 überschreitet.
         </p>
       </div>
-      <div class="border border-gray-300 p-4 mb-4">
-        <h2 class="text-xl font-bold mb-2">
+      
+      <div class="border border-gray-300 p-3 lg:p-4 mb-4">
+        <h2 class="text-lg lg:text-xl font-bold mb-2">
           Beispiel: Pseudocode mit Bedingungen und Schleifen
         </h2>
-        <p class="mb-4">
+        <p class="mb-4 text-sm lg:text-base">
           In diesem Beispiel wird Pseudocode verwendet, um alle Zahlen von 1 bis
           10 zu durchlaufen. Für jede Zahl wird überprüft, ob sie gerade oder
           ungerade ist. Die Schleife wird fortgesetzt, solange die Zahl kleiner
           oder gleich 10 ist:
         </p>
-        <pre
-          class="bg-gray-100 p-4 rounded-md">
-          <code>
-            START
-            SETZE zahl AUF 1
-            SOLANGE zahl &lt;= 10
-              FALLS zahl MOD 2 = 0
-                GIB "Zahl ist gerade" AUS
-              SONST
-                GIB "Zahl ist ungerade" AUS
-              ENDE FALLS
-              SETZE zahl AUF zahl + 1
-            ENDE SOLANGE
-            ENDE
-          </code>
-        </pre>
-        <p class="mt-4">
+        <div class="overflow-x-auto">
+          <pre class="bg-gray-100 p-3 lg:p-4 rounded-md text-xs lg:text-sm whitespace-pre">
+            <code>
+START
+SETZE zahl AUF 1
+SOLANGE zahl &lt;= 10
+  FALLS zahl MOD 2 = 0
+    GIB "Zahl ist gerade" AUS
+  SONST
+    GIB "Zahl ist ungerade" AUS
+  ENDE FALLS
+  SETZE zahl AUF zahl + 1
+ENDE SOLANGE
+ENDE
+            </code>
+          </pre>
+        </div>
+        <p class="mt-4 text-sm lg:text-base">
           In diesem Pseudocode wird die Variable <strong>zahl</strong> initial auf
           1 gesetzt. Die Schleife überprüft, ob die Zahl gerade oder ungerade ist
           und gibt die entsprechende Nachricht aus. Danach wird die Zahl um 1 erhöht.
           Die Schleife endet, wenn <strong>zahl</strong> den Wert 10 überschreitet.
         </p>
-        <p class="mt-4">
+        <p class="mt-4 text-sm lg:text-base">
           Der Begriff <strong>MOD</strong> steht für den Modulo-Operator. Er berechnet
           den Rest einer Division. Im obigen Beispiel wird <strong
             >zahl MOD 2</strong
@@ -108,34 +111,35 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </p>
       </div>
 
-      <div class="border border-gray-300 p-4 mb-4">
-        <h2 class="text-xl font-bold mb-2">
+      <div class="border border-gray-300 p-3 lg:p-4 mb-4">
+        <h2 class="text-lg lg:text-xl font-bold mb-2">
           Neue Aufgabe: Funktion zur Überprüfung eines Schaltjahrs
         </h2>
-        <p class="mb-4">
+        <p class="mb-4 text-sm lg:text-base">
           Entwickle eine Funktion in Pseudocode, die das gewünschte Jahr als
           Eingabe erhält und am Ende eine Meldung ausgibt, ob es sich um ein
           Schaltjahr handelt oder nicht. Ein Schaltjahr ist ein Jahr, welches
           durch vier teilbar ist, aber nicht durch 100. Die Ausnahme sind Jahre,
           die durch 400 teilbar sind. Diese sind ebenfalls Schaltjahre.
         </p>
-        <pre
-          class="bg-gray-100 p-4 rounded-md">
-          <code>
-            FUNKTION istSchaltjahr(jahr)
-              FALLS (jahr % 400 = 0)
-                GIB "Schaltjahr" AUS
-              SONST FALLS (jahr % 100 = 0)
-                GIB "Kein Schaltjahr" AUS
-              SONST FALLS (jahr % 4 = 0)
-                GIB "Schaltjahr" AUS
-              SONST
-                GIB "Kein Schaltjahr" AUS
-              ENDE FALLS
-            ENDE FUNKTION
-          </code>
-        </pre>
-        <p class="mt-4">
+        <div class="overflow-x-auto">
+          <pre class="bg-gray-100 p-3 lg:p-4 rounded-md text-xs lg:text-sm whitespace-pre">
+            <code>
+FUNKTION istSchaltjahr(jahr)
+  FALLS (jahr % 400 = 0)
+    GIB "Schaltjahr" AUS
+  SONST FALLS (jahr % 100 = 0)
+    GIB "Kein Schaltjahr" AUS
+  SONST FALLS (jahr % 4 = 0)
+    GIB "Schaltjahr" AUS
+  SONST
+    GIB "Kein Schaltjahr" AUS
+  ENDE FALLS
+ENDE FUNKTION
+            </code>
+          </pre>
+        </div>
+        <p class="mt-4 text-sm lg:text-base">
           Diese Funktion <strong>istSchaltjahr</strong> überprüft, ob das eingegebene
           Jahr ein Schaltjahr ist, indem sie die Jahre nach den Kriterien für Schaltjahre
           klassifiziert. Wenn das Jahr durch 400 teilbar ist, wird es als Schaltjahr
@@ -145,9 +149,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </p>
       </div>
 
-      <div class="border border-gray-300 p-4 mb-4">
-        <h2 class="text-xl font-bold mb-2">Vorteile von Pseudocode</h2>
-        <ul class="list-disc pl-4 space-y-2">
+      <div class="border border-gray-300 p-3 lg:p-4 mb-4">
+        <h2 class="text-lg lg:text-xl font-bold mb-2">Vorteile von Pseudocode</h2>
+        <ul class="list-disc pl-4 lg:pl-4 space-y-2 text-sm lg:text-base">
           <li>Erleichtert das Verständnis der Programmstruktur.</li>
           <li>
             Hilft bei der Planung, bevor man mit dem eigentlichen Programmieren

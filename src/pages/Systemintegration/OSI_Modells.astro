@@ -3,98 +3,80 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col items-center">
-    <h1 class="text-3xl
-font-bold mb-6 text-center">Das OSI-Modell</h1>
-    <table class="border
-border-gray-300 max-w-4xl w-full">
-      <thead>
-        <tr class="bg-gray-200">
-          <th class="border px-4 py-2">OSI-Schicht Nr.</th>
-          <th class="border px-4 py-2">Name (Englisch)</th>
-          <th class="border px-4 py-2">Name (Deutsch)</th>
-          <th class="border px-4 py-2">Verwendete Protokolle</th>
-          <th class="border px-4
-py-2">Verwendete Adressen</th>
-          <th class="border px-4 py-2">Mögliche Fehler</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="border px-4 py-2">7</td>
-          <td class="border px-4 py-2">Application</td>
-          <td class="border px-4
-py-2">Anwendung</td>
-          <td class="border px-4 py-2">HTTP, FTP, SMTP</td>
-          <td class="border px-4 py-2">N/A</td>
-          <td class="border px-4 py-2"
-            >Falsche Datendarstellung, unzureichende Zugriffsrechte</td
-          >
-        </tr>
-        <tr>
-          <td class="border
-px-4 py-2">6</td>
-          <td class="border px-4 py-2">Presentation</td>
-          <td class="border px-4 py-2">Darstellung</td>
-          <td class="border px-4 py-2">SSL, TLS, JPEG, ASCII</td>
-          <td class="border px-4 py-2">N/A</td>
-          <td class="border px-4
-py-2">Fehlende Datenkonvertierung</td>
-        </tr>
-        <tr>
-          <td class="border px-4
-py-2">5</td>
-          <td class="border px-4 py-2">Session</td>
-          <td class="border px-4
-py-2">Sitzung</td>
-          <td class="border px-4 py-2">NetBIOS, RPC</td>
-          <td class="border px-4 py-2">N/A</td>
-          <td class="border px-4 py-2">Abgebrochene Sitzungen</td>
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">4</td>
-          <td class="border
-px-4 py-2">Transport</td>
-          <td class="border px-4 py-2">Transport</td>
-          <td class="border px-4 py-2">TCP, UDP</td>
-          <td class="border px-4
-py-2">Port-Nummern</td>
-          <td class="border px-4 py-2">Paketverlust, falsche Segmentierung</td>
-        </tr>
-        <tr>
-          <td class="border px-4 py-2">3</td>
-          <td class="border px-4 py-2">Network</td>
-          <td class="border px-4
-py-2">Vermittlung</td>
-          <td class="border px-4 py-2">IP, ICMP</td>
-          <td class="border px-4 py-2">IP-Adressen</td>
-          <td class="border px-4
-py-2">Routing-Fehler, Adressenkonflikte</td>
-        </tr>
-        <tr>
-          <td class="border px-4
-py-2">2</td>
-          <td class="border px-4 py-2">Data Link</td>
-          <td class="border px-4
-py-2">Sicherung</td>
-          <td class="border px-4 py-2">Ethernet, PPP</td>
-          <td class="border px-4 py-2">MAC-Adressen</td>
-          <td class="border px-4
-py-2">Kollisionsfehler, Frame-Verlust</td>
-        </tr>
-        <tr>
-          <td class="border px-4
-py-2">1</td>
-          <td class="border px-4 py-2">Physical</td>
-          <td class="border px-4
-py-2">Bitübertragung</td>
-          <td class="border px-4 py-2">Ethernet, USB, WLAN</td>
-          <td class="border px-4 py-2">N/A</td>
-          <td class="border px-4
-py-2">Signalverlust, physische Schäden</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="flex flex-col items-center mt-4 lg:mt-0">
+    <h1 class="text-3xl font-bold mb-6 text-center">Das OSI-Modell</h1>
+    <div class="overflow-x-auto max-w-4xl w-full">
+      <table class="border border-gray-300 w-full min-w-full">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">OSI-Schicht Nr.</th>
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Name (Englisch)</th>
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Name (Deutsch)</th>
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Verwendete Protokolle</th>
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Verwendete Adressen</th>
+            <th class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Mögliche Fehler</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">7</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Application</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Anwendung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">HTTP, FTP, SMTP</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">N/A</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Falsche Datendarstellung, unzureichende Zugriffsrechte</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">6</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Presentation</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Darstellung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">SSL, TLS, JPEG, ASCII</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">N/A</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Fehlende Datenkonvertierung</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">5</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Session</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Sitzung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">NetBIOS, RPC</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">N/A</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Abgebrochene Sitzungen</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">4</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Transport</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Transport</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">TCP, UDP</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Port-Nummern</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Paketverlust, falsche Segmentierung</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">3</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Network</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Vermittlung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">IP, ICMP</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">IP-Adressen</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Routing-Fehler, Adressenkonflikte</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">2</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Data Link</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Sicherung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Ethernet, PPP</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">MAC-Adressen</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Kollisionsfehler, Frame-Verlust</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">1</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Physical</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Bitübertragung</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Ethernet, USB, WLAN</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">N/A</td>
+            <td class="border px-2 py-2 text-xs lg:px-4 lg:text-sm">Signalverlust, physische Schäden</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p class="mt-8 max-w-4xl">
       <strong>Tipp:</strong> Um die Namen der OSI-Schichten in Deutsch zu lernen,
       können Sie diesen Satz verwenden:

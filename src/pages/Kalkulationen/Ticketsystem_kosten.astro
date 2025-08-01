@@ -20,42 +20,44 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <div class="max-w-4xl w-full">
       <div class="border border-gray-300 p-4 mb-4">
         <h2 class="text-xl font-bold mb-2">Gegebene Informationen</h2>
-        <table class="min-w-full border-collapse border border-gray-300">
-          <thead>
-            <tr class="bg-gray-200">
-              <th class="border border-gray-300 p-2">Support-Level</th>
-              <th class="border border-gray-300 p-2"
-                >Bereitschaftsstundensatz (€)</th
-              >
-              <th class="border border-gray-300 p-2"
-                >Minutensatz bei Anruf (€)</th
-              >
-              <th class="border border-gray-300 p-2"
-                >Durchschnittliche Anrufzeit (Minuten)</th
-              >
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="border border-gray-300 p-2">First-Level</td>
-              <td class="border border-gray-300 p-2">14</td>
-              <td class="border border-gray-300 p-2">0,60</td>
-              <td class="border border-gray-300 p-2">180</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-300 p-2">Second-Level</td>
-              <td class="border border-gray-300 p-2">18</td>
-              <td class="border border-gray-300 p-2">1,20</td>
-              <td class="border border-gray-300 p-2">120</td>
-            </tr>
-            <tr>
-              <td class="border border-gray-300 p-2">Third-Level</td>
-              <td class="border border-gray-300 p-2">22</td>
-              <td class="border border-gray-300 p-2">2,00</td>
-              <td class="border border-gray-300 p-2">60</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="overflow-x-auto">
+          <table class="min-w-full border-collapse border border-gray-300">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">Support-Level</th>
+                <th class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm"
+                  >Bereitschaftsstundensatz (€)</th
+                >
+                <th class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm"
+                  >Minutensatz bei Anruf (€)</th
+                >
+                <th class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm"
+                  >Durchschnittliche Anrufzeit (Minuten)</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">First-Level</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">14</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">0,60</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">180</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">Second-Level</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">18</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">1,20</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">120</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">Third-Level</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">22</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">2,00</td>
+                <td class="border border-gray-300 p-1 text-xs lg:p-2 lg:text-sm">60</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="border border-gray-300 p-4 mb-4">

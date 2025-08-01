@@ -2,3 +2,57 @@
 body {
   font-family: 'Roboto Mono', monospace;
 }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .mobile-text-xs {
+    font-size: 0.75rem;
+  }
+  
+  .mobile-p-2 {
+    padding: 0.5rem;
+  }
+  
+  .mobile-p-1 {
+    padding: 0.25rem;
+  }
+
+  /* Add more space between header and content on mobile */
+  main {
+    padding-top: 2rem !important;
+  }
+
+  /* Add more space for page titles on mobile */
+  h1 {
+    margin-top: 1rem !important;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve table responsiveness */
+table {
+  border-collapse: collapse;
+}
+
+/* Better focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for mobile menu */
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}

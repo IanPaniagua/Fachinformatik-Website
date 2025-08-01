@@ -3,16 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <!-- Mensaje para pantallas pequeñas -->
-  <div
-    class="fixed inset-0 flex items-center justify-center bg-yellow-200 text-gray-800 p-4 text-center text-lg font-bold md:hidden"
-  >
-    <p>
-      Diese Webseite ist momentan nicht responsiv. Bitte öffnen Sie sie auf
-      einem größeren Bildschirm.
-    </p>
-  </div>
-  <section class="bg-white p-8 rounded-lg shadow-lg">
+  <section class="bg-white p-4 lg:p-8 rounded-lg shadow-lg mt-4 lg:mt-0">
     <h2 class="text-2xl font-bold mb-4 text-gray-800">Über diese Webseite</h2>
     <p class="text-gray-700 leading-relaxed mb-4">
       Diese Webseite ist dafür gedacht, die gesamte Theorie der
@@ -34,10 +25,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <p class="font-light">Kontakt gerne bei email: paniagua.ian.de@gmail.com</p>
 
     <!-- Nota final -->
-    <div class="mt-8 p-4 border-l-4 text-yellow-800">
+    <div class="mt-8 p-4 border-l-4 text-green-800 bg-green-50 rounded">
       <p class="font-bold">Hinweis:</p>
       <p class="leading-relaxed">
-        Diese Webseite ist momentan nicht responsiv.
+        Diese Webseite ist jetzt vollständig responsiv und funktioniert auf allen Geräten.
       </p>
     </div>
   </section>

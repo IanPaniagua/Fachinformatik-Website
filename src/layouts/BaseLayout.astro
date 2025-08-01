@@ -148,7 +148,7 @@ const themesPI2 = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/global.css">
-    <title>Fachinformatiker Prüfungsvorbereitung</title>
+    <title>Fachinformatiker Prüfungsvorbereitung IHK</title>
     <style>
       /* Custom scrollbar styles for the main content area */
       .scrollable {
@@ -169,17 +169,90 @@ const themesPI2 = [
         border-radius: 10px;
         border: 2px solid #2d3748;
       }
+
+      /* Mobile menu styles */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      /* Overlay for mobile menu */
+      .mobile-overlay {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+
+      .mobile-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
     </style>
   </head>
   <body class="flex flex-col min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-gray-500 text-white p-4 text-center z-10">
-      <h1 class="text-xl font-bold">Fachinformatiker Prüfungsvorbereitung</h1>
+    <header class="fixed top-0 left-0 w-full bg-gray-500 text-white p-4 text-center z-20">
+      <div class="flex items-center justify-between">
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        
+        <h1 class="text-xl font-bold flex-1">Fachinformatiker Prüfungsvorbereitung IHK</h1>
+        
+        <!-- Mobile practice buttons -->
+        <div class="lg:hidden flex space-x-2">
+          <a href="/PRACTICE/Practice" class="bg-gray-600 text-white px-2 py-1 rounded text-sm hover:bg-gray-700">API 1</a>
+          <a href="/PRACTICE/Practice_API2" class="bg-gray-600 text-white px-2 py-1 rounded text-sm hover:bg-gray-700">API 2</a>
+        </div>
+      </div>
     </header>
 
+    <!-- Mobile overlay -->
+    <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"></div>
+
+    <!-- Mobile menu -->
+    <aside id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-80 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto z-40 lg:hidden">
+      <h2 class="text-xl font-bold mb-4">Prüfung Themen</h2>
+      <h3 class="text-xl font-bold mb-4 bg-gray-400 rounded-lg pl-2">API 1</h3>
+      <nav>
+        {themes.map((theme) => (
+          <details class="mb-2">
+            <!-- Theme as accordion -->
+            <summary class="cursor-pointer font-bold">{theme.name}</summary>
+            {theme.subthemes.map((subtheme) => (
+              <a href={subtheme.path} class="block p-2 hover:bg-gray-700 pl-6">
+                {subtheme.name}
+              </a>
+            ))}
+          </details>
+        ))}
+      </nav>
+      <h3 class="text-xl font-bold mb-4 bg-gray-400 rounded-lg pl-2 mt-1"> API 2</h3>
+      <nav>
+        {themesPI2.map((themeAPI2) => (
+          <details class="mb-2">
+            <!-- Theme as accordion -->
+            <summary class="cursor-pointer font-bold">{themeAPI2.name}</summary>
+            {themeAPI2.subthemes.map((subtheme) => (
+              <a href={subtheme.path} class="block p-2 hover:bg-gray-700 pl-6">
+                {subtheme.name}
+              </a>
+            ))}
+          </details>
+        ))}
+      </nav>
+    </aside>
+
     <div class="flex flex-1 mt-16">
-      <!-- Left Sidebar -->
-      <aside class="fixed top-16 left-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto z-10">
+      <!-- Left Sidebar - Desktop only -->
+      <aside class="hidden lg:block fixed top-16 left-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto z-10">
         <h2 class="text-xl font-bold mb-4">Prüfung Themen</h2>
         <h3 class="text-xl font-bold mb-4 bg-gray-400 rounded-lg pl-2">API 1</h3>
         <nav>
@@ -212,20 +285,48 @@ const themesPI2 = [
       </aside>
 
       <!-- Main content area -->
-      <main class="flex-1 ml-64 mr-64 p-8 scrollable">
-          <!-- Mensaje para pantallas pequeñas -->
-  <div class="fixed inset-0 flex items-center justify-center bg-yellow-200 text-gray-800 p-4 text-center text-lg font-bold md:hidden z-20">
-    <p>Diese Webseite ist momentan nicht responsiv. Bitte öffnen Sie sie auf einem größeren Bildschirm.</p>
-  </div>
+      <main class="flex-1 lg:ml-64 lg:mr-64 p-4 lg:p-8 scrollable mt-8 lg:mt-0">
         <slot />
       </main>
 
-      <!-- Right Sidebar -->
-      <aside class="fixed top-16 right-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto">
-        
+      <!-- Right Sidebar - Desktop only -->
+      <aside class="hidden lg:block fixed top-16 right-0 w-64 bg-gray-800 text-white p-4 h-[calc(100vh-4rem)] overflow-y-auto">
         <a href="/PRACTICE/Practice" class="block bg-gray-500 text-white p-4 rounded-lg text-center text-lg font-semibold hover:bg-gray-400">Übungen API 1</a>
         <a href="/PRACTICE/Practice_API2" class="block bg-gray-500 text-white p-4 mt-4 rounded-lg text-center text-lg font-semibold hover:bg-gray-400">Übungen API 2</a>
       </aside>
     </div>
+
+    <script>
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileOverlay = document.getElementById('mobile-overlay');
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle('open');
+        mobileOverlay.classList.toggle('open');
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+      }
+
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      mobileOverlay.addEventListener('click', closeMobileMenu);
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // Close mobile menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+        }
+      });
+    </script>
   </body>
 </html>

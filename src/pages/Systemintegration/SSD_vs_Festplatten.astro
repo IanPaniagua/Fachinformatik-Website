@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center mt-4 lg:mt-0">
     <h1 class="text-3xl font-bold mb-6 text-center">
       Festplatten (HDD) vs. SSD
     </h1>
@@ -56,37 +56,39 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </ul>
 
       <h2 class="text-xl font-bold mb-4 mt-8">Vergleich</h2>
-      <table class="table-auto w-full border border-gray-300">
-        <thead>
-          <tr>
-            <th class="border px-4 py-2">Merkmal</th>
-            <th class="border px-4 py-2">HDD</th>
-            <th class="border px-4 py-2">SSD</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border px-4 py-2">Speicherkapazität</td>
-            <td class="border px-4 py-2">Höher, günstiger</td>
-            <td class="border px-4 py-2">Geringer, teurer</td>
-          </tr>
-          <tr>
-            <td class="border px-4 py-2">Geschwindigkeit</td>
-            <td class="border px-4 py-2">Langsamer</td>
-            <td class="border px-4 py-2">Viel schneller</td>
-          </tr>
-          <tr>
-            <td class="border px-4 py-2">Haltbarkeit</td>
-            <td class="border px-4 py-2">Anfälliger für Schäden</td>
-            <td class="border px-4 py-2">Robuster</td>
-          </tr>
-          <tr>
-            <td class="border px-4 py-2">Preis</td>
-            <td class="border px-4 py-2">Günstiger</td>
-            <td class="border px-4 py-2">Teurer</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto">
+        <table class="table-auto w-full border border-gray-300 min-w-full">
+          <thead>
+            <tr>
+              <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Merkmal</th>
+              <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">HDD</th>
+              <th class="border px-2 py-2 text-sm lg:px-4 lg:text-base">SSD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Speicherkapazität</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Höher, günstiger</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Geringer, teurer</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Geschwindigkeit</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Langsamer</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Viel schneller</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Haltbarkeit</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Anfälliger für Schäden</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Robuster</td>
+            </tr>
+            <tr>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Preis</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Günstiger</td>
+              <td class="border px-2 py-2 text-sm lg:px-4 lg:text-base">Teurer</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </BaseLayout>
